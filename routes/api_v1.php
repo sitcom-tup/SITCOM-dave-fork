@@ -15,19 +15,14 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
 // Login
-// Route::post('/login/student', [LoginController::class, 'studentLogin'])->prefix('v1');
+Route::post('/login/student', [LoginController::class, 'studentLogin']);
 
 
 
-
-// Route::middleware(['auth:student','scopes:student'])->group(function () {
-//     Route::get('/student', function(Request $request){
-//         return $request->user();
-//     });
-// });
+Route::middleware(['auth:student-api','scopes:student'])->group(function () {
+    Route::get('/students', function(Request $request){
+        return $request->user();
+    });
+});
 

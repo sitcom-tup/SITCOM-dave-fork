@@ -42,8 +42,50 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
+            'hash' => false,
+        ],
+
+        'user' => [
+            'driver' => 'passport',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+
+        'student-api' => [
+            'driver' => 'passport',
+            'provider' => 'students',
+            'hash' => false,
+        ],
+
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
+            'hash' => false,
+        ],
+        
+        'supervisor-api' => [
+            'driver' => 'passport',
+            'provider' => 'supervisors',
+            'hash' => false,
+        ],
+
+        'supervisor' => [
+            'driver' => 'session',
+            'provider' => 'supervisors',
+            'hash' => false,
+        ],
+
+        'coordinator-api' => [
+            'driver' => 'passport',
+            'provider' => 'coordinators',
+            'hash' => false,
+        ],
+
+        'coordinator' => [
+            'driver' => 'session',
+            'provider' => 'coordinators',
             'hash' => false,
         ],
     ],
@@ -69,6 +111,18 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
+        ],
+        'supervisors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Supervisor::class,
+        ],
+        'coordinators' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Coordinator::class,
         ],
 
         // 'users' => [

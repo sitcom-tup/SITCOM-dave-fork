@@ -13,6 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
         // \App\Models\User::factory(10)->create();
+        \App\Models\Company::factory(10)->create();
+        \App\Models\Department::create(['department_name'=>'Electrical Engineering Department']);
+        \App\Models\Course::create(['course_name'=>'BSIT','course_fullText' => 'BS Information Tech', 'department_id' => 1]);
+        \App\Models\Student::factory(10)->create();
+        \App\Models\Coordinator::factory(10)->create();
+        \App\Models\Supervisor::factory(10)->create();
     }
 }
