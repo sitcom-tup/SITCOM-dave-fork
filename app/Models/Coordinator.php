@@ -16,14 +16,31 @@ class Coordinator extends Authenticatable
 
     protected $fillable = ['*'];
 
-    // public function course()
-    // {
-    //     return $this->belongsTo(Course::class);
-    // }
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    private $token;
+
+    public function setToken($token)
+    {
+        return $this->token = $token;
+    }
+
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 
     public function getAuthPassword()
     {
-        return $this->coor_password;
+        return $this->coordinator_password;
     }
 
     public function getAuthCoordinator()
@@ -33,6 +50,6 @@ class Coordinator extends Authenticatable
 
     public function getFullName()
     {
-        return "$this->coor_fname $this->coor_lname";
+        return "$this->coordinator_fname $this->coordinator_lname";
     }
 }

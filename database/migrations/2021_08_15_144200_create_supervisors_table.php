@@ -16,15 +16,15 @@ class CreateSupervisorsTable extends Migration
         Schema::create('supervisors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id')->constrained();
-            $table->string('sup_fname');
-            $table->string('sup_lname');
-            $table->string('sup_position')->nullable();
-            $table->string('sup_contact');
-            $table->string('sup_email')->unique();
-            $table->string('sup_password');
-            $table->enum('sup_gender',['male','female','other']);
-            $table->string('sup_link')->nullable();
-            $table->integer('sup_state')->default(1);
+            $table->string('supervisor_fname');
+            $table->string('supervisor_lname');
+            $table->string('supervisor_position')->nullable();
+            $table->string('supervisor_contact');
+            $table->string('supervisor_email')->unique();
+            $table->string('supervisor_password');
+            $table->enum('supervisor_gender',['male','female','other']);
+            $table->string('supervisor_link')->nullable();
+            $table->integer('supervisor_state')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

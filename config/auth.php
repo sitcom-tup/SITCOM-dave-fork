@@ -47,8 +47,8 @@ return [
             'hash' => false,
         ],
 
-        'user' => [
-            'driver' => 'passport',
+        'admin' => [
+            'driver' => 'session',
             'provider' => 'users',
             'hash' => false,
         ],

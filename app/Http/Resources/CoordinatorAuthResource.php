@@ -16,18 +16,20 @@ class CoordinatorAuthResource extends JsonResource
     {
         return [
             'status'=>'success',
+            'code' => 200,
             'message'=>'user logged in',
             'table'=>'coordinators',
             'data' => [
                 'id' => $this->id,
                 'department' => $this->department->only(['id','department_name']),
-                'coor_name' => $this->getFullName(),
-                'coor_position' => $this->coor_position,
-                'coor_contact' => $this->coor_contact,
-                'coor_email' => $this->coor_email,
-                'coor_link' => $this->coor_link,
-                'coor_state' => $this->coor_state
-            ]
+                'coordinator_name' => $this->getFullName(),
+                'coordinator_position' => $this->coordinator_position,
+                'coordinator_contact' => $this->coordinator_contact,
+                'coordinator_email' => $this->coordinator_email,
+                'coordinator_link' => $this->coordinator_link,
+                'coordinator_state' => $this->coordinator_state
+            ],
+            'meta' => ['token'=>$this->getToken()]
         ];
     }
 }

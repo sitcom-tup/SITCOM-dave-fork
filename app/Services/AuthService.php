@@ -10,17 +10,23 @@ class AuthService
     private function loginAuthVerify($request, $guard) 
     {
         //can use email or tup  id 
-        $username = $guard;
-        
-        if(Str::is('TUPT*',$request[0]))
+        // $username = $guard;
+        $username = '';
+
+        if(Str::is('TUPT*',$request[0]) || $guard === "students" || $guard === "coordinators")
         {
-            $username = $username.'_tup_id';
-        } 
+            $username = $guard.'_tup_id';
+        }
         
         if(filter_var($request[0], FILTER_VALIDATE_EMAIL))
         {
-            $username = $username.'_email';
-        }        
+            $username = $guard.'_email';
+        }
+
+        if($username === '')
+        {
+            $username = $guard.'_email';
+        }
         
         return Auth::guard($guard)->attempt([$username => $request[0], 'password' => $request[1]],true);
     }

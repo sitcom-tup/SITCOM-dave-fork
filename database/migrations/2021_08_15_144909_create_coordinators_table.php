@@ -16,15 +16,15 @@ class CreateCoordinatorsTable extends Migration
         Schema::create('coordinators', function (Blueprint $table) {
             $table->id();
             $table->foreignId('department_id')->constrained();
-            $table->string('coor_fname');
-            $table->string('coor_lname');
-            $table->string('coor_position')->nullable();
-            $table->string('coor_contact');
-            $table->string('coor_email')->unique();
-            $table->string('coor_password');
-            $table->enum('coor_gender',['male','female','other']);
-            $table->string('coor_link')->nullable();
-            $table->integer('coor_state')->default(1);
+            $table->string('coordinator_fname');
+            $table->string('coordinator_lname');
+            $table->string('coordinator_position')->nullable();
+            $table->string('coordinator_contact');
+            $table->string('coordinator_email')->unique();
+            $table->string('coordinator_password');
+            $table->enum('coordinator_gender',['male','female','other']);
+            $table->string('coordinator_link')->nullable();
+            $table->integer('coordinator_state')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

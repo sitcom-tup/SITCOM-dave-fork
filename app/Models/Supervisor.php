@@ -13,4 +13,43 @@ class Supervisor extends Authenticatable
     use HasFactory, HasApiTokens, Notifiable;
 
     protected $guard = 'supervisor';
+
+    protected $fillable = ['*'];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    private $token;
+
+    public function setToken($token)
+    {
+        return $this->token = $token;
+    }
+
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->supervisor_password;
+    }
+
+    public function getAuthSupervisor()
+    {
+        return $this->find(auth()->guard('supervisor')->user()->id)->first();
+    }
+
+    public function getFullName()
+    {
+        return "$this->supervisor_fname $this->supervisor_lname";
+    }
 }

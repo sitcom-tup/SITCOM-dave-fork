@@ -16,6 +16,23 @@ class Student extends Authenticatable
 
     protected $fillable = ['*'];
 
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    private $token;
+
+    public function setToken($token)
+    {
+        return $this->token = $token;
+    }
+
+    public function getToken()
+    {
+        return $this->token;
+    }
+
     public function course()
     {
         return $this->belongsTo(Course::class);

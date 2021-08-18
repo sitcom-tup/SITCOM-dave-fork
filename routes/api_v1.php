@@ -16,12 +16,39 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 // Login
-Route::post('/login/student', [LoginController::class, 'studentLogin']);
+Route::post('/login/admins', [LoginController::class, 'adminLogin']);
+Route::post('/login/students', [LoginController::class, 'studentLogin']);
+Route::post('/login/coordinators', [LoginController::class, 'coordinatorLogin']);
+Route::post('/login/supervisors', [LoginController::class, 'supervisorLogin']);
+
+
+// for admins == api 
+Route::middleware(['auth:api','scopes:user'])->group(function () {
+    Route::get('/admins', function(Request $request){
+        return $request->user();
+    });
+});
 
 
 
 Route::middleware(['auth:student-api','scopes:student'])->group(function () {
     Route::get('/students', function(Request $request){
+        return $request->user();
+    });
+});
+
+
+
+Route::middleware(['auth:coordinator-api','scopes:coordinator'])->group(function () {
+    Route::get('/coordinators', function(Request $request){
+        return $request->user();
+    });
+});
+
+
+
+Route::middleware(['auth:supervisor-api','scopes:supervisor'])->group(function () {
+    Route::get('/supervisors', function(Request $request){
         return $request->user();
     });
 });

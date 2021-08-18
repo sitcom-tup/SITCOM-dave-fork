@@ -16,9 +16,15 @@ class AuthFailResource extends JsonResource
     {
         return [
             'status'=>'failed',
+            'code' => 401,
             'message'=>'invalid credentials',
             'table' => $this->resource,
             'data'=> null
         ];
+    }
+
+    public function withResponse($request, $response)
+    {
+        $response->setStatusCode(401);
     }
 }
