@@ -35,6 +35,21 @@ class AuthService
     {
         return $this->loginAuthVerify($request,$guard);
     }
+
+    public function mapToNewName($role,$request)
+    {
+        $newRequest = [];
+        foreach ($request as $key => $value) {
+            $this->ifHasAnyId($key) ? $newRequest[$key] = $value : $newRequest[$role.'_'.$key] = $value;   
+        }
+        return $newRequest;
+    }
+
+    public function ifHasAnyId($name)
+    {
+        return $name === 'course_id' || $name === 'department_id' || $name === 'company_id';
+    }
+
 }
 
         

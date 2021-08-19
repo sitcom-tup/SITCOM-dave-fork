@@ -14,7 +14,7 @@ class Coordinator extends Authenticatable
 
     protected $guard = 'coordinator';
 
-    protected $fillable = ['*'];
+    protected $guarded = [];
 
     protected $hidden = [
         'password',

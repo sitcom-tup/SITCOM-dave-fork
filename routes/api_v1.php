@@ -23,7 +23,10 @@ Route::post('login/students', [LoginController::class, 'studentLogin']);
 Route::post('login/coordinators', [LoginController::class, 'coordinatorLogin']);
 Route::post('login/supervisors', [LoginController::class, 'supervisorLogin']);
 // Register
+Route::post('register/admins', [RegisterController::class, 'adminRegister']);
 Route::post('register/students', [RegisterController::class, 'studentRegister']);
+Route::post('register/coordinators', [RegisterController::class, 'coordinatorRegister']);
+Route::post('register/supervisors', [RegisterController::class, 'supervisorRegister']);
 
 // for admins == api 
 Route::middleware(['auth:api','scopes:user'])->group(function () {

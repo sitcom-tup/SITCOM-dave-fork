@@ -14,7 +14,7 @@ class Supervisor extends Authenticatable
 
     protected $guard = 'supervisor';
 
-    protected $fillable = ['*'];
+    protected $guarded = [];
 
     protected $hidden = [
         'password',
