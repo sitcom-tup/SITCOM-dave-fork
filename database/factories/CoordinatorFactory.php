@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Hash;
 use Str;
 use App\Models\Coordinator;
+use App\Models\Department;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CoordinatorFactory extends Factory
@@ -24,7 +25,7 @@ class CoordinatorFactory extends Factory
     public function definition()
     {
         return [
-            'department_id' => 1,
+            'department_id' => Department::inRandomOrder()->first()->getKey(),
             'coordinator_fname' => $this->faker->firstName,
             'coordinator_lname' => $this->faker->lastName,
             'coordinator_email' => $this->faker->unique()->safeEmail,

@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Hash;
 use Str;
 use App\Models\Student;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class StudentFactory extends Factory
@@ -27,8 +28,8 @@ class StudentFactory extends Factory
             'student_fname' => $this->faker->firstName,
             'student_lname' => $this->faker->lastName,
             'student_tup_id' => 'TUPT-18'.$this->faker->numerify('-####'),
-            // 'course_id' => App\Models\Course::inRandomOrder()->first()->getKey(),
-            'course_id' => 1,
+            'course_id' => Course::inRandomOrder()->first()->getKey(),
+            // 'course_id' => 1,
             'student_email' => $this->faker->unique()->safeEmail,
             'student_password' => Hash::make('password'),
             'student_gender' => $this->faker->randomElement(['male' ,'female', 'other']),

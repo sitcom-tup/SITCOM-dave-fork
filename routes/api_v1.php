@@ -37,7 +37,7 @@ Route::middleware(['auth:api','scopes:user'])->group(function () {
 });
 
 
-
+// for students == api
 Route::middleware(['auth:student-api','scopes:student'])->group(function () {
     Route::post('logout/students', [LogoutController::class, 'logout']);  
     Route::get('/students', function(Request $request){
@@ -46,7 +46,7 @@ Route::middleware(['auth:student-api','scopes:student'])->group(function () {
 });
 
 
-
+// for coordinators == api
 Route::middleware(['auth:coordinator-api','scopes:coordinator'])->group(function () {
     Route::post('logout/coordinators', [LogoutController::class, 'logout']);
     Route::get('/coordinators', function(Request $request){
@@ -55,7 +55,7 @@ Route::middleware(['auth:coordinator-api','scopes:coordinator'])->group(function
 });
 
 
-
+// for supervisor == api
 Route::middleware(['auth:supervisor-api','scopes:supervisor'])->group(function () {
     Route::post('logout/supervisors', [LogoutController::class, 'logout']);
     Route::get('/supervisors', function(Request $request){
