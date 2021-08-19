@@ -58,7 +58,7 @@ class User extends Authenticatable
     // session guard only 
     public function getAuthAdmin()
     {
-        return $this->find(auth()->guard('admin')->user()->id)->first();
+        return $this->find(auth()->guard('admin')->user()->id);
     }
 
     public function getFullName()

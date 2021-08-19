@@ -45,7 +45,7 @@ class Coordinator extends Authenticatable
 
     public function getAuthCoordinator()
     {
-        return $this->find(auth()->guard('coordinator')->user()->id)->first();
+        return $this->find(auth()->guard('coordinator')->user()->id);
     }
 
     public function getFullName()

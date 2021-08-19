@@ -14,10 +14,10 @@ class Student extends Authenticatable
 
     protected $guard = 'student';
 
-    protected $fillable = ['*'];
+    protected $guarded = [];
 
     protected $hidden = [
-        'password',
+        'student_password',
         'remember_token',
     ];
 
@@ -46,7 +46,7 @@ class Student extends Authenticatable
     // session only 
     public function getAuthStudent()
     {
-        return $this->find(auth()->guard('student')->user()->id)->first();
+        return $this->find(auth()->guard('student')->user()->id);
     }
 
     public function getFullName()

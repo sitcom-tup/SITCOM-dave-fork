@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +18,16 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 // Login
-Route::post('/login/admins', [LoginController::class, 'adminLogin']);
-Route::post('/login/students', [LoginController::class, 'studentLogin']);
-Route::post('/login/coordinators', [LoginController::class, 'coordinatorLogin']);
-Route::post('/login/supervisors', [LoginController::class, 'supervisorLogin']);
-
+Route::post('login/admins', [LoginController::class, 'adminLogin']);
+Route::post('login/students', [LoginController::class, 'studentLogin']);
+Route::post('login/coordinators', [LoginController::class, 'coordinatorLogin']);
+Route::post('login/supervisors', [LoginController::class, 'supervisorLogin']);
+// Register
+Route::post('register/students', [RegisterController::class, 'studentRegister']);
 
 // for admins == api 
 Route::middleware(['auth:api','scopes:user'])->group(function () {
+    Route::post('logout/admins', [LogoutController::class, 'logout']);
     Route::get('/admins', function(Request $request){
         return $request->user();
     });
@@ -32,6 +36,7 @@ Route::middleware(['auth:api','scopes:user'])->group(function () {
 
 
 Route::middleware(['auth:student-api','scopes:student'])->group(function () {
+    Route::post('logout/students', [LogoutController::class, 'logout']);  
     Route::get('/students', function(Request $request){
         return $request->user();
     });
@@ -40,6 +45,7 @@ Route::middleware(['auth:student-api','scopes:student'])->group(function () {
 
 
 Route::middleware(['auth:coordinator-api','scopes:coordinator'])->group(function () {
+    Route::post('logout/coordinators', [LogoutController::class, 'logout']);
     Route::get('/coordinators', function(Request $request){
         return $request->user();
     });
@@ -48,8 +54,14 @@ Route::middleware(['auth:coordinator-api','scopes:coordinator'])->group(function
 
 
 Route::middleware(['auth:supervisor-api','scopes:supervisor'])->group(function () {
+    Route::post('logout/supervisors', [LogoutController::class, 'logout']);
     Route::get('/supervisors', function(Request $request){
         return $request->user();
     });
 });
 
+
+// Fallback route 
+Route::fallback(function (Request $request) {
+    return response()->json(['error'=>'404 resource not found'],404);
+});

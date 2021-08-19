@@ -37,6 +37,7 @@ class LoginController extends Controller
             $user =  $student->getAuthStudent();
             $user->tokens()->where('name', $request->email)->delete();
             $token = $user->createToken($request->email, ['student'])->accessToken;
+            $user->setToken($token);
             return new StudentAuthResource($user);
         }
 
@@ -51,6 +52,7 @@ class LoginController extends Controller
             $user =  $coordinator->getAuthCoordinator();
             $user->tokens()->where('name', $request->email)->delete();
             $token = $user->createToken($request->email, ['coordinator'])->accessToken;
+            $user->setToken($token);
             return new CoordinatorAuthResource($user);
         }
 

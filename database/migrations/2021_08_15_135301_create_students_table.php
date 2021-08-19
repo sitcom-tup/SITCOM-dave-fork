@@ -25,9 +25,9 @@ class CreateStudentsTable extends Migration
             $table->string('student_address');
             $table->string('student_contact');
             $table->string('student_birthday')->nullable();
-            $table->string('student_link')->nullable()->default('/avatar.jpg');
+            $table->string('student_link')->default('/avatar.jpg');
             $table->timestamp('student_email_verified_at')->nullable();
-            $table->integer('student_state')->default(1);
+            $table->integer('student_state')->default('1');
             $table->rememberToken();
             $table->timestamps();
         });

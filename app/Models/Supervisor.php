@@ -45,7 +45,7 @@ class Supervisor extends Authenticatable
 
     public function getAuthSupervisor()
     {
-        return $this->find(auth()->guard('supervisor')->user()->id)->first();
+        return $this->find(auth()->guard('supervisor')->user()->id);
     }
 
     public function getFullName()
