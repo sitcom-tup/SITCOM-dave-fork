@@ -185,6 +185,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Faker
+        App\Providers\FakerServiceProvider::class,
+
     ],
 
     /*
