@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Api\V1\StudentDepartmentController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,14 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
+
+Route::get('routes', function() {
+    $routeCollection = Route::getRoutes();
+    return response()->json($routeCollection->getRoutes());
+});
+
+
+
 // Login
 Route::post('login/admins', [LoginController::class, 'adminLogin']);
 Route::post('login/students', [LoginController::class, 'studentLogin']);
@@ -27,6 +36,14 @@ Route::post('register/admins', [RegisterController::class, 'adminRegister']);
 Route::post('register/students', [RegisterController::class, 'studentRegister']);
 Route::post('register/coordinators', [RegisterController::class, 'coordinatorRegister']);
 Route::post('register/supervisors', [RegisterController::class, 'supervisorRegister']);
+
+
+
+// for all authenticated roles inside Auth using Auth:check();
+Route::group(['middleware' => ['auth:api,student-api','check_guard']], function() { 
+    Route::get('/departments/{department}/students', [StudentDepartmentController::class, 'listStudentDepartment']);
+});
+
 
 // for admins == api 
 Route::middleware(['auth:api','scopes:user'])->group(function () {

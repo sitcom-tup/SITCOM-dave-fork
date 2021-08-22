@@ -16,8 +16,11 @@ class Supervisor extends Authenticatable
 
     protected $guarded = [];
 
+//    Eager loading by default 
+    protected $with = ['company'];
+
     protected $hidden = [
-        'password',
+        'supervisor_password',
         'remember_token',
     ];
 

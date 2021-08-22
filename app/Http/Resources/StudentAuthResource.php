@@ -14,6 +14,7 @@ class StudentAuthResource extends JsonResource
      */
     public function toArray($request)
     {
+        // dd($this);
         return [
             'status'=>'success',
             'code' =>200,
@@ -24,7 +25,7 @@ class StudentAuthResource extends JsonResource
                 'student_name' =>$this->getFullName(),
                 'student_tup_id' =>$this->student_tup_id,
                 'course' => $this->course->only(['course_name','course_fulltext']),
-                'department' => $this->course->department['department_name'],
+                'department' => $this->courseDepartment['department_name'],
                 'student_email' => $this->student_email,
                 'student_link' => $this->student_link,
                 'student_email_verified_at' => $this->student_email_verified_at,

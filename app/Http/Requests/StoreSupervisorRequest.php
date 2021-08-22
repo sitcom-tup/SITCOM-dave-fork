@@ -40,7 +40,7 @@ class StoreSupervisorRequest extends FormRequest
             'gender'=>['required'],
             'position'=>['required','string'],
             'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\Supervisor,supervisor_email'],
-            'password'=>['required','string','min:8'],
+            'password'=>['required','confirmed','string','min:8'],
             'company_id'=>['required','integer'],
             'contact'=> new ValidNumber(),
             // 'address'=>['required','string','max:250'],
