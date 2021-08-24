@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Coordinator;
 use App\Models\Announcement;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AnnouncementFactory extends Factory
@@ -22,10 +23,19 @@ class AnnouncementFactory extends Factory
      */
     public function definition()
     {
+        $coordinator = Coordinator::inRandomOrder()->first();
+        $ids = $this->deparmentCoursesId($coordinator->department_id);
         return [
-            'coordinator_id' => Coordinator::inRandomOrder()->first()->getKey(),
+            'coordinator_id' => $coordinator->getKey(),
+            'courses' => $ids,
             'heading' => $this->faker->realText(50),
             'body' => $this->faker->bodyText()
         ];
+    }
+
+    public function deparmentCoursesId($id)
+    {
+        $courses = Course::where('department_id',$id)->pluck('id');
+        return substr(implode(',',array($courses)), 1, -1);
     }
 }

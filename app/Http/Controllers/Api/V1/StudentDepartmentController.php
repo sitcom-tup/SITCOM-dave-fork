@@ -11,7 +11,7 @@ use App\Models\Student;
 
 class StudentDepartmentController extends Controller
 {
-    public function listStudentDepartment(Request $request, Department $department)
+    public function getStudentDepartment(Request $request, Department $department)
     {
         $dept = $department->courseStudent()->latest()->paginate(2);
         // return StudentResource::collection($dept);

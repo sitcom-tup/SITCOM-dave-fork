@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\Coordinator;
 use App\Models\Supervisor;
 use App\Models\Student;
+use App\Models\User;
 use Hash;
 
 class RegisterController extends Controller
@@ -27,15 +28,16 @@ class RegisterController extends Controller
     }
 
     public function studentRegister(StoreStudentRequest $request, Student $student)
-    {
+    {   
         $request['password'] = Hash::make($request['password']);
-        $user = $student->firstOrCreate($this->auth->mapToNewName('student',$request->except('password_confirmation')));
-        if($user)
+        $user = User::firstOrCreate(array_merge($request->only('fname','lname','email','password'),['role'=> 3]));
+        $stu = $student->firstOrCreate(array_merge(['user_id'=>$user->id],$this->auth->mapToNewName('student',$request->only('course_id','contact','address','tup_id','gender'))));
+        if($stu)
         {
-            $token = $user->createToken($request->email, ['student'])->accessToken;
-            $user->setToken($token);
-            $user->save();
-            return new StudentAuthResource($user);
+            $token = $stu->createToken($request->email, ['student'])->accessToken;
+            $stu->setToken($token);
+            $stu->save();
+            return new StudentAuthResource($stu);
         }
         return '';
     }
@@ -43,13 +45,14 @@ class RegisterController extends Controller
     public function coordinatorRegister(StoreCoordinatorRequest $request, Coordinator $coordinator)
     {
         $request['password'] = Hash::make($request['password']);
-        $user = $coordinator->firstOrCreate($this->auth->mapToNewName('coordinator',$request->except('password_confirmation')));
-        if($user)
+        $user = User::firstOrCreate(array_merge($request->only('fname','lname','email','password'),['role'=> 4]));
+        $coor = $coordinator->firstOrCreate(array_merge(['user_id'=>$user->id],$this->auth->mapToNewName('coordinator',$request->only('department_id','contact','position','gender'))));
+        if($coor)
         {
             $token = $user->createToken($request->email,['coordinator'])->accessToken;
-            $user->setToken($token);
-            $user->save();
-            return new CoordinatorAuthResource($user);
+            $coor->setToken($token);
+            $coor->save();
+            return new CoordinatorAuthResource($coor);
         }
         return '';
     }
@@ -57,13 +60,14 @@ class RegisterController extends Controller
     public function supervisorRegister(StoreSupervisorRequest $request, Supervisor $supervisor)
     {
         $request['password'] = Hash::make($request['password']);
-        $user = $supervisor->firstOrCreate($this->auth->mapToNewName('supervisor',$request->except('password_confirmation')));
-        if($user)
+        $user = User::firstOrCreate(array_merge($request->only('fname','lname','email','password'),['role'=> 5]));
+        $visor = $supervisor->firstOrCreate(array_merge(['user_id'=>$user->id],$this->auth->mapToNewName('supervisor',$request->only('company_id','contact','position','gender'))));
+        if($visor)
         {
-            $token = $user->createToken($request->email,['supervisor'])->accessToken;
-            $user->setToken($token);
-            $user->save();
-            return new SupervisorAuthResource($user);
+            $token = $visor->createToken($request->email,['supervisor'])->accessToken;
+            $visor->setToken($token);
+            $visor->save();
+            return new SupervisorAuthResource($visor);
         }
         return '';
     }

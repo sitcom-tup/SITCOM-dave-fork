@@ -47,7 +47,7 @@ class StoreStudentRequest extends FormRequest
             'fname'=>['required','string','max:20'],
             'lname'=>['required','string','max:20'],
             'gender'=>['required'],
-            'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\Student,student_email'],
+            'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email'],
             'password'=>['required','confirmed','string','min:8'],
             'course_id'=>['required','integer'],
             'contact'=> new ValidNumber(),

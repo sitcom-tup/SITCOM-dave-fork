@@ -17,7 +17,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['*'];
+    // protected $fillable = ['*'];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -25,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'admin_password',
+        'password',
         'remember_token',
     ];
 
@@ -52,17 +53,32 @@ class User extends Authenticatable
 
     public function getAuthPassword()
     {
-        return $this->admin_password;
+        return $this->password;
     }
 
     // session guard only 
-    public function getAuthAdmin()
+    public function getAuthUser()
     {
-        return $this->find(auth()->guard('admin')->user()->id);
+        return $this->find(auth()->user()->id);
     }
 
     public function getFullName()
     {
-        return "$this->admin_fname $this->admin_lname";
+        return "$this->fname $this->lname";
+    }
+
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    public function coordinator()
+    {
+        return $this->hasOne(Coordinator::class);
+    }
+
+    public function supervisor()
+    {
+        return $this->hasOne(Suprvisor::class);
     }
 }

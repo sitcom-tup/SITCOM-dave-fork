@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Hash;
 use Str;
+use App\Models\User;
 use App\Models\Coordinator;
 use App\Models\Department;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -24,17 +25,20 @@ class CoordinatorFactory extends Factory
      */
     public function definition()
     {
+        $id = User::latest('id')->first();
+        
         return [
+            'user_id' => $id->id,
             'department_id' => Department::inRandomOrder()->first()->getKey(),
-            'coordinator_fname' => $this->faker->firstName,
-            'coordinator_lname' => $this->faker->lastName,
-            'coordinator_email' => $this->faker->unique()->safeEmail,
-            'coordinator_password' => Hash::make('password'),
+            // 'coordinator_fname' => $this->faker->firstName,
+            // 'coordinator_lname' => $this->faker->lastName,
+            // 'coordinator_email' => $this->faker->unique()->safeEmail,
+            // 'coordinator_password' => Hash::make('password'),
             'coordinator_gender' => $this->faker->randomElement(['male' ,'female', 'other']),
             'coordinator_contact' => $this->faker->numerify('###########'),
             'coordinator_position' => 'Teacher II',
             'coordinator_link' => '/avatar.jpg',
-            'coordinator_state' => 1,
+            // 'coordinator_state' => 1,
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at'=> now(),

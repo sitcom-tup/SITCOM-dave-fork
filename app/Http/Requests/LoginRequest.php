@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 use Response;
 
 
@@ -36,7 +37,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'email' => ['required', 'string', 'max:250'],
-            'password' => ['required', 'string']
+            'password' => ['required', 'string'],
+            'role' => ['required', 'string', Rule::in(['admin','student','coordinator','supervisor'])]
         ];
     }
 }

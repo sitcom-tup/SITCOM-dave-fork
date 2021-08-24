@@ -38,6 +38,11 @@ class Student extends Authenticatable
     {
         return $this->token;
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 //  Access only course and if you wanted department to this course->department
     public function course()
     {

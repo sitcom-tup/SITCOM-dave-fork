@@ -38,7 +38,7 @@ class StoreCoordinatorRequest extends FormRequest
             'lname'=>['required','string','max:20'],
             'gender'=>['required'],
             'position'=>['required','string'],
-            'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\Coordinator,coordinator_email'],
+            'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email'],
             'password'=>['required','confirmed','string','min:8'],
             'department_id'=>['required','integer'],
             'contact'=> new ValidNumber(),

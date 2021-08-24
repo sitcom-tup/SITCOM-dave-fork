@@ -21,10 +21,10 @@ class UserAuthResource extends JsonResource
             'table'=>'users',
             'data' => [
                 'id' => $this->id,
-                'admin_name'=> $this->getFullName(),
-                'admin_email' => $this->admin_email,
-                'admin_email_verified_at' => $this->admin_email_verified_at,
-                'admin_state'=> $this->admin_state,
+                'name'=> $this->getFullName(),
+                'email' => $this->email,
+                'email_verified_at' => $this->email_verified_at,
+                'state'=> $this->state,
             ],
             'meta' => ['token'=>$this->getToken()]
         ];

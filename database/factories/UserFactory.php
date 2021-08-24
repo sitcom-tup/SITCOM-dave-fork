@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -23,12 +24,14 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'admin_fname' => $this->faker->firstName(),
-            'admin_lname' => $this->faker->lastName(),
-            'admin_email' => $this->faker->unique()->safeEmail(),
-            'admin_email_verified_at' => now(),
-            'admin_password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'admin_state'=> 1,
+            'fname' => $this->faker->firstName(),
+            'lname' => $this->faker->lastName(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'state'=> 1,
+            // 'role'=> Role::inRandomOrder()->first()->getKey(),
+            'role'=> 1,
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),

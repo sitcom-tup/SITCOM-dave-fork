@@ -20,14 +20,14 @@ class SupervisorAuthResource extends JsonResource
             'message'=>'user logged in',
             'table'=>'supervisors',
             'data' => [
-                'supervisor_name' => $this->getFullName(),
-                'supervisor_email' => $this->supervisor_email,
+                'supervisor_name' => $this->user->getFullName(),
+                'supervisor_email' => $this->user->email,
                 'supervisor_contact' => $this->supervisor_contact,
                 'company'=> $this->company->only(['id','comp_name']),
                 'supervisor_position' => $this->supervisor_position,
                 'supervisor_gender'=> $this->supervisor_gender,
                 'supervisor_link' => $this->supervisor_link,
-                'supervisor_state' => $this->supervisor_state,
+                'supervisor_state' => $this->user->state,
             ],
             'meta' => ['token'=>$this->getToken()]
         ];
