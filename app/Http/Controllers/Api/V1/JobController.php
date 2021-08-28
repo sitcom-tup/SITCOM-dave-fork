@@ -103,9 +103,9 @@ class JobController extends Controller
 
         if($user->role === 4)
         {
-            $request->has('verified') ?
-                $verified = $request->verified === 1 ? now() : null :
-                $verified = $job->verified_at;
+            $request->has('verified') ? $verified = $request->verified === 1 ? now() :null :null;
+        }else {
+            $verified = $job->verified_at;
         }
 
         $request->has('status') ?
