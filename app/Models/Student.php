@@ -20,7 +20,7 @@ class Student extends Authenticatable
 //  Eager loading by default
 //  this is when you wanted to always load the related model
 //  this basically loads student with course model
-    protected $with = ['course']; 
+    protected $with = ['user','course']; 
 
     protected $hidden = [
         'student_password',
