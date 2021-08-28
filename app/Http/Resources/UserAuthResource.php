@@ -25,6 +25,7 @@ class UserAuthResource extends JsonResource
                 'email' => $this->email,
                 'email_verified_at' => $this->email_verified_at,
                 'state'=> $this->state,
+                'role'=> $this->role
             ],
             'meta' => ['token'=>$this->getToken()]
         ];
