@@ -79,6 +79,11 @@ class User extends Authenticatable
 
     public function supervisor()
     {
-        return $this->hasOne(Suprvisor::class);
+        return $this->hasOne(Supervisor::class);
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
     }
 }

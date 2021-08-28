@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
         }
 
         \App\Models\Announcement::factory(10)->create();
+        \App\Models\Job::factory(50)->create();
 
 
         // \App\Models\Department::create(['department_name'=>'Electrical Engineering Department']);

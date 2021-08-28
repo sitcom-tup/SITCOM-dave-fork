@@ -3,10 +3,15 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use App\Http\Resources\AnnouncementResource;
 
-class AnnouncementCollection extends ResourceCollection
+class JobCollection extends ResourceCollection
 {
+    /**
+     * Transform the resource collection into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
 
     private $pagination;
 
@@ -25,16 +30,10 @@ class AnnouncementCollection extends ResourceCollection
         parent::__construct($resource);
     }
 
-    /**
-     * Transform the resource collection into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
     public function toArray($request)
     {
         return [
-            'data' => AnnouncementResource::collection($this->collection),
+            'data' => JobResource::collection($this->collection),
             'meta' => $this->pagination
         ];
     }

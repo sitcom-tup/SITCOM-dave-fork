@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Coordinator;
 use App\Models\Announcement;
 use App\Models\Course;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AnnouncementFactory extends Factory
@@ -29,7 +30,8 @@ class AnnouncementFactory extends Factory
             'coordinator_id' => $coordinator->getKey(),
             'courses' => $ids,
             'heading' => $this->faker->realText(50),
-            'body' => $this->faker->bodyText()
+            'body' => $this->faker->bodyText(),
+            'posted_at'=> Carbon::now()->toDateString(),
         ];
     }
 

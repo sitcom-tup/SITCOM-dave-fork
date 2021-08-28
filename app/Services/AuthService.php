@@ -85,6 +85,16 @@ class AuthService
         return $name === 'course_id' || $name === 'department_id' || $name === 'company_id' || $name === 'user_id';
     }
 
+    public function isAllowed($roles = [])
+    {
+        $user = auth()->user()->role;
+
+        if(in_array($user,$roles))
+        {
+            return true;
+        }
+        return false;
+    }
 }
 
         
