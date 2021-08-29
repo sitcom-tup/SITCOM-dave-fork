@@ -39,6 +39,7 @@ class StoreStudentProfileRequest extends FormRequest
     public function rules()
     {
         return [
+            'student_link' => ['nullable', 'string'],
             'student_gender'=>['required'],
             'course_id'=>['required','integer'],
             'student_contact'=> new ValidNumber(),

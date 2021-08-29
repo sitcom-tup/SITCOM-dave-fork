@@ -35,6 +35,7 @@ class UpdateStudentProfileRequest extends FormRequest
             'lname'=>['required','string','max:20'],
             'password'=>['nullable','confirmed','string','min:8'],
             'student_gender'=>['required'],
+            'student_link' => ['nullable','string'],
             'course_id'=>['required','integer'],
             'student_contact'=> new ValidNumber(),
             'student_address'=>['required','string','max:250'],

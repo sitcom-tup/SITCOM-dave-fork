@@ -96,7 +96,8 @@ class StudentProfileController extends Controller
                                                 'student_id',
                                                 'student_tup_id',
                                                 'password_confirmation',
-                                                'verified_at']));
+                                                'verified_at',
+                                                'student_link']));
 
         return new StudentProfileResource($student->find($id));
     }
