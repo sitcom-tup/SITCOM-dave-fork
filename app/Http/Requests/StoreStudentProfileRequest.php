@@ -8,7 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\ValidNumber;
 use App\Rules\ValidId;
 
-class StoreStudentRequest extends FormRequest
+class StoreStudentProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -36,26 +36,15 @@ class StoreStudentRequest extends FormRequest
         ];
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            'fname'=>['required','string','max:20'],
-            'lname'=>['required','string','max:20'],
-            'gender'=>['required'],
-            'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email'],
-            'password'=>['required','confirmed','string','min:8'],
+            'student_gender'=>['required'],
             'course_id'=>['required','integer'],
-            'contact'=> new ValidNumber(),
-            'address'=>['required','string','max:250'],
-            'tup_id'=> [new ValidId(),'unique:App\Models\Student,student_tup_id'],
-            // 'birthday'=>['nullable','date_format:Y-m-d'],
-            // link
-            // state
+            'student_contact'=> new ValidNumber(),
+            'student_address'=>['required','string','max:250'],
+            'student_tup_id'=> [new ValidId(),'unique:App\Models\Student,student_tup_id'],
+            'student_birthday'=>['nullable','date_format:Y-m-d'],
         ];
     }
 

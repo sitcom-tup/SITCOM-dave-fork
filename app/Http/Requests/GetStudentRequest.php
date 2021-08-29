@@ -5,8 +5,9 @@ namespace App\Http\Requests;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\ValidId;
 
-class UpdateJobRequest extends FormRequest
+class GetStudentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +25,6 @@ class UpdateJobRequest extends FormRequest
                                                         'message'=>'unprocessable entity',
                                                         'errors'=>$validator->errors()->all()], 422));
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -33,12 +33,16 @@ class UpdateJobRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required','string','max:255'],
-            'description' => ['nullable','string'],
-            'qualification'=> ['nullable','string'],
-            'type' => ['required', 'string'],
-            'status' => ['nullable', 'integer'],
-            'verified_at' => ['nullable', 'integer'],
+            'tup_id'=> new ValidId(),
+            'name' => ['nullable', 'string'],
+            'course' => ['nullable', 'string'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'student_tup_id.unique' => 'TUPT ID has already been taken'
         ];
     }
 }
