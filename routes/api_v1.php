@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::get('/departments/{department}/students', [StudentDepartmentController::class, 'getStudentDepartment']);
     Route::apiResources([
         'announcements' => AnnouncementController::class,
+        'profiles/students' => StudentProfileController::class,
     ]);
     Route::apiResource('jobs', JobController::class);
 });

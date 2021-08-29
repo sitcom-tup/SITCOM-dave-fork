@@ -6,7 +6,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateJobRequest extends FormRequest
+class StoreUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,12 +33,10 @@ class UpdateJobRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required','string','max:255'],
-            'description' => ['nullable','string'],
-            'qualification'=> ['nullable','string'],
-            'type' => ['required', 'string'],
-            'status' => ['nullable', 'integer'],
-            'verified_at' => ['nullable', 'integer'],
+            'fname'=>['required','string','max:20'],
+            'lname'=>['required','string','max:20'],
+            'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email'],
+            'password'=>['required','confirmed','string','min:8'],
         ];
     }
 }
