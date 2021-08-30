@@ -50,7 +50,8 @@ class CoordinatorProfileController extends Controller
         $coor->update($coorRequest->except(['fname','lname','password','email','coordinator_id','state']));
         $coor->user()->update($coorRequest->only(['fname','lname','email','password','state']));
 
-        return new CoordinatorProfileResource(Coordinator::with(['user','department'])->find($id));
+        return (CoordinatorProfileResource::make(Coordinator::with(['user','department'])->find($id)))
+                ->additional(['message'=>'updated']);
 
     }
 
@@ -66,7 +67,8 @@ class CoordinatorProfileController extends Controller
             $query->where('id', $id);
         })->update(['state' => 0]);
 
-        return new CoordinatorProfileResource(Coordinator::with(['user','department'])->find($id));
+        return (CoordinatorProfileResource::make(Coordinator::with(['user','department'])->find($id)))
+                ->additional(['message'=>'deactivated']);
     }
 
 }
