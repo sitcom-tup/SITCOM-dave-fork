@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateSupervisorProfile;
 use App\Http\Resources\ProfileCollection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Laravel\Passport\Token;
 use App\Models\Supervisor;
 use App\Models\User;
 use Hash;
@@ -81,10 +82,13 @@ class SupervisorProfileController extends Controller
             $query->where('id', $id);
         })->update(['state' => 0]);
 
+        $visor= Supervisor::with(['user'])->findOrFail($id);
+        
+        //Revoke token of user 
+        Token::where('name', $visor->user->email)
+        ->update(['revoked' => true]);
 
-        // auth
-
-        return (SupervisorProfileResource::make(Supervisor::with(['user'])->find($id)))
+        return (SupervisorProfileResource::make($visor))
                 ->additional(['message'=>'deactivated']);
     }
 }

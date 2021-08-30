@@ -11,6 +11,7 @@ use App\Http\Resources\StudentResource;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Laravel\Passport\Token;
 use App\Models\Student;
 use App\Rules\ValidId;
 use App\Models\User;
@@ -109,7 +110,14 @@ class StudentProfileController extends Controller
         User::whereHas('Student', function($query) use($tup_id){
             $query->where('student_tup_id', $tup_id);
         })->update(['state' => 0]);
+        
+        $student = Student::where('student_tup_id',$tup_id)->first();
+        
+        //Revoke token of user 
+        Token::where('name', $student->student_tup_id)
+            ->orWhere('name',$student->user->email)
+            ->update(['revoked' => true]);
 
-        return new StudentProfileResource(Student::where('student_tup_id',$tup_id)->first());
+        return new StudentProfileResource($student);
     }
 }
