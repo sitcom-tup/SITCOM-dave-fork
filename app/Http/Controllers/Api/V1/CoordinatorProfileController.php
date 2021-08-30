@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateCoordinatorProfile;
 use App\Http\Resources\ProfileCollection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Laravel\Passport\Token;
 use App\Models\Coordinator;
 use App\Models\User;
 use Hash;
@@ -67,7 +68,13 @@ class CoordinatorProfileController extends Controller
             $query->where('id', $id);
         })->update(['state' => 0]);
 
-        return (CoordinatorProfileResource::make(Coordinator::with(['user','department'])->find($id)))
+        $coor = Coordinator::with(['user','department'])->find($id);
+
+        //Revoke token of user 
+        Token::where('name', $coor->user->email)
+            ->update(['revoked' => true]);
+
+        return (CoordinatorProfileResource::make($coor))
                 ->additional(['message'=>'deactivated']);
     }
 
