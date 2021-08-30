@@ -8,9 +8,12 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\ValidNumber;
 use App\Rules\ValidId;
 use App\Models\Student;
+use Request;
 
 class UpdateStudentProfileRequest extends FormRequest
 {
+
+    protected $student;
 
     public function authorize()
     {
@@ -26,11 +29,12 @@ class UpdateStudentProfileRequest extends FormRequest
 
     public function rules()
     {
-        $student = Student::find($this->student_id);
+        $id = Request::input('student_id');
+        $this->student = Student::find($id);
         
         return [
-            'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email,'.$student->user_id],
-            'student_tup_id'=> [new ValidId(),'unique:App\Models\Student,student_tup_id,'.$student->id],
+            'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email,'.$this->student->user_id],
+            'student_tup_id'=> [new ValidId(),'unique:App\Models\Student,student_tup_id,'.$id],
             'fname'=>['required','string','max:20'],
             'lname'=>['required','string','max:20'],
             'password'=>['nullable','confirmed','string','min:8'],
