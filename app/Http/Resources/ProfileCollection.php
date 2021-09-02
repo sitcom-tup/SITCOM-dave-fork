@@ -17,7 +17,7 @@ class ProfileCollection extends ResourceCollection
         $this->pagination = [
             'total' => $resource->total(),
             'count' => $resource->count(),
-            'per_page' => $resource->perPage(),
+            'per_page' => (int) $resource->perPage(),
             'current_page' => $resource->currentPage(),
             'total_pages' => $resource->lastPage()
         ];

@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class
         ]);
 
+        // Create for unlisted company 
+        \App\Models\Company::create(['comp_name' => 'unlisted', 'comp_email'=> 'N/A','comp_contact' => '000000000','comp_address' => 'N/A','comp_website'=>'N/A']);
         \App\Models\Company::factory(10)->create();
         
         for($i=0;$i < 50; $i++)

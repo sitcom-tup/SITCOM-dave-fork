@@ -16,7 +16,7 @@ class CreateSupervisorsTable extends Migration
         Schema::create('supervisors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('company_id')->constrained();
+            $table->foreignId('company_id')->nullable();
             // $table->string('supervisor_fname');
             // $table->string('supervisor_lname');
             $table->string('supervisor_position')->nullable();
