@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\V1\StudentDepartmentController;
+use App\Http\Controllers\Api\V1\MessageController;
+use App\Http\Controllers\Api\V1\UserPoolController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\LoginController;
@@ -26,13 +28,9 @@ Route::get('routes', function() {
 
 
 
-// Login
+// Login & Logout
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LogoutController::class, 'logout']);
-// Route::post('login/admins', [LoginController::class, 'adminLogin']);
-// Route::post('login/students', [LoginController::class, 'studentLogin']);
-// Route::post('login/coordinators', [LoginController::class, 'coordinatorLogin']);
-// Route::post('login/supervisors', [LoginController::class, 'supervisorLogin']);
 // Register
 Route::post('register/admins', [RegisterController::class, 'adminRegister']);
 Route::post('register/students', [RegisterController::class, 'studentRegister']);
@@ -52,10 +50,20 @@ Route::group(['middleware' => ['auth:api']], function() {
         'profiles/supervisors' => SupervisorProfileController::class,
     ]);
     Route::apiResource('jobs', JobController::class);
+
+    // messages
+    Route::get('messages',[MessageController::class,'index']);
+    Route::get('messages/{messages}',[MessageController::class,'show']);
+    Route::post('messages',[MessageController::class,'store']);
+
+    // User pools for current active and inactive users
+    Route::get('userpools',[UserPoolController::class,'index']);
+    Route::post('userpools/connect',[UserPoolController::class,'connect']);
+    Route::delete('userpools/disconnect/{socketId}',[UserPoolController::class,'disconnect']);
 });
 
 
 // Fallback route 
 Route::fallback(function (Request $request) {
-    return response()->json(['error'=>'404 resource not found'],404);
+    return response()->json(['status'=>'failed','code'=>404,'error'=>'404 resource not found'],404);
 });

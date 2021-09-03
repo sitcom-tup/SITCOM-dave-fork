@@ -86,4 +86,27 @@ class User extends Authenticatable
     {
         return $this->hasMany(Job::class);
     }
+
+    public function userPool()
+    {
+        return $this->belongsTo(UserPool::class);
+    }
+
+    public function userRole()
+    {
+        switch ($this->role) {
+            case 1:
+                return 'guest';
+            case 2:
+                return 'admin';
+            case 3:
+                return 'student';
+            case 4:
+                return 'coordinator';
+            case 5:
+                return 'supervisor';
+            default:
+                return null;
+        }
+    }
 }
