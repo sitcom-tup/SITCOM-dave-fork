@@ -16,6 +16,7 @@ class UserPoolController extends Controller
     {
         $request->validate([
             'user' => 'nullable|integer',
+            'socket_id' => 'nullable|string',
             'limit' => 'nullable|integer',
             'active' => 'nullable|integer'
         ]);
@@ -30,6 +31,11 @@ class UserPoolController extends Controller
         if($request->user)
         {
             $pool->where('user_id', $request->user);
+        }
+
+        if($request->socket_id)
+        {
+            $pool->where('socket_id', $request->socket_id);
         }
         
         $request->has('limit') ? $limit = $request->limit : $limit = 12;
