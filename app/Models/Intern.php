@@ -25,4 +25,9 @@ class Intern extends Model
     {
         return $this->belongsTo(Coordinator::class);
     }
+
+    public function traineeFile()
+    {
+        return $this->hasOne(TraineeFile::class,'id','file_id');
+    }
 }
