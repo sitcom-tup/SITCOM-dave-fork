@@ -54,6 +54,11 @@ class Student extends Authenticatable
         return $this->belongsToThrough(Department::class,Course::class);
     }
 
+    public function intern()
+    {
+        return $this->hasOne(Intern::class);
+    }
+
     public function getAuthPassword()
     {
         return $this->student_password;

@@ -46,6 +46,11 @@ class Supervisor extends Authenticatable
         return $this->belongsTo(Company::class);
     }
 
+    public function interns()
+    {
+        return $this->hasMany(Intern::class);
+    }
+
     public function getAuthPassword()
     {
         return $this->supervisor_password;

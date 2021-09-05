@@ -48,6 +48,11 @@ class Coordinator extends Authenticatable
         return $this->hasMany(Announcement::class);
     }
 
+    public function interns()
+    {
+        return $this->hasMany(Intern::class);
+    }
+
     public function getAuthPassword()
     {
         return $this->coordinator_password;
