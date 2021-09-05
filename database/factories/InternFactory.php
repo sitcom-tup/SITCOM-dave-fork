@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use App\Models\Intern;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,6 +28,7 @@ class InternFactory extends Factory
             'student_id' => $number++,
             'supervisor_id' => $this->faker->numberBetween(1,10),
             'coordinator_id' => $this->faker->numberBetween(1,20),
+            'batch_id' => \App\Models\Batch::where('year', Carbon::now()->format('Y'))->first()->id,
             'required_hours' => 480,
             'rendered_hours' => rand(0,300),
             'endorsement_date' => $this->faker->dateTimeBetween($startDate = '-90 days', $endDate = '-80 days', $timezone = null),
