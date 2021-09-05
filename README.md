@@ -9,11 +9,11 @@
 
 ## SETUP
 
-1. composer install
-2. composer update
-3. setup .env file 
-4. php artisan migrate:fresh --seed && php artisan passport:install
-5. php artisan serve
+1. <code>composer install</code>
+2. <code>composer update</code>
+3. <code>setup .env file</code>
+4. <code>php artisan migrate:fresh --seed && php artisan passport:install</code>
+5. <code>php artisan serve</code>
 
 
 ## About Laravel
