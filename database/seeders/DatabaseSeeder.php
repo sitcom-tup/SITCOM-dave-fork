@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Job::factory(50)->create();
         \App\Models\Message::factory(20)->create();
         \App\Models\UserPool::factory(30)->create();
+        \App\Models\Intern::factory(50)->create();
         
 
         // \App\Models\Department::create(['department_name'=>'Electrical Engineering Department']);
