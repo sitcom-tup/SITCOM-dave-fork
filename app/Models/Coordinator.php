@@ -21,6 +21,8 @@ class Coordinator extends Authenticatable
         'remember_token',
     ];
 
+    protected $with = ['user','department'];
+
     private $token;
 
     public function setToken($token)

@@ -18,10 +18,11 @@ class CreateInternsTable extends Migration
             $table->foreignId('student_id')->constrained();
             $table->foreignId('supervisor_id')->constrained();
             $table->foreignId('coordinator_id')->constrained();
+            $table->foreignId('batch_id')->constrained('batches');
             $table->integer('required_hours');
             $table->integer('rendered_hours');
             $table->date('endorsement_date');
-            $table->date('start_date');
+            $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->integer('files_id')->nullable();
             $table->boolean('remarks')->nullable();

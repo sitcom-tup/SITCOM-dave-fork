@@ -48,6 +48,7 @@ Route::group(['middleware' => ['auth:api']], function() {
         'profiles/coordinators' => CoordinatorProfileController::class,
         'profiles/students' => StudentProfileController::class,
         'profiles/supervisors' => SupervisorProfileController::class,
+        'interns' => InternController::class,
     ]);
     Route::apiResource('jobs', JobController::class);
 

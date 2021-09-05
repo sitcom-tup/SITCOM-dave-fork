@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,13 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             AdminSeeder::class
         ]);
+
+        // Batch 
+        \App\Models\Batch::create(['year' => Carbon::now()->format('Y')]);
+        for($i=1;$i < 10; $i++)
+        {
+            \App\Models\Batch::create(['year' => Carbon::now()->addYear($i)->format('Y')]);
+        }
 
         // Create for unlisted company 
         \App\Models\Company::create(['comp_name' => 'unlisted', 'comp_email'=> 'N/A','comp_contact' => '000000000','comp_address' => 'N/A','comp_website'=>'N/A']);
