@@ -7,7 +7,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## SETUP
+## System Requirements
+XAMPP Version <code>XAMPP Version: 7.4.8 for Win 10 Home 64bit</code><br>
+PHP Version <code>PHP 7.4.8</code><br>
+MySQL Version <code>mysql  Ver 15.1 Distrib 10.4.13-MariaDB</code><br>
+
+## Setup Commands
 
 1. <code>composer install</code>
 2. <code>composer update</code>
@@ -15,6 +20,8 @@
 4. <code>php artisan migrate:fresh --seed && php artisan passport:install</code>
 5. <code>php artisan serve</code>
 
+## Notes
+Soon to have laravel sail built on top of docker for virtualization.
 
 ## About Laravel
 
