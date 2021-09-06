@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Message::factory(20)->create();
         \App\Models\UserPool::factory(30)->create();
         \App\Models\Intern::factory(50)->create();
-        
+        \App\Models\Schedule::factory(1)->create();
 
         // \App\Models\Department::create(['department_name'=>'Electrical Engineering Department']);
         // \App\Models\Course::create(['course_name'=>'BSIT','course_fullText' => 'BS Information Tech', 'department_id' => 1]);
