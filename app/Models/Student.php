@@ -59,21 +59,27 @@ class Student extends Authenticatable
         return $this->hasOne(Intern::class);
     }
 
+<<<<<<< HEAD
     public function schedules()
     {
         return $this->hasMany(Schedule::class);
     }
 
+=======
+>>>>>>> ea01e6c (schedule and time record table | factory not finished yet)
     public function timeRecords()
     {
         return $this->belongsToMany(TimeRecord::class);
     }
 
+<<<<<<< HEAD
     // public function columnCards()
     // {
     //     return $this->hasMany(ColumnCard::class);
     // }
 
+=======
+>>>>>>> ea01e6c (schedule and time record table | factory not finished yet)
     public function getAuthPassword()
     {
         return $this->student_password;
