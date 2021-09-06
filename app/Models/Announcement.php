@@ -10,6 +10,8 @@ class Announcement extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     // protected $casts = [
     //     'created_at' => 'datetime:Y-m-d',
     // ];
@@ -25,14 +27,19 @@ class Announcement extends Model
     //     // return $this->where('department_id', $deptCourse->department_id);
     // }
 
+    public function getPostedDateFormat()
+    {
+        return Carbon::parse($this->posted_at)->format('Y-m-d');
+    }
+
     public function getCreatedDateFormat()
     {
-        return Carbon::parse($this->created_at)->format('Y-m-d');
+        return Carbon::parse($this->created_at)->format('h:i A');
     }
 
     public function getUpdatedDateFormat()
     {
-        return Carbon::parse($this->updated_at)->format('Y-m-d');
+        return Carbon::parse($this->updated_at)->format('h:i A');
     }
 
 }

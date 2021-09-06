@@ -21,6 +21,8 @@ class Coordinator extends Authenticatable
         'remember_token',
     ];
 
+    protected $with = ['user','department'];
+
     private $token;
 
     public function setToken($token)
@@ -46,6 +48,11 @@ class Coordinator extends Authenticatable
     public function announcements()
     {
         return $this->hasMany(Announcement::class);
+    }
+
+    public function interns()
+    {
+        return $this->hasMany(Intern::class);
     }
 
     public function getAuthPassword()

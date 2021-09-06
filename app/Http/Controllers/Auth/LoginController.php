@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Resources\CoordinatorAuthResource;
+use App\Http\Resources\UserDeactivatedResource;
 use App\Http\Resources\SupervisorAuthResource;
 use App\Http\Resources\StudentAuthResource;
 use App\Http\Resources\AuthFailResource;
@@ -22,7 +23,7 @@ use Hash;
 class LoginController extends Controller
 {
 
-    protected $auth;
+protected $auth;
 
     public function __construct()
     {
@@ -34,6 +35,11 @@ class LoginController extends Controller
         if($this->auth->isAuthorized([0=>$request->email,1=>$request->password], $request->role))
         {
             $userAuth = $user->getAuthUser();
+            
+            if($userAuth->state === 0){
+                return new UserDeactivatedResource($userAuth);
+            }
+
             $userAuth->tokens()->where('name', $request->email)->delete();
             $token = $userAuth->createToken($request->email, [$request->role])->accessToken;
             $userAuth->setToken($token);

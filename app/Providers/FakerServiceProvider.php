@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Faker\CustomHtmlLorem;
+use App\Faker\JobType;
 use Faker\{Factory, Generator};
 
 class FakerServiceProvider extends ServiceProvider
@@ -18,6 +19,7 @@ class FakerServiceProvider extends ServiceProvider
         $this->app->singleton(Generator::class, function () {
             $faker = Factory::create();
             $faker->addProvider(new CustomHtmlLorem($faker));
+            $faker->addProvider(new JobType($faker));
             return $faker;
         });
     }

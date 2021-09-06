@@ -45,7 +45,7 @@ class RegisterController extends Controller
     public function coordinatorRegister(StoreCoordinatorRequest $request, Coordinator $coordinator)
     {
         $request['password'] = Hash::make($request['password']);
-        $user = User::firstOrCreate(array_merge($request->only('fname','lname','email','password'),['role'=> 4]));
+        $user = User::firstOrCreate(array_merge($request->only('fname','lname','email','password'),['role'=> 4, 'email_verified_at'=>now()]));
         $coor = $coordinator->firstOrCreate(array_merge(['user_id'=>$user->id],$this->auth->mapToNewName('coordinator',$request->only('department_id','contact','position','gender'))));
         if($coor)
         {

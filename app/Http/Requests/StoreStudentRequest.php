@@ -53,7 +53,7 @@ class StoreStudentRequest extends FormRequest
             'contact'=> new ValidNumber(),
             'address'=>['required','string','max:250'],
             'tup_id'=> [new ValidId(),'unique:App\Models\Student,student_tup_id'],
-            // 'student_birthday'=>['required'],
+            // 'birthday'=>['nullable','date_format:Y-m-d'],
             // link
             // state
         ];
@@ -62,7 +62,7 @@ class StoreStudentRequest extends FormRequest
     public function messages()
     {
         return [
-            'student_tup_id.unique' => 'TUPT ID has already been taken'
+            'tup_id.unique' => 'TUPT ID has already been taken'
         ];
     }
 }
