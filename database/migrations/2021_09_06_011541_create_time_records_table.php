@@ -18,8 +18,8 @@ class CreateTimeRecordsTable extends Migration
             $table->foreignId('student_id')->constrained();
             $table->datetime('time_in');
             $table->datetime('time_out');
-            $table->enum('status',['0','1','2','4']);
-            $table->double('latitute')->nullable();
+            $table->integer('status');  //0 = ontime 1 = late 2 = excused 3 = absent
+            $table->double('latitude')->nullable();
             $table->double('longitude')->nullable();
             $table->timestamps();
         });

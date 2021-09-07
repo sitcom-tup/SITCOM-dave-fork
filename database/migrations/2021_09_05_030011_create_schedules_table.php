@@ -20,6 +20,7 @@ class CreateSchedulesTable extends Migration
             $table->integer('day_of_week');
             $table->time('in_time');
             $table->time('out_time');
+            $table->time('in_time_provision');
             $table->timestamps();
         });
     }
