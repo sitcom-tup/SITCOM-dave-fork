@@ -16,11 +16,14 @@ class CreateTimeRecordsTable extends Migration
         Schema::create('time_records', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained();
-            $table->datetime('time_in');
-            $table->datetime('time_out');
+            $table->date('date');
+            $table->time('time_in')->nullable();
+            $table->time('time_out')->nullable();
             $table->integer('status');  //0 = ontime 1 = late 2 = excused 3 = absent
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
+            // $table->double('latitude')->nullable();
+            // $table->double('longitude')->nullable();
+            $table->string('timein_location');
+            $table->boolean('verified');
             $table->timestamps();
         });
     }

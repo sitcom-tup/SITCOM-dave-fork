@@ -52,16 +52,19 @@ class TimeRecordSeeder extends Seeder
                         break;
                 }
 
-                $timed_in = $faker->dateTimeBetween($startDate = $intern->start_date.' 00:00:00', $endDate = 'now', $timezone = null)->format('Y-m-d ');
+                $timed_in = $faker->unique()->dateTimeBetween($startDate = $intern->start_date.' 00:00:00', $endDate = 'now', $timezone = null)->format('Y-m-d ');
                 $timed_out = \Carbon\Carbon::parse($timein)->addHours(8)->format('H:i:s');
 
                 \App\Models\TimeRecord::create([
                     'student_id' =>$intern->student_id,
-                    'time_in' =>$timed_in.$timein,
-                    'time_out' =>$timed_in.$timed_out,
+                    'date' => \Carbon\Carbon::parse($timed_in)->format('Y-m-d'),
+                    'time_in' =>$timein,
+                    'time_out' =>$timed_out,
                     'status' => $status,
-                    'latitude' => $faker->latitude(),
-                    'longitude' => $faker->longitude(),
+                    // 'latitude' => $faker->latitude(),
+                    // 'longitude' => $faker->longitude(),
+                    'timein_location' => $faker->address(),
+                    'verified' => rand(0,1),
                 ]);
             }
         }

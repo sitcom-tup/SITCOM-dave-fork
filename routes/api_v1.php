@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\V1\StudentDepartmentController;
-use App\Http\Controllers\Api\V1\MessageController;
+use App\Http\Controllers\Api\V1\TimeRecordController;
 use App\Http\Controllers\Api\V1\UserPoolController;
+use App\Http\Controllers\Api\V1\MessageController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\LoginController;
@@ -61,6 +62,15 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::get('userpools',[UserPoolController::class,'index']);
     Route::post('userpools/connect',[UserPoolController::class,'connect']);
     Route::delete('userpools/disconnect/{socketId}',[UserPoolController::class,'disconnect']);
+
+    // Time Record or the DTR Daily Time Record
+    Route::get('dailytime/records', [TimeRecordController::class, 'index']);
+    Route::get('dailytime/records/{id}', [TimeRecordController::class, 'show']);
+    Route::put('dailytime/records/{id}', [TimeRecordController::class, 'update']);
+    Route::delete('dailytime/records/{id}', [TimeRecordController::class, 'destroy']);
+    Route::post('dailytime/records/studentcreate', [TimeRecordController::class, 'storeByStudent']);
+    Route::post('dailytime/records/supervisorcreate', [TimeRecordController::class, 'storeBySupervisor']);
+
 });
 
 
