@@ -59,6 +59,11 @@ class Student extends Authenticatable
         return $this->hasOne(Intern::class);
     }
 
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
     public function timeRecords()
     {
         return $this->belongsToMany(TimeRecord::class);

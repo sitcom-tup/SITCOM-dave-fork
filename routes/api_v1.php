@@ -72,6 +72,8 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::put('dailytime/records/timeout/{id}', [TimeRecordController::class, 'updateByStudent']);
     Route::post('dailytime/records/supervisorcreate', [TimeRecordController::class, 'storeBySupervisor']);
 
+    // Trainee Schedules
+    Route::apiResource('trainings/schedules',TraineeScheduleController::class)->only(['index','store','destroy']);
 });
 
 
