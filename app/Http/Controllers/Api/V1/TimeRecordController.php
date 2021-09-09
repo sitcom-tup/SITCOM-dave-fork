@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\StoreTimeRecordRequest;
 use App\Http\Resources\TimeRecordCollection;
 use App\Http\Resources\TimeRecordResource;
+use App\Http\Requests\TimeOutRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\TimeRecord;
@@ -71,7 +72,8 @@ class TimeRecordController extends Controller
         $dtrInfo = array_merge($request->validated(),[
             'status' => $status,
             'verified' => 0,
-            'time_out' => '00:00:00',
+            'time_out' => null,
+            'hours_worked' => 0,
         ]);
         
         if($dtr = $timeRecord->checkIfExists($request->validated())->first())
@@ -92,15 +94,40 @@ class TimeRecordController extends Controller
             ->additional(['status' => 'failed', 'message' => 'record exists']);
         }
 
-        return (TimeRecordResource::make($timeRecord->create($request->validated())->load('student')))
+        if($request->status == 3)
+        {
+            $request['hours_worked'] = 0;
+        } else 
+        {
+            $request['hours_worked'] = $timeRecord->storeHoursWorked($request->validated());
+        }
+
+        return (TimeRecordResource::make($timeRecord->create($request->all())->load('student')))
         ->additional(['status' => 'success', 'message' => 'saved']);
     }
 
     public function update($id, StoreTimeRecordRequest $request)
-    {
+    {   
         $dtr = TimeRecord::with(['student'])->findOrFail($id);
-        $dtr->update($request->validated());
+
+        if($request->status == 3 || !$request->has('time_out'))
+        {
+            $request['hours_worked'] = 0;
+        } else 
+        {
+            $request['hours_worked'] = $dtr->storeHoursWorked($request->validated());
+        }
+
+        $dtr->update($request->all());
         return (TimeRecordResource::make($dtr))->additional(['status' => 'success', 'message' => 'updated']);
+    }
+
+    // Student TIME OUT
+    public function updateByStudent($id,TimeOutRequest $request)
+    {
+        $dtr = TimeRecord::findOrFail($id);
+        $dtr->update($request->validated());
+        return (TimeRecordResource::make($dtr->load('student')))->additional(['status' => 'success', 'message' => 'updated']);
     }
 
     public function destroy($id)

@@ -68,7 +68,8 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::get('dailytime/records/{id}', [TimeRecordController::class, 'show']);
     Route::put('dailytime/records/{id}', [TimeRecordController::class, 'update']);
     Route::delete('dailytime/records/{id}', [TimeRecordController::class, 'destroy']);
-    Route::post('dailytime/records/studentcreate', [TimeRecordController::class, 'storeByStudent']);
+    Route::post('dailytime/records/timein', [TimeRecordController::class, 'storeByStudent']);
+    Route::put('dailytime/records/timeout/{id}', [TimeRecordController::class, 'updateByStudent']);
     Route::post('dailytime/records/supervisorcreate', [TimeRecordController::class, 'storeBySupervisor']);
 
 });

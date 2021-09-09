@@ -60,6 +60,7 @@ class TimeRecordSeeder extends Seeder
                     'date' => \Carbon\Carbon::parse($timed_in)->format('Y-m-d'),
                     'time_in' =>$timein,
                     'time_out' =>$timed_out,
+                    'hours_worked' => \Carbon\Carbon::parse($timed_out)->diffInHours(\Carbon\Carbon::parse($timein)),
                     'status' => $status,
                     // 'latitude' => $faker->latitude(),
                     // 'longitude' => $faker->longitude(),

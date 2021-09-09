@@ -19,8 +19,14 @@ class TimeRecordResource extends JsonResource
             'record_id' => $this->id,
             'date' => $this->date,
             'day_of_week' => Carbon::parse($this->date)->format('l'),
-            'time_in' => Carbon::parse($this->time_in)->format('h:i a'),
-            'time_out' => Carbon::parse($this->time_out)->format('h:i a'),
+            'time_in' => $this->time_in,
+            'time_out' => $this->time_out,
+            // 'time_in' => Carbon::parse($this->time_in)->format('h:i a'),
+            // 'time_out' => Carbon::parse($this->time_out)->format('h:i a'),
+            'hours_worked' =>[
+                'recorded_hours_worked' => $this->getHoursWorked(),
+                'partial_hours_worked' => $this->getPartialHoursWorked()
+            ],
             'timein_location' => $this->timein_location,
             'status' => $this->getStatusName(),
             'verified'=> $this->verified,
