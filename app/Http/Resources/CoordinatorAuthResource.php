@@ -20,6 +20,7 @@ class CoordinatorAuthResource extends JsonResource
             'message'=>'user logged in',
             'table'=>'coordinators',
             'data' => [
+                'user_id' => $this->user->id,
                 'coordinator_id' => $this->id,
                 'department' => $this->department->only(['id','department_name']),
                 'coordinator_name' => $this->user->getFullName(),
