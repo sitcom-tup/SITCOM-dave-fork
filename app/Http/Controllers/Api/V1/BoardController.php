@@ -75,4 +75,13 @@ class BoardController extends Controller
 
         return (BoardResource::make($board->load(['boardUsers','boardColumns'])))->additional(['message'=>'saved']);
     }
+
+    public function destroy($id)
+    {
+        $board = Board::with(['boardColumns','boardUsers'])->findOrFail($id);
+
+        $board->delete();
+
+        return (BoardResource::make($board))->additional(['message'=>'delete']);
+    } 
 }

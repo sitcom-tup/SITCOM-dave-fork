@@ -17,7 +17,7 @@ class CreateBoardColumnsTable extends Migration
             $table->id();
             $table->uuid('board_id')->constrained('board')->onDelete('cascade')->onUpdate('cascade');
             $table->string('column_name');
-            $table->text('column_styles'); // temporary it should be on another table
+            $table->text('column_styles')->nullable(); // temporary it should be on another table
             $table->timestamps();
         });
     }
