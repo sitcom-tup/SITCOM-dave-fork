@@ -53,7 +53,12 @@ class Supervisor extends Authenticatable
 
     public function schedules()
     {
-    return $this->hasMany(Schedule::class);
+        return $this->hasMany(Schedule::class);
+    }
+
+    public function columnCards()
+    {
+        return $this->hasMany(ColumnCard::class);
     }
 
     public function getAuthPassword()

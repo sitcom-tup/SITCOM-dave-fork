@@ -69,6 +69,11 @@ class Student extends Authenticatable
         return $this->belongsToMany(TimeRecord::class);
     }
 
+    public function columnCards()
+    {
+        return $this->hasMany(ColumnCard::class);
+    }
+
     public function getAuthPassword()
     {
         return $this->student_password;
