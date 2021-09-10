@@ -9,18 +9,17 @@ class ColumnCard extends Model
 {
     use HasFactory;
 
+    protected $with = ['user'];
+
+    protected $guarded = [];
+
     public function boardColumn()
     {
         return $this->belongsTo(BoardColumn::class,'id', 'column_id');
     }
 
-    public function student()
+    public function user()
     {
-        return $this->belongsTo(Student::class);
-    }
-
-    public function supervisor()
-    {
-        return $this->belongsTo(Supervisor::class);
+        return $this->belongsTo(User::class);
     }
 }

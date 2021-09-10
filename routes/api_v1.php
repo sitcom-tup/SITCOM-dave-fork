@@ -74,6 +74,9 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Trainee Schedules
     Route::apiResource('trainings/schedules',TraineeScheduleController::class)->only(['index','store','destroy']);
+
+    // Trainee / Supervisor Boards
+    Route::apiResource('projects/boards', BoardController::class);
 });
 
 

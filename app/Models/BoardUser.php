@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BoardColumn extends Model
+class BoardUser extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    protected $with = ['columnCards'];
+    protected $with = ['user'];
 
     public function board()
     {
         return $this->belongsTo(Board::class,'id', 'board_id');
     }
 
-    public function columnCards()
+    public function user()
     {
-        return $this->hasMany(ColumnCard::class, 'column_id', 'id');
+        return $this->belongsTo(User::class);
     }
 }

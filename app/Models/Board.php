@@ -20,4 +20,9 @@ class Board extends Model
         return $this->hasMany(BoardColumn::class);
     }
 
+    public function boardUsers()
+    {
+        return $this->hasMany(BoardUser::class);
+    }
+
 }

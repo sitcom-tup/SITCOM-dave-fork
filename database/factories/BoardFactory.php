@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Board;
+use App\Models\BoardUser;
 use App\Services\ReceiveOrderNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,16 +28,24 @@ class BoardFactory extends Factory
         return [
             'id' => $number->generateOrderNumber(),
             'board_name' => $this->faker->word,
-            'board_users' => implode(',', $this->users()),
         ];
     }
+
+    public function configure()
+    {
+        return $this->afterCreating(function (Board $board) {
+            $users  = $board->boardUsers()->saveMany($this->createBoardUsers($board));
+        });
+    }
     
-    public function users()
+    public function createBoardUsers($board)
     {
         $users = [];
-        for($i=0;$i<5;$i++)
-        {
-            array_push($users,$this->faker->numberBetween(2,60));
+        for ($i = 0; $i < 5; $i++) {
+                array_push($users, BoardUser::make([
+                    'board_id' => $board,
+                    'user_id' => $this->faker->numberBetween(2,60),
+                ]));
         }
         return $users;
     }

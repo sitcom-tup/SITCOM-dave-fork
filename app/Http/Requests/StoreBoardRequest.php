@@ -6,7 +6,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class BoardRequest extends FormRequest
+class StoreBoardRequest extends FormRequest
 {
     public function authorize()
     {
@@ -22,11 +22,16 @@ class BoardRequest extends FormRequest
     public function rules()
     {
         return [
-            'board' => 'nullable|uuid',
-            'user' => 'nullable|integer',
-            'name' => 'nullable|string',
-            'limit' => 'nullable|integer',
-            'users' => 'nullable',
+            'name' => ['required','string','unique:App\Models\Board,board_name,'.$this->route('board')],
+            'users' => ['required'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.unique' => 'Board name was already been taken by others',
+            'users.required' => 'One or more users is required'
         ];
     }
 }

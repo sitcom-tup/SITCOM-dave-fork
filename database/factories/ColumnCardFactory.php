@@ -22,11 +22,11 @@ class ColumnCardFactory extends Factory
     public function definition()
     {
         $board = \App\Models\Board::inRandomOrder()->first();
-        $users = explode(',',$board->board_users);
-        // dd($users, rand(min($users),max($users)), implode(',',$users));
+        $users = $board->boardUsers()->pluck('user_id')->toArray();
+        $user = array_rand($users);
         return [
             'column_id' => \App\Models\BoardColumn::inRandomOrder()->first()->getKey(),
-            'user_id' => rand(min($users),max($users)),
+            'user_id' => $users[$user],
             'assignees' => implode(',',$users),
             'card_name' => $this->faker->word,
             'card_description' => $this->faker->sentence,
