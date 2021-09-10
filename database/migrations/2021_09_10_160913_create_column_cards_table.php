@@ -16,13 +16,13 @@ class CreateColumnCardsTable extends Migration
         Schema::create('column_cards', function (Blueprint $table) {
             $table->id();
             $table->foreignId('column_id')->constrained('board_columns')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('student_id')->nullable();
-            $table->foreignId('supervisor_id')->nullable();
+            $table->foreignId('user_id')->nullable();
+            $table->string('assignees')->nullable();
             $table->string('card_name');
-            $table->string('card_description');
-            $table->date('start_date');
-            $table->date('due_date');
-            $table->integer('status');
+            $table->string('card_description')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('due_date')->nullable();
+            $table->integer('status')->nullable();
             $table->boolean('verified');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class CreateBoardColumnsTable extends Migration
     {
         Schema::create('board_columns', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('board_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->uuid('board_id')->constrained('board')->onDelete('cascade')->onUpdate('cascade');
             $table->string('column_name');
             $table->text('column_styles'); // temporary it should be on another table
             $table->timestamps();

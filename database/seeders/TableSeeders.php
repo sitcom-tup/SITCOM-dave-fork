@@ -47,5 +47,8 @@ class TableSeeders extends Seeder
         \App\Models\Message::factory(20)->create();
         \App\Models\UserPool::factory(30)->create();
         \App\Models\Intern::factory(50)->create();
+        \App\Models\Board::factory(10)->create();
+        \App\Models\BoardColumn::factory(20)->create();
+        \App\Models\ColumnCard::factory(60)->create();
     }
 }
