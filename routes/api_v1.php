@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\StudentDepartmentController;
 use App\Http\Controllers\Api\V1\TimeRecordController;
+use App\Http\Controllers\Api\V1\TaskBoardController;
 use App\Http\Controllers\Api\V1\UserPoolController;
 use App\Http\Controllers\Api\V1\MessageController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -79,6 +80,9 @@ Route::group(['middleware' => ['auth:api']], function() {
     Route::apiResource('projects/boards', BoardController::class)->only(['index','store','update','destroy']);
     Route::apiResource('projects/columns', BoardColumnController::class)->only(['store','destroy']);
     Route::apiResource('projects/cards', ColumnCardController::class)->only(['store','update','destroy']);
+
+    // Trainee task list
+    Route::get('dailywork/tasks', [TaskBoardController::class,'index']);
 });
 
 
