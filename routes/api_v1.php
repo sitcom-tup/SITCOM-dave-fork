@@ -77,8 +77,8 @@ Route::group(['middleware' => ['auth:api']], function() {
 
     // Trainee / Supervisor Boards
     Route::apiResource('projects/boards', BoardController::class)->only(['index','store','update','destroy']);
-    Route::apiResource('projects/boards/columns', BoardColumnController::class)->only(['store','destroy']);
-    // Route::apiResource('projects/boards/cards', BoardController::class);
+    Route::apiResource('projects/columns', BoardColumnController::class)->only(['store','destroy']);
+    Route::apiResource('projects/cards', ColumnCardController::class)->only(['store','update','destroy']);
 });
 
 
