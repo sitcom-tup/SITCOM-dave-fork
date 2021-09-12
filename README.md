@@ -12,13 +12,27 @@ XAMPP Version <code>XAMPP Version: 7.4.8 for Win 10 Home 64bit</code><br>
 PHP Version <code>PHP 7.4.8</code><br>
 MySQL Version <code>mysql  Ver 15.1 Distrib 10.4.13-MariaDB</code><br>
 
-## Setup Commands
+## Setup Commands for MASTER branch
 
-1. <code>composer install</code>
-2. <code>composer update</code>
-3. <code>setup .env file</code>
-4. <code>php artisan migrate:fresh --seed && php artisan passport:install</code>
-5. <code>php artisan serve</code>
+1. <code>git clone https://github.com/rocknrold/SITCOM.git </code>
+2. <code>cd <project folder> </code>
+3. <code>composer install</code>
+4. <code>composer update</code>
+5. <code>setup .env file</code>
+6. <code>php artisan migrate:fresh --seed && php artisan passport:install</code>
+7. <code>php artisan serve</code>
+
+## Setup commands for local dev's ( DEV branch )
+
+1. <code>git clone https://github.com/rocknrold/SITCOM.git </code>
+2. <code>cd <project folder> </code>
+3. <code>git checkout -b <branchName> </code>
+4. <code>git pull origin dev </code>
+5. <code>composer install</code>
+6. <code>composer update</code>
+7. <code>setup .env file</code>
+8. <code>php artisan migrate:fresh --seed && php artisan passport:install</code>
+9. <code>php artisan serve</code>
 
 ## Notes
 Soon to have laravel sail built on top of docker for virtualization.
