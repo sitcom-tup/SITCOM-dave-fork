@@ -36,7 +36,7 @@ class SupervisorProfileController extends Controller
 
         if($request->has('company'))
         {
-            $student->whereHas('Company', function($query) use ($request) {
+            $visor->whereHas('Company', function($query) use ($request) {
                 $query->where('comp_name', 'LIKE', '%'.$request->company.'%');
             });
         }

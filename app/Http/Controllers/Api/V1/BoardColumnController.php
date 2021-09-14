@@ -12,7 +12,9 @@ class BoardColumnController extends Controller
 {
     public function store(StoreBoardColumnRequest $request,BoardColumn $boardColumn)
     {
-        $col = $boardColumn->updateOrCreate(['board_id'=>$request->board_id],$request->validated());
+        $col = $boardColumn->updateOrCreate(['board_id'=>$request->board_id,
+                                            'id' => $request->column_id],
+                                            $request->except('column_id'));
         
         return (BoardColumnResource::make($col))->additional(['message'=>'saved']);
     }

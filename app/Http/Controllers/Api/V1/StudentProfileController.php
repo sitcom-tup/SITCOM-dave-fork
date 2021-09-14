@@ -38,12 +38,14 @@ class StudentProfileController extends Controller
 
         if($request->has('course'))
         {
-            $student->whereHas('Course', function($query) use ($request) {
+            $students->whereHas('Course', function($query) use ($request) {
                 $query->where('course_name', 'LIKE', '%'.$request->course.'%');
             });
         }
 
-        $lists = $students->latest()->paginate(12);
+        $request->has('limit') ? $limit = $request->limit : $limit = 12;
+
+        $lists = $students->latest()->paginate($limit);
 
         return new ProfileCollection(StudentProfileResource::collection($lists),$lists);
     }

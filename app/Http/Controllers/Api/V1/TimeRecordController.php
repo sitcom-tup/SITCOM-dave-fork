@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\StoreTimeRecordRequest;
 use App\Http\Resources\TimeRecordCollection;
 use App\Http\Resources\TimeRecordResource;
+use App\Http\Requests\TimeRecordRequest;
 use App\Http\Requests\TimeOutRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -23,17 +24,8 @@ class TimeRecordController extends Controller
 // edit - student, supervisor 
 
 
-    public function index(Request $request)
+    public function index(TimeRecordRequest $request)
     {
-        $request->validate([
-            'student' => 'nullable|integer',
-            'date_to' => 'nullable|date_format:Y-m-d',
-            'date_from' => 'nullable|date_format:Y-m-d',
-            'limit' => 'nullable|integer',
-            'verified'=> 'nullable|integer',
-            'supervisor' => 'nullable|integer',
-        ]);
-
         $dtrs = TimeRecord::with(['student']);
 
         if($request->has('supervisor'))

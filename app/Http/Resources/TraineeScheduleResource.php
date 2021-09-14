@@ -21,8 +21,8 @@ class TraineeScheduleResource extends JsonResource
             'in_time' => $this->in_time,
             'out_time' => $this->out_time,
             'human_readable_format' => [
-                'in_time' => Carbon::parse($this->in_time)->format('h:i s'),
-                'out_time' => Carbon::parse($this->out_time)->format('h:i s'),
+                'in_time' => Carbon::parse($this->in_time)->format('h:i A'),
+                'out_time' => Carbon::parse($this->out_time)->format('h:i A'),
                 'day_of_week' => $this->getDayName(),
             ],
             'in_time_provision' => $this->in_time_provision,

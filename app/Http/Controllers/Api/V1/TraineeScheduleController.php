@@ -47,7 +47,8 @@ class TraineeScheduleController extends Controller
             array_push($students,$sched['student_id']);
         }
 
-        return TraineeScheduleResource::collection($schedule->whereIn('student_id',$students)->get()->load('student'));
+        return TraineeScheduleResource::collection($schedule->whereIn('student_id',$students)
+                                        ->orderBy('day_of_week','asc')->get()->load('student'));
     }
 
     public function destroy($id)
@@ -55,7 +56,8 @@ class TraineeScheduleController extends Controller
         $sched = Schedule::findOrFail($id);
         $sched->delete();
 
-        return TraineeScheduleResource::collection($sched->where('student_id',$sched->student_id)->get()->load('student'));
+        return TraineeScheduleResource::collection($sched->where('student_id',$sched->student_id)
+                                        ->orderBy('day_of_week','asc')->get()->load('student'));
     }
 
 }

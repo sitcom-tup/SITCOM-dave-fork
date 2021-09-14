@@ -6,7 +6,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBoardColumnRequest extends FormRequest
+class TimeRecordRequest extends FormRequest
 {
     public function authorize()
     {
@@ -23,17 +23,12 @@ class StoreBoardColumnRequest extends FormRequest
     public function rules()
     {
         return [
-            'column_id' => ['nullable'],
-            'board_id' => ['required', 'string'],
-            'column_name'=> ['required','string','max:100'],
-            'column_style'=> ['nullable', 'string'],
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'column_name.required' => 'Column / Section name cannot be empty',
+            'student' => 'nullable|integer',
+            'date_to' => 'nullable|date_format:Y-m-d',
+            'date_from' => 'nullable|date_format:Y-m-d',
+            'limit' => 'nullable|integer',
+            'verified'=> 'nullable|integer',
+            'supervisor' => 'nullable|integer',
         ];
     }
 }

@@ -18,7 +18,7 @@ class Intern extends Model
 
     public function supervisor()
     {
-        return $this->belongsTo(supervisor::class);
+        return $this->belongsTo(Supervisor::class);
     }
 
     public function coordinator()

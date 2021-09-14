@@ -44,18 +44,22 @@ class BoardController extends Controller
 
         if($request->has('name')) {
             $board->update(['board_name' => $request->name]);
-        }elseif ($request->has('users')) {
-            $boardUsers = [];
-            foreach($request->users as $user)
-            {
-                array_push($boardUsers, ['board_id'=>$id,'user_id',$user]);
-            }
-            $board->boardUsers()->updateOrCreate(['board_id'=>$id,'user_id'=>$user],$boardUsers);
-        }else {
-            return (BoardResource::make($board))->additional(['message'=>'failed']);
         }
 
-        return (BoardResource::make($board))->additional(['message'=>'updated']);
+        if ($request->has('users'))
+        {
+            $currUsers = $board->boardUsers()->pluck('user_id');
+            //Remove all users that are not on the updated list of users
+            $board->boardUsers()->whereIn('user_id',array_diff($currUsers->toArray(),$request->users))->delete();
+            
+            foreach($request->users as $user)
+            {
+                
+                $board->boardUsers()->updateOrCreate(['board_id'=>$id,'user_id'=>$user],['board_id'=>$id,'user_id'=>$user]);
+            }
+        }
+
+        return (BoardResource::make(Board::with(['boardColumns','boardUsers'])->find($id)))->additional(['message'=>'updated']);
     }
 
     public function store(StoreBoardRequest $request)

@@ -19,7 +19,7 @@ class AnnouncementResource extends JsonResource
             'announce_id' => $this->id,
             'coordinator' => $this->coordinator->only(['id']),
             'department' => $this->coordinator->department->only(['department_name']),
-            'coures'=>$this->courses,
+            'courses'=>$this->courses,
             'heading' => $this->heading,
             'body' => $this->body,
             'posted_at' => $this->getPostedDateFormat(),
