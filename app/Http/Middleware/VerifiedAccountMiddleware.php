@@ -22,12 +22,15 @@ class VerifiedAccountMiddleware
 
         if($user->email_verified_at == null)
         {
-            return response()->json([
-                'status' => 'failed',
-                'message' => 'Unauthorized, account not verified',
-                'code' => 401,
-                'url' => url('api/v1/requests/verifications/'.$user->id),
-            ])->setStatusCode(401);
+            if($user->role == 3 || $user->role == 5)
+            {
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => 'Unauthorized, account not verified',
+                    'code' => 401,
+                    'url' => url('api/v1/requests/verifications/'.$user->id),
+                    ])->setStatusCode(401);
+            }
         }     
 
         return $next($request);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\AccountVerificationController;
 use App\Http\Controllers\Api\V1\StudentDepartmentController;
 use App\Http\Controllers\Api\V1\TimeRecordController;
 use App\Http\Controllers\Api\V1\TaskBoardController;
@@ -84,6 +85,10 @@ Route::group(['middleware' => ['auth:api','isVerified']], function() {
     // Trainee task list
     Route::get('dailywork/tasks', [TaskBoardController::class,'index']);
 });
+
+
+Route::get('requests/verifications/{id}',[AccountVerificationController::class,'sendRequest']);
+
 
 
 // Fallback route 
