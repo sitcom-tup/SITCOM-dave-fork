@@ -42,7 +42,7 @@ Route::post('register/supervisors', [RegisterController::class, 'supervisorRegis
 
 
 // for all authenticated roles inside Auth using Auth:check();
-Route::group(['middleware' => ['auth:api']], function() { 
+Route::group(['middleware' => ['auth:api','isVerified']], function() { 
     Route::get('/departments/{department}/students', [StudentDepartmentController::class, 'getStudentDepartment']);
     Route::apiResources([
         'announcements' => AnnouncementController::class,

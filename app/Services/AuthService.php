@@ -95,6 +95,17 @@ class AuthService
         }
         return false;
     }
+
+    // public function isVerified($request,$guard)
+    // {
+    //     if($this->loginAuthVerify($request,$guard))
+    //     {
+    //         if(auth()->user()->email_verified_at == null)
+    //         {
+    //             return true;
+    //         }
+    //     }
+    // }
 }
 
         
