@@ -48,6 +48,7 @@ class UpdateCoordinatorProfile extends FormRequest
             'coordinator_link'=>['nullable','string'],
             'coordinator_contact'=> new ValidNumber(),
             'department_id'=>['required','integer'],
+            'course_id'=>['required','integer'],
             'state'=>['nullable','integer']
         ];
     }

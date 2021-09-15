@@ -41,6 +41,7 @@ class StoreCoordinatorRequest extends FormRequest
             'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email'],
             'password'=>['required','confirmed','string','min:8'],
             'department_id'=>['required','integer'],
+            'course_id'=>['required','integer'],
             'contact'=> new ValidNumber(),
             // 'address'=>['required','string','max:250'],
             // 'tup_id'=> [new ValidId(),'unique:App\Models\Student,student_tup_id'],
