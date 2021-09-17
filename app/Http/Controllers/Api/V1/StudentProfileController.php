@@ -107,7 +107,8 @@ class StudentProfileController extends Controller
         if($student->user->email_verified_at !== null  && $request->verified_at == 1)
         {
             // Email student when account is verified 
-            $student->user->notify(new AccountVerified($student));
+            $user = $student;
+            $student->user->notify(new AccountVerified($user));
         }
 
         return new StudentProfileResource($student);

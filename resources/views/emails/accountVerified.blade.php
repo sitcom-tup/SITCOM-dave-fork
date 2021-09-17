@@ -1,5 +1,5 @@
 @component('mail::message')
-# Hello {{$user->user->getFullName()}}, 
+# Hello {{$user->getFullName()}}, 
 
 You are receiving this email because your email has now been verified by your coordinator.
 

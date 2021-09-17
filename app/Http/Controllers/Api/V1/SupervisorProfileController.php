@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Resources\SupervisorProfileResource;
 use App\Http\Requests\UpdateSupervisorProfile;
 use App\Http\Resources\ProfileCollection;
+use App\Notifications\AccountVerified;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Passport\Token;
@@ -58,7 +59,7 @@ class SupervisorProfileController extends Controller
             $request['password'] = Hash::make($request['password']);
         }
         
-        if($request->has('verified_at'))
+        if($request->has('verified_at') && $request->verified_at == 1)
         {
             $request['email_verified_at'] = now();
         }
@@ -66,8 +67,16 @@ class SupervisorProfileController extends Controller
         $visor->update($request->except(['fname','lname','email','password','supervisor_id','state','email_verified_at','verified_at']));
         $visor->user()->update($request->only(['fname','lname','email','password','email_verified_at','state']));
 
-        return (SupervisorProfileResource::make(Supervisor::with(['user'])->find($id)))
-        ->additional(['message'=>'updated']);
+        $visor = Supervisor::with(['user'])->find($id);
+        
+        if($visor->user->email_verified_at !== null  && $request->verified_at == 1)
+        {
+            // Email student when account is verified
+            $user = $visor;
+            $visor->user->notify(new AccountVerified($user));
+        }
+
+        return (SupervisorProfileResource::make($visor))->additional(['message'=>'updated']);
     }
 
 

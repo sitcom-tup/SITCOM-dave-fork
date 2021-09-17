@@ -42,7 +42,7 @@ class AccountVerified extends Notification
     {
         return (new MailMessage)
                     ->subject('Account Verified')
-                    ->markdown('emails.accountVerified',['user' => $notifiable->student]);
+                    ->markdown('emails.accountVerified',['user' => $notifiable]);
     }
 
     /**
