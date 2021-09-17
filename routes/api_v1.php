@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\AccountVerificationController;
 use App\Http\Controllers\Api\V1\StudentDepartmentController;
+use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Api\V1\TimeRecordController;
 use App\Http\Controllers\Api\V1\TaskBoardController;
 use App\Http\Controllers\Api\V1\UserPoolController;
@@ -86,10 +87,11 @@ Route::group(['middleware' => ['auth:api','isVerified']], function() {
     Route::get('dailywork/tasks', [TaskBoardController::class,'index']);
 });
 
-
+// Account verification
 Route::get('requests/verifications/{id}',[AccountVerificationController::class,'sendRequest']);
 
-
+// Password reset
+Route::get('requests/passwords/resets',[PasswordResetController::class, 'sendRequest']);
 
 // Fallback route 
 Route::fallback(function (Request $request) {
