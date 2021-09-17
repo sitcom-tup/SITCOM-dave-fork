@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\V1\AccountVerificationController;
 use App\Http\Controllers\Api\V1\StudentDepartmentController;
+use App\Http\Controllers\Auth\PasswordResetController;
+use App\Http\Controllers\Api\V1\TimeRecordController;
+use App\Http\Controllers\Api\V1\TaskBoardController;
+use App\Http\Controllers\Api\V1\UserPoolController;
+use App\Http\Controllers\Api\V1\MessageController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\LoginController;
@@ -26,13 +32,9 @@ Route::get('routes', function() {
 
 
 
-// Login
+// Login & Logout
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LogoutController::class, 'logout']);
-// Route::post('login/admins', [LoginController::class, 'adminLogin']);
-// Route::post('login/students', [LoginController::class, 'studentLogin']);
-// Route::post('login/coordinators', [LoginController::class, 'coordinatorLogin']);
-// Route::post('login/supervisors', [LoginController::class, 'supervisorLogin']);
 // Register
 Route::post('register/admins', [RegisterController::class, 'adminRegister']);
 Route::post('register/students', [RegisterController::class, 'studentRegister']);
@@ -42,51 +44,56 @@ Route::post('register/supervisors', [RegisterController::class, 'supervisorRegis
 
 
 // for all authenticated roles inside Auth using Auth:check();
-// Route::group(['middleware' => ['auth:api','check_guard']], function() { 
-//     Route::get('/departments/{department}/students', [StudentDepartmentController::class, 'getStudentDepartment']);
-//     Route::apiResources([
-//         'announcements' => AnnouncementController::class,
-//     ]);
-// });
+Route::group(['middleware' => ['auth:api','isVerified']], function() { 
+    Route::get('/departments/{department}/students', [StudentDepartmentController::class, 'getStudentDepartment']);
+    Route::apiResources([
+        'announcements' => AnnouncementController::class,
+        'companies' => CompanyProfileController::class,
+        'profiles/coordinators' => CoordinatorProfileController::class,
+        'profiles/students' => StudentProfileController::class,
+        'profiles/supervisors' => SupervisorProfileController::class,
+        'interns' => InternController::class,
+    ]);
+    Route::apiResource('jobs', JobController::class);
 
+    // messages
+    Route::get('messages',[MessageController::class,'index']);
+    Route::get('messages/{messages}',[MessageController::class,'show']);
+    Route::post('messages',[MessageController::class,'store']);
 
-// for admins == api 
-// Route::middleware(['auth:api','scopes:user'])->group(function () {
-//     Route::post('logout/admins', [LogoutController::class, 'logout']);
-//     Route::get('/admins', function(Request $request){
-//         return $request->user();
-//     });
-// });
+    // User pools for current active and inactive users
+    Route::get('userpools',[UserPoolController::class,'index']);
+    Route::post('userpools/connect',[UserPoolController::class,'connect']);
+    Route::delete('userpools/disconnect/{socketId}',[UserPoolController::class,'disconnect']);
 
+    // Time Record or the DTR Daily Time Record
+    Route::get('dailytime/records', [TimeRecordController::class, 'index']);
+    Route::get('dailytime/records/{id}', [TimeRecordController::class, 'show']);
+    Route::put('dailytime/records/{id}', [TimeRecordController::class, 'update']);
+    Route::delete('dailytime/records/{id}', [TimeRecordController::class, 'destroy']);
+    Route::post('dailytime/records/timein', [TimeRecordController::class, 'storeByStudent']);
+    Route::put('dailytime/records/timeout/{id}', [TimeRecordController::class, 'updateByStudent']);
+    Route::post('dailytime/records/supervisorcreate', [TimeRecordController::class, 'storeBySupervisor']);
 
-// for students == api
-// Route::middleware(['auth:student-api','scopes:student'])->group(function () {
-//     Route::post('logout/students', [LogoutController::class, 'logout']);  
-//     Route::get('/students', function(Request $request){
-//         return $request->user();
-//     });
-// });
+    // Trainee Schedules
+    Route::apiResource('trainings/schedules',TraineeScheduleController::class)->only(['index','store','destroy']);
 
+    // Trainee / Supervisor Boards
+    Route::apiResource('projects/boards', BoardController::class)->only(['index','store','update','destroy']);
+    Route::apiResource('projects/columns', BoardColumnController::class)->only(['store','destroy']);
+    Route::apiResource('projects/cards', ColumnCardController::class)->only(['store','update','destroy']);
 
-// for coordinators == api
-// Route::middleware(['auth:coordinator-api','scopes:coordinator'])->group(function () {
-//     Route::post('logout/coordinators', [LogoutController::class, 'logout']);
-//     Route::get('/coordinators', function(Request $request){
-//         return $request->user();
-//     });
-// });
+    // Trainee task list
+    Route::get('dailywork/tasks', [TaskBoardController::class,'index']);
+});
 
+// Account verification
+Route::get('requests/verifications/{id}',[AccountVerificationController::class,'sendRequest']);
 
-// for supervisor == api
-// Route::middleware(['auth:supervisor-api','scopes:supervisor'])->group(function () {
-//     Route::post('logout/supervisors', [LogoutController::class, 'logout']);
-//     Route::get('/supervisors', function(Request $request){
-//         return $request->user();
-//     });
-// });
-
+// Password reset
+Route::get('requests/passwords/resets',[PasswordResetController::class, 'sendRequest']);
 
 // Fallback route 
 Route::fallback(function (Request $request) {
-    return response()->json(['error'=>'404 resource not found'],404);
+    return response()->json(['status'=>'failed','code'=>404,'error'=>'404 resource not found'],404);
 });

@@ -20,7 +20,7 @@ class Student extends Authenticatable
 //  Eager loading by default
 //  this is when you wanted to always load the related model
 //  this basically loads student with course model
-    protected $with = ['course']; 
+    protected $with = ['user','course']; 
 
     protected $hidden = [
         'student_password',
@@ -53,6 +53,26 @@ class Student extends Authenticatable
     {
         return $this->belongsToThrough(Department::class,Course::class);
     }
+
+    public function intern()
+    {
+        return $this->hasOne(Intern::class);
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
+    public function timeRecords()
+    {
+        return $this->belongsToMany(TimeRecord::class);
+    }
+
+    // public function columnCards()
+    // {
+    //     return $this->hasMany(ColumnCard::class);
+    // }
 
     public function getAuthPassword()
     {

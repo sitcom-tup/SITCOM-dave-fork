@@ -85,6 +85,27 @@ class AuthService
         return $name === 'course_id' || $name === 'department_id' || $name === 'company_id' || $name === 'user_id';
     }
 
+    public function isAllowed($roles = [])
+    {
+        $user = auth()->user()->role;
+
+        if(in_array($user,$roles))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    // public function isVerified($request,$guard)
+    // {
+    //     if($this->loginAuthVerify($request,$guard))
+    //     {
+    //         if(auth()->user()->email_verified_at == null)
+    //         {
+    //             return true;
+    //         }
+    //     }
+    // }
 }
 
         

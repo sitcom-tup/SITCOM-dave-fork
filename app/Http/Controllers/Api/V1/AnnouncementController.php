@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Requests\StoreAnnouncementRequest;
+use App\Http\Resources\AnnouncementCollection;
 use App\Http\Resources\AnnouncementResource;
 use App\Http\Controllers\Controller;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AnnouncementController extends Controller
 {
@@ -13,7 +16,7 @@ class AnnouncementController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'date' => 'nullable|date_format(Y-m-d)|string',
+            'date' => 'nullable|date_format:Y-m-d|string',
             'course' => 'nullable|string',
             'limit' => 'nullable|integer'
         ]);
@@ -23,7 +26,7 @@ class AnnouncementController extends Controller
 
         if($request->has('date'))
         {
-            $announce->where('created_at', $request->date);
+            $announce->where('posted_at',$request->date);
         }
 
         if($request->has('course'))
@@ -31,7 +34,7 @@ class AnnouncementController extends Controller
             $announce->whereCourses($request->course);
         }
 
-        return AnnouncementResource::collection($announce->latest()->paginate($limit));
+        return new AnnouncementCollection($announce->latest()->paginate($limit));
     }
 
     /**
@@ -50,9 +53,10 @@ class AnnouncementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAnnouncementRequest $request)
     {
-        //
+        $ann = Announcement::firstOrCreate($request->validated());
+        return (AnnouncementResource::make($ann))->additional(['message'=>'saved']);
     }
 
     /**
@@ -63,7 +67,8 @@ class AnnouncementController extends Controller
      */
     public function show(Announcement $announcement)
     {
-        //
+        $ann = $announcement->findOrFail($announcement->id);
+        return (AnnouncementResource::make($ann)->additional(['message'=>'retrieved']));
     }
 
     /**
@@ -84,9 +89,11 @@ class AnnouncementController extends Controller
      * @param  \App\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Announcement $announcement)
+    public function update(StoreAnnouncementRequest $request, Announcement $announcement)
     {
-        //
+        $ann =$announcement->update($request->validated());
+        return (AnnouncementResource::make($announcement->latest()->first())
+                                    ->additional(['message'=>'updated']));
     }
 
     /**
@@ -97,6 +104,8 @@ class AnnouncementController extends Controller
      */
     public function destroy(Announcement $announcement)
     {
-        //
+        $ann = $announcement->findOrFail($announcement->id);
+        $ann->delete();
+        return (AnnouncementResource::make($ann)->additional(['message'=>'deleted']));
     }
 }

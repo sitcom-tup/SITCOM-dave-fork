@@ -20,6 +20,7 @@ class SupervisorAuthResource extends JsonResource
             'message'=>'user logged in',
             'table'=>'supervisors',
             'data' => [
+                'user_id' => $this->user->id,
                 'supervisor_name' => $this->user->getFullName(),
                 'supervisor_email' => $this->user->email,
                 'supervisor_contact' => $this->supervisor_contact,

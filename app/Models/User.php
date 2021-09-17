@@ -79,6 +79,39 @@ class User extends Authenticatable
 
     public function supervisor()
     {
-        return $this->hasOne(Suprvisor::class);
+        return $this->hasOne(Supervisor::class);
+    }
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
+
+    public function userPool()
+    {
+        return $this->belongsTo(UserPool::class);
+    }
+
+    public function columnCards()
+    {
+        return $this->hasMany(ColumnCard::class);
+    }
+
+    public function userRole()
+    {
+        switch ($this->role) {
+            case 1:
+                return 'guest';
+            case 2:
+                return 'admin';
+            case 3:
+                return 'student';
+            case 4:
+                return 'coordinator';
+            case 5:
+                return 'supervisor';
+            default:
+                return null;
+        }
     }
 }

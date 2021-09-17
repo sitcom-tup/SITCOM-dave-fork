@@ -20,6 +20,7 @@ class StudentAuthResource extends JsonResource
             'message'=>'user logged in',
             'table'=>'students',
             'data' => [
+                'user_id' => $this->user->id,
                 'student_id' => $this->id,
                 'student_name' =>$this->user->getFullName(),
                 'student_tup_id' =>$this->student_tup_id,

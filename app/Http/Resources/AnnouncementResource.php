@@ -16,11 +16,13 @@ class AnnouncementResource extends JsonResource
     {
         // dd($this);
         return [
-            'id' => $this->id,
+            'announce_id' => $this->id,
             'coordinator' => $this->coordinator->only(['id']),
-            'department' => $this->coordinator->department,
+            'department' => $this->coordinator->department->only(['department_name']),
+            'courses'=>$this->courses,
             'heading' => $this->heading,
             'body' => $this->body,
+            'posted_at' => $this->getPostedDateFormat(),
             'created_at' => $this->getCreatedDateFormat(),
             'updated_at' => $this->getUpdatedDateFormat() 
         ];

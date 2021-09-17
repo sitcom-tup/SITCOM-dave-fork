@@ -19,6 +19,7 @@ class CreateAnnouncementsTable extends Migration
             $table->string('courses');
             $table->string('heading');
             $table->text('body');
+            $table->date('posted_at');
             $table->timestamps();
         });
     }

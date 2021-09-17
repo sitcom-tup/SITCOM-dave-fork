@@ -17,7 +17,7 @@ class Supervisor extends Authenticatable
     protected $guarded = [];
 
 //    Eager loading by default 
-    protected $with = ['company'];
+    protected $with = ['company','user'];
 
     protected $hidden = [
         'supervisor_password',
@@ -45,6 +45,21 @@ class Supervisor extends Authenticatable
     {
         return $this->belongsTo(Company::class);
     }
+
+    public function interns()
+    {
+        return $this->hasMany(Intern::class);
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
+    // public function columnCards()
+    // {
+    //     return $this->hasMany(ColumnCard::class);
+    // }
 
     public function getAuthPassword()
     {
