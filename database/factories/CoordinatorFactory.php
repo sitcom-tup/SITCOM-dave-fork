@@ -5,8 +5,8 @@ namespace Database\Factories;
 use Hash;
 use Str;
 use App\Models\User;
+use App\Models\Course;
 use App\Models\Coordinator;
-use App\Models\Department;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CoordinatorFactory extends Factory
@@ -26,10 +26,12 @@ class CoordinatorFactory extends Factory
     public function definition()
     {
         $id = User::latest('id')->first();
-        
+        $cd = Course::inRandomOrder()->first();
+
         return [
             'user_id' => $id->id,
-            'department_id' => Department::inRandomOrder()->first()->getKey(),
+            'department_id' => $cd->department_id,
+            'course_id' => $cd->id,
             // 'coordinator_fname' => $this->faker->firstName,
             // 'coordinator_lname' => $this->faker->lastName,
             // 'coordinator_email' => $this->faker->unique()->safeEmail,

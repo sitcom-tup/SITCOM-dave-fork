@@ -16,10 +16,11 @@ class CreateSchedulesTable extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained();
-            $table->foreignId('supervisor_id')->constrained();
+            $table->foreignId('supervisor_id')->nullable();
             $table->integer('day_of_week');
             $table->time('in_time');
             $table->time('out_time');
+            $table->time('in_time_provision');
             $table->timestamps();
         });
     }

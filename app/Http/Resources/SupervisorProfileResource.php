@@ -26,6 +26,7 @@ class SupervisorProfileResource extends JsonResource
                 'name' => $this->whenLoaded('user')->getFullName(),
                 'state' => $this->whenLoaded('user')->state,
                 'email' => $this->whenLoaded('user')->email,
+                'email_verified_at' => $this->whenLoaded('user')->email_verified_at,
                 'created_at' => Carbon::parse($this->whenLoaded('user')->created_at)->format('Y-m-d h:i A'),
             ],
             'company' => [

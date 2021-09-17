@@ -9,6 +9,7 @@ use App\Http\Resources\ProfileCollection;
 use App\Http\Requests\GetStudentRequest;
 use App\Http\Resources\StudentResource;
 use App\Http\Requests\StoreUserRequest;
+use App\Notifications\AccountVerified;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Passport\Token;
@@ -38,12 +39,14 @@ class StudentProfileController extends Controller
 
         if($request->has('course'))
         {
-            $student->whereHas('Course', function($query) use ($request) {
+            $students->whereHas('Course', function($query) use ($request) {
                 $query->where('course_name', 'LIKE', '%'.$request->course.'%');
             });
         }
 
-        $lists = $students->latest()->paginate(12);
+        $request->has('limit') ? $limit = $request->limit : $limit = 12;
+
+        $lists = $students->latest()->paginate($limit);
 
         return new ProfileCollection(StudentProfileResource::collection($lists),$lists);
     }
@@ -75,7 +78,7 @@ class StudentProfileController extends Controller
             $request['password'] = Hash::make($request['password']);
         }
         
-        if($request->has('verified_at'))
+        if($request->has('verified_at') && $request->verified_at == 1)
         {
             $request['email_verified_at'] = now();
         }
@@ -99,8 +102,16 @@ class StudentProfileController extends Controller
                                                 'password_confirmation',
                                                 'verified_at',
                                                 'student_link']));
+        $student = $student->find($id);
 
-        return new StudentProfileResource($student->find($id));
+        if($student->user->email_verified_at !== null  && $request->verified_at == 1)
+        {
+            // Email student when account is verified 
+            $user = $student;
+            $student->user->notify(new AccountVerified($user));
+        }
+
+        return new StudentProfileResource($student);
     }
 
 

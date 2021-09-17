@@ -53,7 +53,7 @@ class MessageController extends Controller
         $request['receivers'] = implode(',',$request->receivers);
         $request['id'] = $request->message_id;
 
-        $convo = Message::updateOrCreate($request->except(['message_id']));
+        $convo = Message::updateOrCreate(['id'=>$request->message_id],$request->except(['message_id']));
         
         return (MessageResource::make($convo))->additional(['message'=>'saved']);
     }

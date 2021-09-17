@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Schedule;
+use App\Models\BoardColumn;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ScheduleFactory extends Factory
+class BoardColumnFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Schedule::class;
+    protected $model = BoardColumn::class;
 
     /**
      * Define the model's default state.
@@ -22,11 +22,9 @@ class ScheduleFactory extends Factory
     public function definition()
     {
         return [
-            'student_id' => 1,
-            'supervisor_id' => 1,
-            'in_time' => '08:00:00',
-            'out_time' => '16:00:00',
-            'day_of_week'=> 1,  
+            'board_id' => \App\Models\Board::inRandomOrder()->first()->getKey(),
+            'column_name' => $this->faker->word,
+            'column_styles' => '<p>html/css here of card</p>'
         ];
     }
 }

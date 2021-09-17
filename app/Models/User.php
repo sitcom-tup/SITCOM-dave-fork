@@ -92,6 +92,11 @@ class User extends Authenticatable
         return $this->belongsTo(UserPool::class);
     }
 
+    public function columnCards()
+    {
+        return $this->hasMany(ColumnCard::class);
+    }
+
     public function userRole()
     {
         switch ($this->role) {

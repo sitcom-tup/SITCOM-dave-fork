@@ -104,7 +104,8 @@ class AnnouncementController extends Controller
      */
     public function destroy(Announcement $announcement)
     {
-        $ann = $announcement->findOrFail($announcement)->delete();
+        $ann = $announcement->findOrFail($announcement->id);
+        $ann->delete();
         return (AnnouncementResource::make($ann)->additional(['message'=>'deleted']));
     }
 }
