@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::view('/{path?}', 'index');
+
 
 Route::get('/api/v1/tests', function() {
     return view('api-test');

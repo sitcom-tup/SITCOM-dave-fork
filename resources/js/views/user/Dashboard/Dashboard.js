@@ -1,0 +1,68 @@
+import React, { Component } from 'react'
+import Header from '../../../components/Header/Header';
+import Footer from '../../../components/Footer/Footer';
+
+
+const handleLogout = () => {
+
+
+    // let userRole = user:{
+    //     role: 'student',
+    // };
+    // axios.post("http://localhost:8000/api/v1/logout")
+    //     .then(() => location.href = '/')
+    window.localStorage.clear(); 
+}; 
+
+
+
+class Home extends Component {
+    constructor() {
+        super();
+        this.state = {
+            isLoggedIn: false,
+            user: {}
+        }
+    }
+    // check if user is authenticated and storing authentication data as states if true
+    componentWillMount() {
+        let state = localStorage["appState"];
+        if (state) {
+            let AppState = JSON.parse(state);
+            this.setState({ isLoggedIn: AppState.isLoggedIn, user: AppState.user });
+            // console.log(AppState.user.id)
+        }
+    }
+
+    
+    // 4
+    render() {
+        console.log(this.state.user)
+        return (
+            <div>
+                <Header userData={this.state.user} userIsLoggedIn={this.state.isLoggedIn} />
+                <span>Whatever normally goes into the user dasboard page; the table below for instance</span>
+                <table className="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row ">User Id</th>
+                            <td>{this.state.user.id}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row ">Full Name</th>
+                            <td>{this.state.user.name}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row ">Email</th>
+                            <td>{this.state.user.email}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button className="btn btn-light" onClick={handleLogout}>Logout</button>
+                <Footer />
+            </div>
+        )
+    }
+}
+export default Home
