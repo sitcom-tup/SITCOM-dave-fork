@@ -9,6 +9,7 @@ use App\Http\Resources\ProfileCollection;
 use App\Http\Requests\GetStudentRequest;
 use App\Http\Resources\StudentResource;
 use App\Http\Requests\StoreUserRequest;
+use App\Notifications\AccountVerified;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Passport\Token;
@@ -77,7 +78,7 @@ class StudentProfileController extends Controller
             $request['password'] = Hash::make($request['password']);
         }
         
-        if($request->has('verified_at'))
+        if($request->has('verified_at') && $request->verified_at == 1)
         {
             $request['email_verified_at'] = now();
         }
@@ -101,8 +102,15 @@ class StudentProfileController extends Controller
                                                 'password_confirmation',
                                                 'verified_at',
                                                 'student_link']));
+        $student = $student->find($id);
 
-        return new StudentProfileResource($student->find($id));
+        if($student->user->email_verified_at !== null  && $request->verified_at == 1)
+        {
+            // Email student when account is verified 
+            $student->user->notify(new AccountVerified($student));
+        }
+
+        return new StudentProfileResource($student);
     }
 
 
