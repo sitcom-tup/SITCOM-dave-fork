@@ -12,4 +12,9 @@ class ReceiveOrderNumber
         return (string) Str::uuid();
     }
 
+    public function confirmationNumber()
+    {
+        return bin2hex(random_bytes(24));
+    }
+
 }
