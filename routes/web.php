@@ -18,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('index');
 // });
 
-Route::view('/{path?}', 'index');
+// Route::view('/{path?}', 'index');
 
+Route::view('/home', 'home.index');
+Route::view('/login', 'login.index');
+Route::view('/login/student', 'login.student');
 
 Route::get('/api/v1/tests', function() {
     return view('api-test');

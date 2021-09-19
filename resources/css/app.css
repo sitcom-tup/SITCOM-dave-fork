@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:600|Work+Sans:400,500,600,700&display=swap');
 
+html, body {
+  height:100%;
+  padding:0;
+  margin:0;
+ }
+
 body{
   background: rgb(93, 9, 9);
   background: linear-gradient(135deg, rgb(93, 9, 16) 0%,     rgb(103, 103, 103) 100%);
