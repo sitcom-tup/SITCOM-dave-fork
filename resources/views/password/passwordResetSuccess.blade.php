@@ -65,7 +65,7 @@
                     <div class="alert alert-secondary text-muted text-justify" role="alert">
                         TIP: <small>You can now close the browser if on mobile and if not you can click the button below</small>
                     </div>
-                    <a href={{config('app.url')}} class="btn btn-primary d-flex justify-content-center">Back to login</a>
+                    <a href="{{config('app.url')}}/login" class="btn btn-primary d-flex justify-content-center">Back to login</a>
                 @endif
             </div>
           </div>

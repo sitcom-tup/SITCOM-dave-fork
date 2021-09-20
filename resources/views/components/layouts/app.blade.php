@@ -8,7 +8,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ $title }}</title>
-        {{ $styles }}
+        
+        <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap" rel="stylesheet">
+        {{ $styles ?? ''}}
         
     </head>
     <body>

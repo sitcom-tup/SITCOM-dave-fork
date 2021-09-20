@@ -25,6 +25,43 @@ const useStyles = makeStyles((theme) => ({
       padding:'15px',
     },
 
+    signup: {
+      [theme.breakpoints.down('md')] : {
+        position:'absolute',
+        width:'100%'
+      }
+    },
+
+    signupButton: {
+      backgroundColor: '#923d3d',
+      color:'white'
+    },
+
+    leftImage: {
+      borderRadius: 16,
+      backgroundImage:'url(/tuptbg2.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      filter:'brightness(80%)',
+      width:'100%',
+      height:'800px',
+      [theme.breakpoints.down('md')] : {
+        backgroundImage: 'none',
+      }
+    },
+
+    paperLeftImage: {
+      borderRadius: 16,
+      backgroundColor:'rgba(0,0,0,0.10)',
+      height:'800px'
+    },
+
+    signupRightContent: {
+      padding:'10%',
+      backgroundColor:'transparent',
+      color:'black',
+    },
+
     logo:{
       // width:'20%',
       padding:'20px',
@@ -49,11 +86,13 @@ const useStyles = makeStyles((theme) => ({
     },
     
     input: {
-      color: "white"
+      color: "black"
     },
     
     multilineColor:{
-      color:'white'
+      borderRadius: '10px',
+      backgroundColor: 'white',
+      color:'black'
     },
 
     floatingLabelFocusStyle: {

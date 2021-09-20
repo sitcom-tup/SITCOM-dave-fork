@@ -14,3 +14,4 @@ require('./bootstrap');
 require('./Index');
 require('./commons/container');
 require('./components/Landing/homeLogin');
+require('./components/Auth/StudentLogin');
