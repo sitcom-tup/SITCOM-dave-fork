@@ -16078,6 +16078,100 @@ if (true) {
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _material_ui_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/utils */ "./node_modules/@material-ui/utils/esm/exactProp.js");
+/* harmony import */ var _useTheme_ThemeContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../useTheme/ThemeContext */ "./node_modules/@material-ui/styles/esm/useTheme/ThemeContext.js");
+/* harmony import */ var _useTheme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../useTheme */ "./node_modules/@material-ui/styles/esm/useTheme/useTheme.js");
+/* harmony import */ var _nested__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./nested */ "./node_modules/@material-ui/styles/esm/ThemeProvider/nested.js");
+
+
+
+
+
+
+ // To support composition of theme.
+
+function mergeOuterLocalTheme(outerTheme, localTheme) {
+  if (typeof localTheme === 'function') {
+    var mergedTheme = localTheme(outerTheme);
+
+    if (true) {
+      if (!mergedTheme) {
+        console.error(['Material-UI: You should return an object from your theme function, i.e.', '<ThemeProvider theme={() => ({})} />'].join('\n'));
+      }
+    }
+
+    return mergedTheme;
+  }
+
+  return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, outerTheme, localTheme);
+}
+/**
+ * This component takes a `theme` prop.
+ * It makes the `theme` available down the React tree thanks to React context.
+ * This component should preferably be used at **the root of your component tree**.
+ */
+
+
+function ThemeProvider(props) {
+  var children = props.children,
+      localTheme = props.theme;
+  var outerTheme = (0,_useTheme__WEBPACK_IMPORTED_MODULE_3__["default"])();
+
+  if (true) {
+    if (outerTheme === null && typeof localTheme === 'function') {
+      console.error(['Material-UI: You are providing a theme function prop to the ThemeProvider component:', '<ThemeProvider theme={outerTheme => outerTheme} />', '', 'However, no outer theme is present.', 'Make sure a theme is already injected higher in the React tree ' + 'or provide a theme object.'].join('\n'));
+    }
+  }
+
+  var theme = react__WEBPACK_IMPORTED_MODULE_1__.useMemo(function () {
+    var output = outerTheme === null ? localTheme : mergeOuterLocalTheme(outerTheme, localTheme);
+
+    if (output != null) {
+      output[_nested__WEBPACK_IMPORTED_MODULE_4__["default"]] = outerTheme !== null;
+    }
+
+    return output;
+  }, [localTheme, outerTheme]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_useTheme_ThemeContext__WEBPACK_IMPORTED_MODULE_5__["default"].Provider, {
+    value: theme
+  }, children);
+}
+
+ true ? ThemeProvider.propTypes = {
+  /**
+   * Your component tree.
+   */
+  children: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().node.isRequired),
+
+  /**
+   * A theme object. You can provide a function to extend the outer theme.
+   */
+  theme: prop_types__WEBPACK_IMPORTED_MODULE_2___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_2___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_2___default().func)]).isRequired
+} : 0;
+
+if (true) {
+   true ? ThemeProvider.propTypes = (0,_material_ui_utils__WEBPACK_IMPORTED_MODULE_6__["default"])(ThemeProvider.propTypes) : 0;
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ThemeProvider);
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/styles/esm/ThemeProvider/nested.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@material-ui/styles/esm/ThemeProvider/nested.js ***!
@@ -25196,6 +25290,304 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/commons/Login/Buttons.js":
+/*!***********************************************!*\
+  !*** ./resources/js/commons/Login/Buttons.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var Buttons = function Buttons(_ref) {
+  var classes = _ref.classes;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    pt: 2,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      container: true,
+      justifyContent: "center",
+      spacing: 2,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        item: true,
+        xs: 12,
+        sm: 6,
+        md: 6,
+        lg: 6,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          variant: "contained",
+          fullWidth: true,
+          className: classes.signupButton,
+          type: "submit",
+          children: "Sign in"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        item: true,
+        xs: 12,
+        sm: 6,
+        md: 6,
+        lg: 6,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          variant: "contained",
+          fullWidth: true,
+          href: "/login",
+          className: classes.signupButton,
+          children: "Back"
+        })
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Buttons);
+
+/***/ }),
+
+/***/ "./resources/js/commons/Login/FormFooter.js":
+/*!**************************************************!*\
+  !*** ./resources/js/commons/Login/FormFooter.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Link/Link.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var FormFooter = function FormFooter(_ref) {
+  var classes = _ref.classes;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    pt: 3,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      component: "h6",
+      variant: "caption",
+      align: "center",
+      children: ["By using this service, you understood and agree to the TUP-T Online Services", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        href: "#",
+        underline: "none",
+        children: " Terms of Use "
+      }), "and", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        href: "#",
+        underline: "none",
+        children: " Privacy and Policy "
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormFooter);
+
+/***/ }),
+
+/***/ "./resources/js/commons/Login/LeftImage.js":
+/*!*************************************************!*\
+  !*** ./resources/js/commons/Login/LeftImage.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Paper/Paper.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var LeftImage = function LeftImage(_ref) {
+  var classes = _ref.classes;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    item: true,
+    xs: 12,
+    sm: 12,
+    md: 12,
+    lg: 6,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      mt: 10,
+      mb: 10,
+      className: classes.leftImage,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        elevation: 10,
+        className: classes.paperLeftImage
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LeftImage);
+
+/***/ }),
+
+/***/ "./resources/js/commons/Login/Signup.js":
+/*!**********************************************!*\
+  !*** ./resources/js/commons/Login/Signup.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/InputAdornment/InputAdornment.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/IconButton/IconButton.js");
+/* harmony import */ var _mui_icons_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/icons-material */ "./node_modules/@mui/icons-material/esm/VisibilityOff.js");
+/* harmony import */ var _mui_icons_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/icons-material */ "./node_modules/@mui/icons-material/esm/Visibility.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+var Signup = function Signup(_ref) {
+  var _ref3;
+
+  var role = _ref.role,
+      handleEmail = _ref.handleEmail,
+      handlePsswd = _ref.handlePsswd,
+      values = _ref.values,
+      classes = _ref.classes,
+      handleClickShowPassword = _ref.handleClickShowPassword,
+      handleMouseDownPassword = _ref.handleMouseDownPassword;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    pt: 6,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      component: "h2",
+      variant: "subtitle2",
+      children: ["Sign In as TUP-T ", role]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      fullWidth: true,
+      size: "medium",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        id: "email",
+        name: "email",
+        label: "Email Address",
+        variant: "filled",
+        margin: "normal",
+        required: true,
+        fullWidth: true,
+        autoFocus: true,
+        onChange: handleEmail,
+        autoComplete: "email",
+        inputProps: _defineProperty({
+          className: classes.input
+        }, "className", classes.multilineColor)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        id: "password",
+        name: "password",
+        variant: "filled",
+        label: "Password",
+        margin: "normal",
+        type: values.showPassword ? 'text' : 'password',
+        value: values.password,
+        required: true,
+        fullWidth: true,
+        onChange: handlePsswd,
+        className: classes.multilineColor,
+        InputProps: (_ref3 = {
+          className: classes.input
+        }, _defineProperty(_ref3, "className", classes.multilineColor), _defineProperty(_ref3, "endAdornment", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          position: "end",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__["default"], {
+            "aria-label": "toggle password visibility",
+            onClick: handleClickShowPassword,
+            onMouseDown: handleMouseDownPassword,
+            edge: "end",
+            children: values.showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_icons_material__WEBPACK_IMPORTED_MODULE_8__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_mui_icons_material__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+          })
+        })), _ref3)
+      })]
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Signup);
+
+/***/ }),
+
+/***/ "./resources/js/commons/Login/Subtitle.js":
+/*!************************************************!*\
+  !*** ./resources/js/commons/Login/Subtitle.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var Subtitle = function Subtitle(_ref) {
+  var classes = _ref.classes;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+      className: classes.logo,
+      alt: "complex",
+      src: "/SITCOM_Logo.png"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      component: "h2",
+      variant: "subtitle1",
+      children: "Technological University of the Philippines - Taguig"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      component: "h2",
+      variant: "subtitle1",
+      children: "Supervised Industrial Training Computerized"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      component: "h2",
+      variant: "subtitle1",
+      children: "Organizational Monitoring System"
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Subtitle);
+
+/***/ }),
+
 /***/ "./resources/js/commons/container.js":
 /*!*******************************************!*\
   !*** ./resources/js/commons/container.js ***!
@@ -26864,6 +27256,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+<<<<<<< Updated upstream
 /* harmony import */ var _styles_register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../styles/register */ "./resources/js/styles/register.js");
 /* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
 /* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
@@ -26878,6 +27271,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_icons_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/icons-material */ "./node_modules/@mui/icons-material/esm/VisibilityOff.js");
 /* harmony import */ var _mui_icons_material__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/icons-material */ "./node_modules/@mui/icons-material/esm/Visibility.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+=======
+/* harmony import */ var _styles_login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../styles/login */ "./resources/js/styles/login.js");
+/* harmony import */ var _styles_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../styles/theme */ "./resources/js/styles/theme.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/Paper.js");
+/* harmony import */ var _commons_Login_Subtitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../commons/Login/Subtitle */ "./resources/js/commons/Login/Subtitle.js");
+/* harmony import */ var _commons_Login_Signup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../commons/Login/Signup */ "./resources/js/commons/Login/Signup.js");
+/* harmony import */ var _commons_Login_Buttons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../commons/Login/Buttons */ "./resources/js/commons/Login/Buttons.js");
+/* harmony import */ var _commons_Login_FormFooter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../commons/Login/FormFooter */ "./resources/js/commons/Login/FormFooter.js");
+/* harmony import */ var _commons_Login_LeftImage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../commons/Login/LeftImage */ "./resources/js/commons/Login/LeftImage.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+>>>>>>> Stashed changes
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -26909,14 +27316,23 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+<<<<<<< Updated upstream
 var SupervisorRegister = function SupervisorRegister() {
   var _ref3, _ref4;
 
   var classes = (0,_styles_register__WEBPACK_IMPORTED_MODULE_2__.useStyles)();
+=======
+
+
+
+var StudentLogin = function StudentLogin() {
+  var classes = (0,_styles_login__WEBPACK_IMPORTED_MODULE_2__.useStyles)();
+>>>>>>> Stashed changes
 
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState({
     amount: '',
     password: '',
+    email: '',
     weight: '',
     weightRange: '',
     showPassword: false
@@ -26925,9 +27341,18 @@ var SupervisorRegister = function SupervisorRegister() {
       values = _React$useState2[0],
       setValues = _React$useState2[1];
 
+  var handleEmail = function handleEmail(e) {
+    setValues(_objectSpread(_objectSpread({}, values), {}, {
+      email: e.target.value
+    }));
+  };
+
   var handleChange = function handleChange(prop) {
     return function (event) {
-      setValues(_objectSpread(_objectSpread({}, values), {}, _defineProperty({}, prop, event.target.value)));
+      console.log(event.target.value);
+      setValues(_objectSpread(_objectSpread({}, values), {}, {
+        password: event.target.value
+      }));
     };
   };
 
@@ -26941,6 +27366,7 @@ var SupervisorRegister = function SupervisorRegister() {
     event.preventDefault();
   };
 
+<<<<<<< Updated upstream
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__["default"], {
     mt: 0,
     ml: 4,
@@ -27131,17 +27557,74 @@ var SupervisorRegister = function SupervisorRegister() {
                 })]
               })
             })]
+=======
+  var handleFormSubmit = function handleFormSubmit(e) {
+    e.preventDefault();
+    console.log("Email ".concat(values.email, " , Password ").concat(values.password));
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    theme: _styles_theme__WEBPACK_IMPORTED_MODULE_3__["default"],
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      mt: 0,
+      ml: 4,
+      mr: 4,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        container: true,
+        spacing: 3,
+        justifyContent: "center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_LeftImage__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          classes: classes
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          item: true,
+          xs: 12,
+          sm: 12,
+          md: 12,
+          lg: 6,
+          className: classes.signup,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            mt: 10,
+            mb: 3,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_13__["default"], {
+              elevation: 0,
+              className: (classes.paper, classes.signupRightContent),
+              align: "center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_Subtitle__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                classes: classes
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
+                onSubmit: handleFormSubmit,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_Signup__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                  role: "Student",
+                  handleEmail: handleEmail,
+                  handlePsswd: handleChange('password'),
+                  values: values,
+                  classes: classes,
+                  handleClickShowPassword: handleClickShowPassword,
+                  handleMouseDownPassword: handleMouseDownPassword
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_Buttons__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                  classes: classes
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_FormFooter__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                  classes: classes
+                })]
+              })]
+            })
+>>>>>>> Stashed changes
           })
-        })
-      })]
+        })]
+      })
     })
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SupervisorRegister);
 
+<<<<<<< Updated upstream
 if (document.getElementById('register-supervisor')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(SupervisorRegister, {}), document.getElementById('register-supervisor'));
+=======
+if (document.getElementById('login-student')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(StudentLogin, {}), document.getElementById('login-student'));
+>>>>>>> Stashed changes
 }
 
 /***/ }),
@@ -27828,8 +28311,7 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
       margin: '0px',
       padding: '0px',
       height: '100%',
-      color: 'white' // filter:'blur(5px)'
-
+      color: 'white'
     },
     typography: {
       "fontFamily": 'Poppins',
@@ -28091,8 +28573,7 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
       backgroundSize: 'cover',
       // filter: 'blur(5px)',
       filter: 'brightness(130%)',
-      width: '100%' // height: '100%',
-
+      width: '100%'
     },
     grid: {
       position: 'absolute',
@@ -28106,7 +28587,13 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
     signupButton: {
       backgroundColor: '#923d3d',
       color: 'white',
+<<<<<<< Updated upstream
       "fontFamily": 'Poppins'
+=======
+      '&:hover': {
+        color: 'black'
+      }
+>>>>>>> Stashed changes
     },
     leftImage: _defineProperty({
       borderRadius: 16,
@@ -28179,6 +28666,28 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
   };
 });
 
+
+/***/ }),
+
+/***/ "./resources/js/styles/theme.js":
+/*!**************************************!*\
+  !*** ./resources/js/styles/theme.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/styles/createTheme.js");
+
+var theme = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  typography: {
+    fontFamily: ['Poppins', 'Roboto', 'sans-serif']
+  }
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (theme);
 
 /***/ }),
 

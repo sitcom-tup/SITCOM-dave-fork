@@ -1,10 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html, body { 
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Grey Qo', 'cursive';
+    font-family: 'Poppins','monospace';
 }
 
 body {

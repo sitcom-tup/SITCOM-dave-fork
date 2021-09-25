@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
         padding: '0px',
         height: '100%',
         color: 'white',
-        // filter:'blur(5px)'
     },
     typography: {
       "fontFamily": 'Poppins',
@@ -21,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
       // filter: 'blur(5px)',
       filter: 'brightness(130%)',
       width: '100%',
-      // height: '100%',
     },
 
     grid: {
@@ -40,7 +38,9 @@ const useStyles = makeStyles((theme) => ({
     signupButton: {
       backgroundColor: '#923d3d',
       color:'white',
-      "fontFamily": 'Poppins',
+      '&:hover' : {
+        color:'black'
+      }
     },
 
 
