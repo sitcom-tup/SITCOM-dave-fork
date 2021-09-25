@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: '#923d3d',
       color:'white',
       "fontFamily": 'Poppins',
+      "&:hover" : {
+          color:'black'
+      }
     },
 
 

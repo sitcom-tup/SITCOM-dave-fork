@@ -25504,6 +25504,7 @@ var Signup = function Signup(_ref) {
         fullWidth: true,
         autoFocus: true,
         onChange: handleEmail,
+        className: classes.multilineColor,
         autoComplete: "email",
         inputProps: _defineProperty({
           className: classes.input
@@ -25567,19 +25568,18 @@ var Subtitle = function Subtitle(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
       className: classes.logo,
       alt: "complex",
-      src: "/SITCOM_Logo.png"
+      src: "/pictures/SITCOM_Logo.png"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      className: classes.typography,
+      children: "TECHNOLOGICAL UNIVERSITY OF THE PHILIPPINES - TAGUIG"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
       component: "h2",
-      variant: "subtitle1",
-      children: "Technological University of the Philippines - Taguig"
+      className: classes.typography,
+      children: "SUPERVISED INDUSTRIAL TRAINING COMPUTERIZED"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
       component: "h2",
-      variant: "subtitle1",
-      children: "Supervised Industrial Training Computerized"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      component: "h2",
-      variant: "subtitle1",
-      children: "Organizational Monitoring System"
+      className: classes.typography,
+      children: "ORGANIZATIONAL MONITORING SYSTEM"
     })]
   });
 };
@@ -26448,19 +26448,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _styles_logon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../styles/logon */ "./resources/js/styles/logon.js");
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
-/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/Paper.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/Typography.js");
-/* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/FormControl/FormControl.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/InputAdornment/InputAdornment.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/IconButton/IconButton.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Link/Link.js");
-/* harmony import */ var _mui_icons_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/icons-material */ "./node_modules/@mui/icons-material/esm/VisibilityOff.js");
-/* harmony import */ var _mui_icons_material__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/icons-material */ "./node_modules/@mui/icons-material/esm/Visibility.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _styles_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../styles/theme */ "./resources/js/styles/theme.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js");
+/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/Paper.js");
+/* harmony import */ var _commons_Login_Subtitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../commons/Login/Subtitle */ "./resources/js/commons/Login/Subtitle.js");
+/* harmony import */ var _commons_Login_Signup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../commons/Login/Signup */ "./resources/js/commons/Login/Signup.js");
+/* harmony import */ var _commons_Login_Buttons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../commons/Login/Buttons */ "./resources/js/commons/Login/Buttons.js");
+/* harmony import */ var _commons_Login_FormFooter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../commons/Login/FormFooter */ "./resources/js/commons/Login/FormFooter.js");
+/* harmony import */ var _commons_Login_LeftImage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../commons/Login/LeftImage */ "./resources/js/commons/Login/LeftImage.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -26481,6 +26479,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+ // import { useStyles } from '../../styles/login';
+
+
+
 
 
 
@@ -26493,13 +26495,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var StudentLogin = function StudentLogin() {
-  var _ref2;
-
   var classes = (0,_styles_logon__WEBPACK_IMPORTED_MODULE_2__.useStyles)();
 
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState({
     amount: '',
     password: '',
+    email: '',
     weight: '',
     weightRange: '',
     showPassword: false
@@ -26508,9 +26509,18 @@ var StudentLogin = function StudentLogin() {
       values = _React$useState2[0],
       setValues = _React$useState2[1];
 
+  var handleEmail = function handleEmail(e) {
+    setValues(_objectSpread(_objectSpread({}, values), {}, {
+      email: e.target.value
+    }));
+  };
+
   var handleChange = function handleChange(prop) {
     return function (event) {
-      setValues(_objectSpread(_objectSpread({}, values), {}, _defineProperty({}, prop, event.target.value)));
+      console.log(event.target.value);
+      setValues(_objectSpread(_objectSpread({}, values), {}, {
+        password: event.target.value
+      }));
     };
   };
 
@@ -26524,169 +26534,71 @@ var StudentLogin = function StudentLogin() {
     event.preventDefault();
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    mt: 0,
-    ml: 4,
-    mr: 4,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      container: true,
-      spacing: 3,
-      justifyContent: "center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        item: true,
-        xs: 12,
-        sm: 12,
-        md: 12,
-        lg: 6,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          mt: 5,
-          mb: 10,
-          className: classes.leftImage,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_6__["default"], {
-            elevation: 10,
-            className: classes.paperLeftImage
-          })
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        item: true,
-        xs: 12,
-        sm: 12,
-        md: 12,
-        lg: 6,
-        className: classes.signup,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          mt: 10,
-          mb: 3,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_6__["default"], {
-            elevation: 0,
-            className: (classes.paper, classes.signupRightContent),
-            align: "center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-              className: classes.logo,
-              alt: "complex",
-              src: "/pictures/SITCOM_Logo.png"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
-              className: classes.typography,
-              children: "TECHNOLOGICAL UNIVERSITY OF THE PHILIPPINES - TAGUIG"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
-              component: "h2",
-              className: classes.typography,
-              children: "SUPERVISED INDUSTRIAL TRAINING COMPUTERIZED"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
-              component: "h2",
-              className: classes.typography,
-              children: "ORGANIZATIONAL MONITORING SYSTEM"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__["default"], {
-              pt: 6,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
-                component: "h2",
-                className: classes.typography,
-                children: "Login as TUP-T Student"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                fullWidth: true,
-                size: "medium",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                  id: "email",
-                  name: "email",
-                  label: "Email Address",
-                  variant: "filled",
-                  margin: "normal",
-                  required: true,
-                  fullWidth: true,
-                  className: classes.multilineColor,
-                  autoFocus: true,
-                  autoComplete: "email",
-                  inputProps: _defineProperty({
-                    className: classes.input
-                  }, "className", classes.multilineColor)
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                  id: "password",
-                  name: "password",
-                  variant: "filled",
-                  label: "Password",
-                  margin: "normal",
-                  type: values.showPassword ? 'text' : 'password',
-                  value: values.password,
-                  required: true,
-                  fullWidth: true,
-                  onChange: handleChange('password'),
-                  className: classes.multilineColor,
-                  InputProps: (_ref2 = {
-                    className: classes.input
-                  }, _defineProperty(_ref2, "className", classes.multilineColor), _defineProperty(_ref2, "endAdornment", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], {
-                    position: "end",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["default"], {
-                      "aria-label": "toggle password visibility",
-                      onClick: handleClickShowPassword,
-                      onMouseDown: handleMouseDownPassword,
-                      edge: "end",
-                      children: values.showPassword ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material__WEBPACK_IMPORTED_MODULE_12__["default"], {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_mui_icons_material__WEBPACK_IMPORTED_MODULE_13__["default"], {})
-                    })
-                  })), _ref2)
-                })]
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__["default"], {
-              pt: 2,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                container: true,
-                justifyContent: "center",
-                spacing: 2,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                  item: true,
-                  xs: 12,
-                  sm: 6,
-                  md: 6,
-                  lg: 6,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__["default"], {
-                    variant: "contained",
-                    fullWidth: true,
-                    className: classes.signupButton,
-                    children: "Login in"
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                  item: true,
-                  xs: 12,
-                  sm: 6,
-                  md: 6,
-                  lg: 6,
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_14__["default"], {
-                    variant: "contained",
-                    fullWidth: true,
-                    href: "/login",
-                    className: classes.signupButton,
-                    children: "Back"
-                  })
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__["default"], {
-              pt: 3,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
-                component: "h6",
-                variant: "caption",
+  var handleFormSubmit = function handleFormSubmit(e) {
+    e.preventDefault();
+    console.log("Email ".concat(values.email, " , Password ").concat(values.password));
+  };
+
+  return (
+    /*#__PURE__*/
+    // Wrap all in a themeprovider
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      theme: _styles_theme__WEBPACK_IMPORTED_MODULE_3__["default"],
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        mt: 0,
+        ml: 4,
+        mr: 4,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          container: true,
+          spacing: 3,
+          justifyContent: "center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_LeftImage__WEBPACK_IMPORTED_MODULE_8__["default"], {
+            classes: classes
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_12__["default"], {
+            item: true,
+            xs: 12,
+            sm: 12,
+            md: 12,
+            lg: 6,
+            className: classes.signup,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_11__["default"], {
+              mt: 10,
+              mb: 3,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_13__["default"], {
+                elevation: 0,
+                className: (classes.paper, classes.signupRightContent),
                 align: "center",
-                className: classes.typography,
-                children: ["By using this service, you understood and agree to the TUP-T Online Services", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_15__["default"], {
-                  href: "#",
-                  underline: "none",
-                  children: " Terms of Use "
-                }), "and", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_15__["default"], {
-                  href: "#",
-                  underline: "none",
-                  children: " Privacy and Policy "
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_Subtitle__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  classes: classes
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
+                  onSubmit: handleFormSubmit,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_Signup__WEBPACK_IMPORTED_MODULE_5__["default"], {
+                    role: "Student",
+                    handleEmail: handleEmail,
+                    handlePsswd: handleChange('password'),
+                    values: values,
+                    classes: classes,
+                    handleClickShowPassword: handleClickShowPassword,
+                    handleMouseDownPassword: handleMouseDownPassword
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_Buttons__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                    classes: classes
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_FormFooter__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                    classes: classes
+                  })]
                 })]
               })
-            })]
-          })
+            })
+          })]
         })
-      })]
+      })
     })
-  });
+  );
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StudentLogin);
 
 if (document.getElementById('login-student')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(StudentLogin, {}), document.getElementById('login-student'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(StudentLogin, {}), document.getElementById('login-student'));
 }
 
 /***/ }),
@@ -27256,7 +27168,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-<<<<<<< Updated upstream
 /* harmony import */ var _styles_register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../styles/register */ "./resources/js/styles/register.js");
 /* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
 /* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
@@ -27271,20 +27182,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_icons_material__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/icons-material */ "./node_modules/@mui/icons-material/esm/VisibilityOff.js");
 /* harmony import */ var _mui_icons_material__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/icons-material */ "./node_modules/@mui/icons-material/esm/Visibility.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-=======
-/* harmony import */ var _styles_login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../styles/login */ "./resources/js/styles/login.js");
-/* harmony import */ var _styles_theme__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../styles/theme */ "./resources/js/styles/theme.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/styles/esm/ThemeProvider/ThemeProvider.js");
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/Grid.js");
-/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/Paper.js");
-/* harmony import */ var _commons_Login_Subtitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../commons/Login/Subtitle */ "./resources/js/commons/Login/Subtitle.js");
-/* harmony import */ var _commons_Login_Signup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../commons/Login/Signup */ "./resources/js/commons/Login/Signup.js");
-/* harmony import */ var _commons_Login_Buttons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../commons/Login/Buttons */ "./resources/js/commons/Login/Buttons.js");
-/* harmony import */ var _commons_Login_FormFooter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../commons/Login/FormFooter */ "./resources/js/commons/Login/FormFooter.js");
-/* harmony import */ var _commons_Login_LeftImage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../commons/Login/LeftImage */ "./resources/js/commons/Login/LeftImage.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
->>>>>>> Stashed changes
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -27316,23 +27213,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-<<<<<<< Updated upstream
 var SupervisorRegister = function SupervisorRegister() {
   var _ref3, _ref4;
 
   var classes = (0,_styles_register__WEBPACK_IMPORTED_MODULE_2__.useStyles)();
-=======
-
-
-
-var StudentLogin = function StudentLogin() {
-  var classes = (0,_styles_login__WEBPACK_IMPORTED_MODULE_2__.useStyles)();
->>>>>>> Stashed changes
 
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState({
     amount: '',
     password: '',
-    email: '',
     weight: '',
     weightRange: '',
     showPassword: false
@@ -27341,18 +27229,9 @@ var StudentLogin = function StudentLogin() {
       values = _React$useState2[0],
       setValues = _React$useState2[1];
 
-  var handleEmail = function handleEmail(e) {
-    setValues(_objectSpread(_objectSpread({}, values), {}, {
-      email: e.target.value
-    }));
-  };
-
   var handleChange = function handleChange(prop) {
     return function (event) {
-      console.log(event.target.value);
-      setValues(_objectSpread(_objectSpread({}, values), {}, {
-        password: event.target.value
-      }));
+      setValues(_objectSpread(_objectSpread({}, values), {}, _defineProperty({}, prop, event.target.value)));
     };
   };
 
@@ -27366,7 +27245,6 @@ var StudentLogin = function StudentLogin() {
     event.preventDefault();
   };
 
-<<<<<<< Updated upstream
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_4__["default"], {
     mt: 0,
     ml: 4,
@@ -27557,74 +27435,17 @@ var StudentLogin = function StudentLogin() {
                 })]
               })
             })]
-=======
-  var handleFormSubmit = function handleFormSubmit(e) {
-    e.preventDefault();
-    console.log("Email ".concat(values.email, " , Password ").concat(values.password));
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    theme: _styles_theme__WEBPACK_IMPORTED_MODULE_3__["default"],
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_11__["default"], {
-      mt: 0,
-      ml: 4,
-      mr: 4,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        container: true,
-        spacing: 3,
-        justifyContent: "center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_LeftImage__WEBPACK_IMPORTED_MODULE_8__["default"], {
-          classes: classes
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_12__["default"], {
-          item: true,
-          xs: 12,
-          sm: 12,
-          md: 12,
-          lg: 6,
-          className: classes.signup,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_11__["default"], {
-            mt: 10,
-            mb: 3,
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_13__["default"], {
-              elevation: 0,
-              className: (classes.paper, classes.signupRightContent),
-              align: "center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_Subtitle__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                classes: classes
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
-                onSubmit: handleFormSubmit,
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_Signup__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                  role: "Student",
-                  handleEmail: handleEmail,
-                  handlePsswd: handleChange('password'),
-                  values: values,
-                  classes: classes,
-                  handleClickShowPassword: handleClickShowPassword,
-                  handleMouseDownPassword: handleMouseDownPassword
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_Buttons__WEBPACK_IMPORTED_MODULE_6__["default"], {
-                  classes: classes
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Login_FormFooter__WEBPACK_IMPORTED_MODULE_7__["default"], {
-                  classes: classes
-                })]
-              })]
-            })
->>>>>>> Stashed changes
           })
-        })]
-      })
+        })
+      })]
     })
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SupervisorRegister);
 
-<<<<<<< Updated upstream
 if (document.getElementById('register-supervisor')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(SupervisorRegister, {}), document.getElementById('register-supervisor'));
-=======
-if (document.getElementById('login-student')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(StudentLogin, {}), document.getElementById('login-student'));
->>>>>>> Stashed changes
 }
 
 /***/ }),
@@ -28311,7 +28132,8 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
       margin: '0px',
       padding: '0px',
       height: '100%',
-      color: 'white'
+      color: 'white' // filter:'blur(5px)'
+
     },
     typography: {
       "fontFamily": 'Poppins',
@@ -28338,7 +28160,10 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
     signupButton: {
       backgroundColor: '#923d3d',
       color: 'white',
-      "fontFamily": 'Poppins'
+      "fontFamily": 'Poppins',
+      "&:hover": {
+        color: 'black'
+      }
     },
     leftImage: _defineProperty({
       borderRadius: 16,
@@ -28435,8 +28260,7 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
       margin: '0px',
       padding: '0px',
       height: '100%',
-      color: 'white' // filter:'blur(5px)'
-
+      color: 'white'
     },
     typography: {
       "fontFamily": 'Poppins',
@@ -28448,8 +28272,7 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
       backgroundSize: 'cover',
       // filter: 'blur(5px)',
       filter: 'brightness(130%)',
-      width: '100%' // height: '100%',
-
+      width: '100%'
     },
     grid: {
       position: 'absolute',
@@ -28463,7 +28286,9 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
     signupButton: {
       backgroundColor: '#923d3d',
       color: 'white',
-      "fontFamily": 'Poppins'
+      '&:hover': {
+        color: 'black'
+      }
     },
     leftImage: _defineProperty({
       borderRadius: 16,
@@ -28573,7 +28398,8 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
       backgroundSize: 'cover',
       // filter: 'blur(5px)',
       filter: 'brightness(130%)',
-      width: '100%'
+      width: '100%' // height: '100%',
+
     },
     grid: {
       position: 'absolute',
@@ -28587,13 +28413,7 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_0__["defaul
     signupButton: {
       backgroundColor: '#923d3d',
       color: 'white',
-<<<<<<< Updated upstream
       "fontFamily": 'Poppins'
-=======
-      '&:hover': {
-        color: 'black'
-      }
->>>>>>> Stashed changes
     },
     leftImage: _defineProperty({
       borderRadius: 16,

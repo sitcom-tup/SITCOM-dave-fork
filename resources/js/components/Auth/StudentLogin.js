@@ -53,6 +53,7 @@ const StudentLogin = () => {
       }
 
     return (
+        // Wrap all in a themeprovider
         <ThemeProvider theme={theme}>
             <Box mt={0} ml={4} mr={4}>
                 <Grid container spacing={3} justifyContent='center'>

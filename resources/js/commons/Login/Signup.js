@@ -28,6 +28,7 @@ const Signup = ({
                     fullWidth
                     autoFocus
                     onChange={handleEmail}
+                    className={classes.multilineColor}
                     autoComplete="email"
                     inputProps={{
                         className: classes.input,
