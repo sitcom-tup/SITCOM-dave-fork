@@ -1,7 +1,7 @@
 <x-layouts.app>
 
     <x-slot name="title">
-        Student Login
+        Supervisor Login
     </x-slot>
 
 
@@ -11,7 +11,7 @@
 
 
     <x-slot name="content">
-        <div id="login-student"></div>
+        <div id="login-supervisor"></div>
     </x-slot>
 
 </x-layouts.app>

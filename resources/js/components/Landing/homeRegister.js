@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import { useStyles } from '../../styles/signin';
+import { useStyles } from '../../styles/register';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -11,14 +11,12 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import { Link } from '@material-ui/core';
 
-const HomeLogin = ({background}) => {
+const HomeRegister = ({background}) => {
     const classes = useStyles();
     return (
         <Container maxWidth='lg' className={classes.root}>
-            
             <Box style={{width:'100%',height:'720px',filter:'blur(100px)',backgroundColor:'rgba(0,0,0,0.2)'}}></Box>
             {/* <Paper style={{backgroundImage:"url("+background+")"}} className={classes.backImg}></Paper> */}
-            
             <Grid container className={classes.grid}>
                 <Grid item xs={false} md={false} lg={8}></Grid>
                 <Grid item xs={12} sm={12} md={12} lg={4}>
@@ -33,22 +31,22 @@ const HomeLogin = ({background}) => {
                             </Grid>
                             <Grid item xs={8} sm={8} lg={10}>
                                 <Box p={1}>
-                                    <Button variant="contained" size="medium" fullWidth href="/login/admin">
+                                    <Button variant="contained" size="medium" fullWidth>
                                         Admin
                                     </Button>
                                 </Box>
                                 <Box p={1}>
-                                    <Button variant="contained" size="medium" fullWidth href="/login/coordinator">
+                                    <Button variant="contained" size="medium" fullWidth href="/register/coordinator">
                                         Coordinator
                                     </Button>
                                 </Box>
                                 <Box p={1}>
-                                    <Button variant="contained" size="medium" fullWidth href="/login/supervisor">
+                                    <Button variant="contained" size="medium" fullWidth href="/register/supervisor">
                                         Supervisor
                                     </Button>
                                 </Box>
                                 <Box p={1}>
-                                    <Button variant="contained" size="medium" fullWidth href="/login/student">
+                                    <Button variant="contained" size="medium" fullWidth href="/register/student">
                                         Student
                                     </Button>
                                 </Box>
@@ -81,10 +79,10 @@ const HomeLogin = ({background}) => {
     );
 }
  
-export default HomeLogin;
+export default HomeRegister;
 
-if(document.getElementById('home-login')) {
-    var home = document.getElementById('home-login');
+if(document.getElementById('home-register')) {
+    var home = document.getElementById('home-register');
     var background = home.getAttribute('data-background');
-    ReactDOM.render(<HomeLogin background={background} />, home);
+    ReactDOM.render(<HomeRegister background={background} />, home);
 }

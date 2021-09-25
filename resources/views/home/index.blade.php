@@ -4,7 +4,7 @@
         SITCOM Home page
     </x-slot>
 
-    <x-slot name="body">
+    <x-slot name="content">
         <div id="home">
         </div>
         <p>this is home content</p>

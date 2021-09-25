@@ -8,15 +8,18 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ $title }}</title>
-        
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap" rel="stylesheet">
         {{ $styles ?? ''}}
         
     </head>
     <body>
-        <div id="app">
+    
+
+        <div id="app" >
             {{ $content }}
         </div>
+        
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

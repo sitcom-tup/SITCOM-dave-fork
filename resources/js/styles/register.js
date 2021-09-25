@@ -8,6 +8,11 @@ const useStyles = makeStyles((theme) => ({
         color: 'white',
         // filter:'blur(5px)'
     },
+    typography: {
+      "fontFamily": 'Poppins',
+      fontWeight: 600,
+     },
+     
 
     backImg: {
       backgroundRepeat: 'no-repeat',
@@ -34,17 +39,20 @@ const useStyles = makeStyles((theme) => ({
 
     signupButton: {
       backgroundColor: '#923d3d',
-      color:'white'
+      color:'white',
+      "fontFamily": 'Poppins',
     },
+
+
 
     leftImage: {
       borderRadius: 16,
-      backgroundImage:'url(/tuptbg2.jpg)',
+      backgroundImage:'url(/pictures/tuptbg4.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
-      filter:'brightness(80%)',
+      filter:'brightness(120%)',
       width:'100%',
-      height:'800px',
+      height:'700px',
       [theme.breakpoints.down('md')] : {
         backgroundImage: 'none',
       }
@@ -53,11 +61,14 @@ const useStyles = makeStyles((theme) => ({
     paperLeftImage: {
       borderRadius: 16,
       backgroundColor:'rgba(0,0,0,0.10)',
-      height:'800px'
+      height:'700px'
     },
 
     signupRightContent: {
-      padding:'10%',
+      // paddingTop:'5%',
+      paddingLeft:'10%',
+      paddingRight:'10%',
+      paddingBottom:'10%',
       backgroundColor:'transparent',
       color:'black',
     },

@@ -6,10 +6,11 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+
 import { FilledInput, IconButton, InputAdornment, Button, FormControl, Link } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
-const StudentLogin = () => {
+const   AdminLogin = () => {
     const classes = useStyles();
 
     const [values, setValues] = React.useState({
@@ -48,17 +49,17 @@ const StudentLogin = () => {
                         <Paper elevation={0} className={classes.paper,classes.signupRightContent} align="center">
                             <img className={classes.logo} alt="complex" src="/pictures/SITCOM_Logo.png"/>
                             <Typography  className={classes.typography} >
-                                    TECHNOLOGICAL UNIVERSITY OF THE PHILIPPINES - TAGUIG
+                                    Technological University of the Philippines - Taguig
                             </Typography>
                             <Typography component="h2" className={classes.typography}>
-                                    SUPERVISED INDUSTRIAL TRAINING COMPUTERIZED
+                                    Supervised Industrial Training Computerized
                             </Typography>
                             <Typography component="h2" className={classes.typography}>
-                                    ORGANIZATIONAL MONITORING SYSTEM
+                                     Organizational Monitoring System
                             </Typography>
                             <Box pt={6}>
                                 <Typography component="h2" className={classes.typography}>
-                                    Login as TUP-T Student
+                                    Login as TUP-T Coordinator
                                 </Typography>
                                 <FormControl fullWidth size="medium">
                                     <TextField
@@ -108,12 +109,13 @@ const StudentLogin = () => {
                                             )
                                         }}
                                     />
+                                    
                                 </FormControl>
                             </Box>
                             <Box pt={2}>
                                 <Grid container justifyContent="center" spacing={2}>
                                     <Grid item xs={12} sm={6} md={6} lg={6} >
-                                        <Button variant="contained" fullWidth className={classes.signupButton}>Login in</Button>
+                                        <Button variant="contained" fullWidth className={classes.signupButton}>Sign in</Button>
                                     </Grid>
                                     <Grid item xs={12} sm={6} md={6} lg={6} >
                                         <Button variant="contained" fullWidth href="/login" className={classes.signupButton}>Back</Button>
@@ -135,9 +137,9 @@ const StudentLogin = () => {
     );
 }
  
-export default StudentLogin;
+export default AdminLogin;
 
 
-if(document.getElementById('login-student')) {
-    ReactDOM.render(<StudentLogin/>, document.getElementById('login-student'));
+if(document.getElementById('login-admin')) {
+    ReactDOM.render(<AdminLogin/>, document.getElementById('login-admin'));
 }

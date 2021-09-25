@@ -23,6 +23,14 @@ use Illuminate\Support\Facades\Route;
 Route::view('/home', 'home.index');
 Route::view('/login', 'login.index');
 Route::view('/login/student', 'login.student');
+Route::view('/login/supervisor', 'login.supervisor');
+Route::view('/login/coordinator', 'login.coordinator');
+Route::view('/login/admin', 'login.admin');
+
+Route::view('/register', 'register.index');
+Route::view('/register/student', 'register.student');
+Route::view('/register/coordinator', 'register.coordinator');
+Route::view('/register/supervisor', 'register.supervisor');
 
 Route::get('/api/v1/tests', function() {
     return view('api-test');

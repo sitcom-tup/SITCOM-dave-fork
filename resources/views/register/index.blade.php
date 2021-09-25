@@ -1,7 +1,7 @@
 <x-layouts.app>
 
     <x-slot name="title">
-        Home Login
+        Home Register
     </x-slot>
 
     <x-slot name="styles">
@@ -10,19 +10,16 @@
                 height:100%;
                 padding:0;
                 margin:0;
-                background-image: url({{asset('/pictures/tupt.jpg')}});  
+                background-image: url({{asset('/pictures/tuptbg2.jpg')}});
                 background-attachment: fixed;
                 background-repeat: no-repeat;
-                background-size: 100% 100%;             
+                background-size: 100% 100%;
             },
-      
         </style>
-        
     </x-slot>
 
     <x-slot name="content">
-      
-        <div id="home-login" 
+        <div id="home-register" 
             data-background="{{asset('/pictures/tuptbg2.jpg')}}">
         </div>
     </x-slot>
