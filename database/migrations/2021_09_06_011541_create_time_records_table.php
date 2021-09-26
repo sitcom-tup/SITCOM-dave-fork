@@ -16,7 +16,6 @@ class CreateTimeRecordsTable extends Migration
         Schema::create('time_records', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained();
-<<<<<<< HEAD
             $table->date('date');
             $table->time('time_in')->nullable();
             $table->time('time_out')->nullable();
@@ -26,13 +25,6 @@ class CreateTimeRecordsTable extends Migration
             // $table->double('longitude')->nullable();
             $table->string('timein_location');
             $table->boolean('verified');
-=======
-            $table->datetime('time_in');
-            $table->datetime('time_out');
-            $table->enum('status',['0','1','2','4']);
-            $table->double('latitute')->nullable();
-            $table->double('longitude')->nullable();
->>>>>>> ea01e6c (schedule and time record table | factory not finished yet)
             $table->timestamps();
         });
     }
