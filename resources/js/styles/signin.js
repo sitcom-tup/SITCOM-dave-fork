@@ -5,15 +5,22 @@ const useStyles = makeStyles((theme) => ({
         margin: '0px',
         padding: '0px',
         height: '100%',
-        color: 'white',
+        // color: 'white',
         // filter:'blur(5px)'
     },
+
     typography: {
       "fontFamily": 'Poppins',
       fontWeight: 600 ,
-     },
-     
-
+    },
+    
+    btnOr: {
+      '&:hover' : {
+        backgroundColor: '#923d3d',
+        color: 'white'
+      }
+    },
+    
     backImg: {
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',

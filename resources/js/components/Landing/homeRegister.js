@@ -10,6 +10,7 @@ import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import { Link } from '@material-ui/core';
+import LoginNavButton from '../../commons/LandingAuth/LoginNavButtons';
 
 const HomeRegister = ({background}) => {
     const classes = useStyles();
@@ -20,7 +21,7 @@ const HomeRegister = ({background}) => {
             <Grid container className={classes.grid}>
                 <Grid item xs={false} md={false} lg={8}></Grid>
                 <Grid item xs={12} sm={12} md={12} lg={4}>
-                    <Paper elevation={6} style={{backgroundColor: "#82272d",paddingBottom:'30px', marginTop:'45px'}} className={classes.root}>
+                    <Paper elevation={6} style={{backgroundImage: 'linear-gradient(180deg,#730b0b,#ffffff)',paddingBottom:'30px', marginTop:'45px'}} className={classes.root}>
                         <Grid container justifyContent="center" spacing={3}>                    
                             <img className={classes.logo} alt="complex" src="/pictures/SITCOM_Logo.png" />
                             <Grid item xs={12} lg={12}>
@@ -30,26 +31,7 @@ const HomeRegister = ({background}) => {
                                 </Typography>
                             </Grid>
                             <Grid item xs={8} sm={8} lg={10}>
-                                <Box p={1}>
-                                    <Button variant="contained" size="medium" fullWidth>
-                                        Admin
-                                    </Button>
-                                </Box>
-                                <Box p={1}>
-                                    <Button variant="contained" size="medium" fullWidth href="/register/coordinator">
-                                        Coordinator
-                                    </Button>
-                                </Box>
-                                <Box p={1}>
-                                    <Button variant="contained" size="medium" fullWidth href="/register/supervisor">
-                                        Supervisor
-                                    </Button>
-                                </Box>
-                                <Box p={1}>
-                                    <Button variant="contained" size="medium" fullWidth href="/register/student">
-                                        Student
-                                    </Button>
-                                </Box>
+                                <LoginNavButton classes={classes} />
                                 <Box pt={2}>
                                     <Divider component="button" style={{width:'100%',background:'white'}} >
                                         <Chip label="OR" variant="default" style={{position:'relative',top:'-15px'}}/>  
@@ -57,10 +39,19 @@ const HomeRegister = ({background}) => {
                                 </Box>
                                 <Grid container justifyContent="center">
                                     <Grid item xs={6} md={6}>
-                                        <Button variant="text" color="primary" fullWidth href="/login">Login</Button>
+                                        <Button variant="text" 
+                                                color="primary" 
+                                                fullWidth href="/login" 
+                                                className={classes.btnOr}
+                                                >Login
+                                        </Button>
                                     </Grid>
                                     <Grid item xs={6} md={6}>
-                                        <Button variant="text" fullWidth href="/register">Register</Button>
+                                        <Button variant="text" 
+                                                fullWidth href="/register" 
+                                                className={classes.btnOr}
+                                                >Register
+                                        </Button>
                                     </Grid>
                                 </Grid>
                                 <Box pt={3}>

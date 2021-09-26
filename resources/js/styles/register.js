@@ -5,14 +5,21 @@ const useStyles = makeStyles((theme) => ({
         margin: '0px',
         padding: '0px',
         height: '100%',
-        color: 'white',
+        // color: 'white',
     },
+
+    btnOr: {
+      '&:hover' : {
+        backgroundColor: '#923d3d',
+        color: 'white'
+      }
+    },
+
     typography: {
       "fontFamily": 'Poppins',
       fontWeight: 600,
-     },
-     
-
+    },
+    
     backImg: {
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
@@ -42,8 +49,6 @@ const useStyles = makeStyles((theme) => ({
         color:'black'
       }
     },
-
-
 
     leftImage: {
       borderRadius: 16,
