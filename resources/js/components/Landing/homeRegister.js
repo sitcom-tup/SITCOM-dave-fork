@@ -33,7 +33,7 @@ const HomeRegister = ({background}) => {
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={8} sm={8} lg={10}>
-                                    <LoginNavButton classes={classes} />
+                                    <LoginNavButton classes={classes} action="register" />
                                     <Box pt={2}>
                                         <Divider component="button" style={{width:'100%',background:'white'}} >
                                             <Chip label="OR" variant="default" style={{position:'relative',top:'-15px'}}/>  
