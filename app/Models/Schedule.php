@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     use HasFactory;
-<<<<<<< HEAD
 
     protected $guarded = [];
 
@@ -43,6 +42,4 @@ class Schedule extends Model
                 break;
         }
     }
-=======
->>>>>>> ea01e6c (schedule and time record table | factory not finished yet)
 }

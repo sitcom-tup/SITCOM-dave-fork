@@ -4,16 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
 use Carbon\Carbon;
-=======
->>>>>>> ea01e6c (schedule and time record table | factory not finished yet)
 
 class TimeRecord extends Model
 {
     use HasFactory;
 
-<<<<<<< HEAD
     protected $guarded = [];
 
     public function student()
@@ -87,10 +83,5 @@ class TimeRecord extends Model
         $minutes = $in->diffInMinutes($out);
         // return Carbon::createFromTime($hours,$minutes - $hours * 60 ,0)->format('h:i:s');
         return $hours.' hours '.strval($minutes - $hours * 60).' minutes';
-=======
-    public function student()
-    {
-        return $this->hasOne(Student::class);
->>>>>>> ea01e6c (schedule and time record table | factory not finished yet)
     }
 }
