@@ -26,3 +26,9 @@ require('./components/Auth/AdminLogin');
 require('./components/Auth/StudentRegister');
 require('./components/Auth/SupervisorRegister');
 require('./components/Auth/CoordinatorRegister');
+
+/**
+ * After requiring bootstrap we can not add our socket io here
+ */
+
+ require('./client-socket.js');
