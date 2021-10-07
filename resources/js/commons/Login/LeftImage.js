@@ -1,6 +1,7 @@
-import React from 'react';
-import { Grid, Box, Paper } from '@material-ui/core';
-
+import React from 'react'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
 
 const LeftImage = ({classes}) => {
     return (

@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useStyles } from '../../styles/logon';
-import { MuiThemeProvider } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 import theme from '../../styles/theme';
 import LeftImage from '../../commons/Login/LeftImage';
 import Subtitle from '../../commons/Login/Subtitle';
@@ -51,7 +51,7 @@ const   AdminLogin = () => {
     }
 
     return (
-        <MuiThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
             <Box mt={0} ml={4} mr={4} >
                 <Grid container spacing={3} justifyContent='center' >
                     <LeftImage classes={classes} />
@@ -82,7 +82,7 @@ const   AdminLogin = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </MuiThemeProvider>
+        </ThemeProvider>
     );
 }
  
