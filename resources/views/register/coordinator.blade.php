@@ -1,7 +1,7 @@
 <x-layouts.app>
 
     <x-slot name="title">
-        tCoordinator Register
+        Coordinator Register
     </x-slot>
 
 

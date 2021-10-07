@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+import Button from '@mui/material/Button'
 
 const Buttons = (props,{variant = 'contained',size = 'medium'}) => {
     return (

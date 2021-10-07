@@ -1,7 +1,12 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
-import { IconButton, InputAdornment, FormControl, Box, Typography} from '@material-ui/core';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import FormControl from '@mui/material/FormControl'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import TextField from '@mui/material/TextField'
+import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const Signup = ({
         role,

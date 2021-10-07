@@ -1,22 +1,23 @@
 import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import theme from '../../styles/theme';
-import { Link, MuiThemeProvider } from '@material-ui/core';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import Link from '@mui/material/Link';
 import { useStyles } from '../../styles/signin';
-import Chip from '@material-ui/core/Chip';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+import Chip from '@mui/material/Chip';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import LoginNavButton from '../../commons/LandingAuth/LoginNavButtons';
 
 const HomeLogin = ({background}) => {
     const classes = useStyles();
     return (
-        <MuiThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
             <Container maxWidth='lg' className={classes.root}>
                 
                 <Box style={{width:'100%',height:'720px',filter:'blur(100px)',backgroundColor:'rgba(0,0,0,0.2)'}}></Box>
@@ -71,7 +72,7 @@ const HomeLogin = ({background}) => {
                     </Grid>
                 </Grid>
             </Container>
-        </MuiThemeProvider>
+        </ThemeProvider>
     );
 }
 

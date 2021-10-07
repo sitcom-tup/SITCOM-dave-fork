@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom'
 import { useStyles } from '../../styles/logon';
 // import { useStyles } from '../../styles/login';
 import theme from '../../styles/theme';
-import { ThemeProvider } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 import Subtitle from '../../commons/Login/Subtitle';
 import Signup from '../../commons/Login/Signup';
 import Buttons from '../../commons/Login/Buttons';
