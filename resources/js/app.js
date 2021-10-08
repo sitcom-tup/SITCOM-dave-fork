@@ -16,7 +16,7 @@ require('./commons/Dashboard');
 
 
 require('./components/Landing/homeLogin');
-require('./components/Landing/homeRegister');
+// require('./components/Landing/homeRegister');
 
 require('./components/Auth/StudentLogin');
 require('./components/Auth/SupervisorLogin');
