@@ -21,7 +21,8 @@ require('./components/Landing/homeLogin');
 require('./components/Auth/StudentLogin');
 require('./components/Auth/SupervisorLogin');
 require('./components/Auth/CoordinatorLogin');
-require('./components/Auth/AdminLogin');
+// require('./components/Auth/AdminLogin');
+require('./views/Login/AdminLogin')
 
 require('./components/Auth/StudentRegister');
 require('./components/Auth/SupervisorRegister');
