@@ -31,4 +31,10 @@ require('./components/Auth/CoordinatorRegister');
  * After requiring bootstrap we can not add our socket io here
  */
 
- require('./client-socket.js');
+//  require('./client-socket.js');
+
+/**
+ * Font 
+ */
+
+require('typeface-poppins')

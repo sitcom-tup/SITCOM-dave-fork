@@ -1,77 +1,67 @@
 import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import theme from '../../styles/theme';
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
-import Container from '@mui/material/Container';
+import { ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
-import { useStyles } from '../../styles/signin';
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LoginNavButton from '../../commons/LandingAuth/LoginNavButtons';
+import { styles } from '../../styles/auth';
+import Buttons from '../../commons/globals/Button';
+import FormFooter from '../../commons/Login/FormFooter';
+import Subtitle from '../../commons/Login/Subtitle';
+
 
 const HomeLogin = ({background}) => {
-    const classes = useStyles();
     return (
         <ThemeProvider theme={theme}>
-            <Container maxWidth='lg' className={classes.root}>
-                
-                <Box style={{width:'100%',height:'720px',filter:'blur(100px)',backgroundColor:'rgba(0,0,0,0.2)'}}></Box>
-                {/* <Paper style={{backgroundImage:"url("+background+")"}} className={classes.backImg}></Paper> */}
-                
-                <Grid container className={classes.grid}>
+            <Box sx={{...styles.root}}>
+                <Grid container sx={{...styles.grid}}>
                     <Grid item xs={false} md={false} lg={8}></Grid>
                     <Grid item xs={12} sm={12} md={12} lg={4}>
-                        <Paper elevation={6} style={{backgroundImage: 'linear-gradient(180deg,#730b0b,#ffffff)',paddingBottom:'30px', marginTop:'45px'}} className={classes.root}>
+                        <Paper elevation={6} style={{backgroundImage: 'linear-gradient(180deg,#730b0b,#ffffff)',paddingBottom:'30px', marginTop:'45px'}} sx={{...styles.root}}>
                             <Grid container justifyContent="center" spacing={3}>                    
-                                <img className={classes.logo} alt="complex" src="/pictures/SITCOM_Logo.png" />
-                                <Grid item xs={12} lg={12}>
-                                    <Typography component="h2" variant="h6" align="center">
-                                        Supervised Industrial Training Computerized
-                                        Organizational Monitoring System
-                                    </Typography>
+                                <Grid item xs={8} lg={8}>
+                                    <Subtitle classes={styles}/>
                                 </Grid>
                                 <Grid item xs={8} sm={8} lg={10}>
-                                    <LoginNavButton classes={classes} action="login" />
-                                    <Box pt={2}>
-                                        <Divider component="button" style={{width:'100%',background:'white'}} >
-                                            <Chip label="OR" variant="default" style={{position:'relative',top:'-15px'}}/>  
+                                    <LoginNavButton classes={styles} action="login" />
+                                    <Box pt={2} pb={3}>
+                                        <Divider component="button" style={{width:'100%',height:'1px',background:'white'}} >
+                                            <Chip label="OR" variant="default" style={{position:'relative',top:'-15px',background:'white'}}/>  
                                         </Divider>
                                     </Box>
                                     <Grid container justifyContent="center">
-                                        <Grid item xs={6} md={6}>
-                                            <Button variant="text" 
-                                                    color="primary" 
-                                                    fullWidth href="/login" 
-                                                    className={classes.btnOr}
-                                                    >Login
-                                            </Button>
+                                        <Grid item xs={12} md={6}>
+                                            <Buttons variant="text" 
+                                                    fullWidth 
+                                                    href="/login" 
+                                                    sx={{...styles.btnOr}}
+                                                    text='LOGIN'
+                                            />
                                         </Grid>
-                                        <Grid item xs={6} md={6}>
-                                            <Button variant="text" 
-                                                    fullWidth href="/register" 
-                                                    className={classes.btnOr}
-                                                    >Register
-                                            </Button>
+                                        <Grid item xs={12} md={6}>
+                                            <Buttons variant="text" 
+                                                    fullWidth 
+                                                    href="/register" 
+                                                    sx={{...styles.btnOr}}
+                                                    text='Register'
+                                            />
                                         </Grid>
                                     </Grid>
                                     <Box pt={3}>
-                                        <Typography component="h6" variant="caption" align="center">
-                                            By using this service, you understood and agree to the TUP-T Online Services 
-                                            <Link href="#" underline="none"> Terms of Use </Link>and
-                                            <Link href="#" underline="none"> Privacy and Policy </Link> 
-                                        </Typography>
+                                        <FormFooter classes={styles}/>
                                     </Box>
                                 </Grid>
                             </Grid>
                         </Paper>
                     </Grid>
                 </Grid>
-            </Container>
+            </Box>
         </ThemeProvider>
     );
 }
