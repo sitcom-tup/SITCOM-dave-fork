@@ -44,7 +44,7 @@ const styles = {
   },
 
   leftImage: {
-    borderRadius: 16,
+    borderRadius: 4,
     backgroundImage : {
       lg : 'url(/pictures/tuptbg2.jpg)',
       xs : 'none'
@@ -58,7 +58,7 @@ const styles = {
 
   paperLeftImage: {
     pb : {lg : 0, md : 2, xs : 6},
-    borderRadius: 16,
+    borderRadius: 4,
     backgroundColor:'rgba(0,0,0,0.10)',
     height:'700px'
   },
