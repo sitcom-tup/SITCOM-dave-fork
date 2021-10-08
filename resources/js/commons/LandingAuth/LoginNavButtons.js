@@ -9,12 +9,13 @@ const LoginNavButton = ({classes,action}) => {
         <>
             {buttonNames.map((names) => {
                 return (<Box p={1} key={names}>
-                            <Buttons className={classes.btnOr} 
+                            <Buttons sx={{...classes.btnOr}} 
                                     variant="contained" 
                                     size="medium" 
                                     fullWidth 
                                     href={`/${action}/${names}`} 
-                                    text={names}/>
+                                    text={names}
+                            />
                         </Box>)
             })}
         </>
