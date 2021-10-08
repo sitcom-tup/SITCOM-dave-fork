@@ -23,7 +23,7 @@
         
 
         {{-- change domain localhost:3000 as we deploy --}}
-        <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+        {{-- <script src="http://localhost:3000/socket.io/socket.io.js"></script> --}}
         
         <script src="{{ asset('js/app.js') }}"></script>
     
