@@ -33,11 +33,11 @@ const Signup = ({
                     fullWidth
                     autoFocus
                     onChange={handleEmail}
-                    className={classes.multilineColor}
+                    sx={{...classes.multilineColor}}
                     autoComplete="email"
                     inputProps={{
-                        className: classes.input,
-                        className: classes.multilineColor
+                        sx: {...classes.input},
+                        sx: {...classes.multilineColor}
                     }}
                     />
 
@@ -52,10 +52,10 @@ const Signup = ({
                     required
                     fullWidth
                     onChange={handlePsswd}
-                    className={classes.multilineColor}
+                    sx={{...classes.multilineColor}}
                     InputProps={{
-                        className: classes.input,
-                        className: classes.multilineColor,
+                        sx: {...classes.input},
+                        sx: {...classes.multilineColor},
                         endAdornment: (
                             <InputAdornment position="end">
                                 <IconButton

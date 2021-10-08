@@ -33,8 +33,8 @@ const styles = {
   },
 
   signup: {
-    position: { xs: 'absolute'},
-    width: {xs:'100%'}
+    position : { lg : 'relative', sm :'absolute', xs : 'absolute' },
+    width : { sm : '100%' },
   },
 
   signupButton: {
@@ -45,7 +45,10 @@ const styles = {
 
   leftImage: {
     borderRadius: 16,
-    backgroundImage: { md : 'url(/pictures/tuptbg2.jpg)', xs: 'none' },
+    backgroundImage : {
+      lg : 'url(/pictures/tuptbg2.jpg)',
+      xs : 'none'
+    },
     backgroundSize: 'cover',
     backgroundPosition: 'center center',
     filter:'brightness(120%)',
@@ -54,6 +57,7 @@ const styles = {
   },
 
   paperLeftImage: {
+    pb : {lg : 0, md : 2, xs : 6},
     borderRadius: 16,
     backgroundColor:'rgba(0,0,0,0.10)',
     height:'700px'
@@ -76,9 +80,6 @@ const styles = {
   },
 
   paper: {
-    mt:8,
-    ml: 4,
-    mr:4,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
