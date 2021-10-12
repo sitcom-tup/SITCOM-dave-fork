@@ -1,25 +1,16 @@
 import React from "react";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
-import Home from "./components/Home/Home";
+import Home from "../js/components/Dashboard/Coordinator";
 
-import Register from "./views/Register/Register";
-import NotFound from "./views/NotFound/NotFound";
 
-// User is LoggedIn
-import PrivateRoute from "./PrivateRoute";
-import Dashboard from "./views/user/Dashboard/Dashboard"; 
 
 const Main = () => (
     <Switch>
         {/*User might LogIn*/}
-        <Route exact path="/" component={Home} />
-        {/*User will LogIn*/}
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        {/* User is LoggedIn*/}
-        <PrivateRoute path="/dashboard" component={Dashboard} />
-        {/*Page Not Found*/}
-        <Route component={NotFound} />
+        <Route exact path="/dashboard" component={Home} />
+       
+
+    
     </Switch>
 );
 export default Main;

@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
       background: '#7A7676 90%',
     },
     listitems:{
+      "fontFamily": 'Poppins',
       opacity: '100%',
       backgroundColor: 'rgba(0,0,0,0)'
     },
@@ -28,7 +29,9 @@ const useStyles = makeStyles((theme) => ({
     },
     chart:{
       height: '350px',
+      
     },
+
 
   
 }));
