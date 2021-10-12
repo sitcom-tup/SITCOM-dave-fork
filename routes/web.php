@@ -20,7 +20,8 @@ Route::get('/', function () {
 
 // Route::view('/{path?}', 'index');
 
-Route::view('/home', 'home.index');
+Route::view('/dashboard', 'dashboard.coordinator');
+
 Route::view('/login', 'login.index');
 Route::view('/login/student', 'login.student');
 Route::view('/login/supervisor', 'login.supervisor');

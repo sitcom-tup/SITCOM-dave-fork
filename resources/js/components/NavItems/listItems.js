@@ -11,8 +11,9 @@ import WorkIcon from '@mui/icons-material/Work';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import EmailIcon from '@mui/icons-material/Email';
+
 export const mainListItems = (
-  <div style={{backgroundColor: "transparent"}}>
+  <div >
     <ListItem button>
       <ListItemIcon>
         <HomeIcon />
