@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { useStyles } from '../../styles/logon';
-import { MuiThemeProvider } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import { styles } from '../../styles/auth';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 import theme from '../../styles/theme';
 import LeftImage from '../../commons/Login/LeftImage';
 import Subtitle from '../../commons/Login/Subtitle';
@@ -13,7 +13,6 @@ import Buttons from '../../commons/Login/Buttons';
 import FormFooter from '../../commons/Login/FormFooter';
 
 const   AdminLogin = () => {
-    const classes = useStyles();
 
     const [values, setValues] = React.useState({
         amount: '',
@@ -23,7 +22,6 @@ const   AdminLogin = () => {
         weightRange: '',
         showPassword: false,
     });
-
 
     const handleEmail = e => {
     setValues({...values, email:e.target.value });
@@ -51,30 +49,29 @@ const   AdminLogin = () => {
     }
 
     return (
-        <MuiThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
             <Box mt={0} ml={4} mr={4} >
                 <Grid container spacing={3} justifyContent='center' >
-                    <LeftImage classes={classes} />
-                    <Grid item xs={12} sm={12} md={12} lg={6} className={classes.signup}>
+                    <LeftImage classes={styles} />
+                    <Grid item xs={12} sm={12} md={12} lg={6} sx={{...styles.signup}}>
                         <Box mt={10} mb={3}>
-                            <Paper elevation={0} className={classes.paper,classes.signupRightContent} align="center">
-                                <Subtitle classes={classes} />
+                            <Paper elevation={0} sx={{...styles.paper,...styles.signupRightContent}} align="center">
+                                <Subtitle classes={styles} />
                                 <form onSubmit={handleFormSubmit}>
                                     <Signup
                                         role='Admin'
-                                        classes={classes}
                                         handleEmail={handleEmail}
                                         handlePsswd={handleChange('password')}
                                         values={values}
-                                        classes={classes}
+                                        classes={styles}
                                         handleClickShowPassword={handleClickShowPassword}
                                         handleMouseDownPassword={handleMouseDownPassword}
                                     />
                                     <Buttons 
-                                        classes={classes}
+                                        classes={styles}
                                     />
                                     <FormFooter 
-                                        classes={classes}
+                                        classes={styles}
                                     />
                                 </form>
                             </Paper>
@@ -82,7 +79,7 @@ const   AdminLogin = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </MuiThemeProvider>
+        </ThemeProvider>
     );
 }
  

@@ -1,13 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { useStyles } from '../../styles/register';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import { FilledInput, IconButton, InputAdornment, Button, FormControl, Link } from '@material-ui/core';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import { FilledInput, IconButton, InputAdornment, Button, FormControl, Link } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import Buttons from '../../commons/Login/Buttons';
+import FormFooter from '../../commons/Login/FormFooter';
+import LeftImage from '../../commons/Login/LeftImage';
+import Subtitle from '../../commons/Login/Subtitle';
 
 
 const StudentRegister = () => {
@@ -39,24 +43,11 @@ const StudentRegister = () => {
     return (
         <Box mt={0} ml={4} mr={4} >
             <Grid container spacing={3} justifyContent='center' >
-                <Grid item xs={12} sm={12} md={12} lg={6}>
-                    <Box mt={10} mb={10} className={classes.leftImage}>
-                        <Paper elevation={12} className={classes.paperLeftImage}/>
-                    </Box>
-                </Grid>
+                <LeftImage classes={classes}/>
                 <Grid item xs={12} sm={12} md={12} lg={6} className={classes.signup}>
                     <Box mt={10} mb={3}>
                         <Paper elevation={0} className={classes.paper,classes.signupRightContent} align="center">
-                            <img className={classes.logo} alt="complex" src="/pictures/SITCOM_Logo.png"/>
-                            <Typography  className={classes.typography} >
-                                    TECHNOLOGICAL UNIVERSITY OF THE PHILIPPINES - TAGUIG
-                            </Typography>
-                            <Typography component="h2" className={classes.typography}>
-                                    SUPERVISED INDUSTRIAL TRAINING COMPUTERIZED
-                            </Typography>
-                            <Typography component="h2" className={classes.typography}>
-                                    ORGANIZATIONAL MONITORING SYSTEM
-                            </Typography>
+                            <Subtitle classes={classes}/>
                             <Box pt={6}>
                                 <Typography component="h2" className={classes.typography}>
                                     Register as TUP-T Student
@@ -156,23 +147,8 @@ const StudentRegister = () => {
                                     
                                 </FormControl>
                             </Box>
-                            <Box pt={2}>
-                                <Grid container justifyContent="center" spacing={2}>
-                                    <Grid item xs={12} sm={6} md={6} lg={6} >
-                                        <Button variant="contained" fullWidth className={classes.signupButton}>Register</Button>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} md={6} lg={6} >
-                                        <Button variant="contained" fullWidth href="/register" className={classes.signupButton}>Back</Button>
-                                    </Grid>
-                                </Grid>
-                            </Box>
-                            <Box pt={3}>
-                                <Typography component="h6" variant="caption" align="center" className={classes.typography}>
-                                    By using this service, you understood and agree to the TUP-T Online Services 
-                                    <Link href="#" underline="none"> Terms of Use </Link>and
-                                    <Link href="#" underline="none"> Privacy and Policy </Link> 
-                                </Typography>
-                            </Box>
+                            <Buttons classes={classes} leftBtnTxt='Register'/>
+                            <FormFooter classes={classes} />
                         </Paper>
                     </Box>
                 </Grid>

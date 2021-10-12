@@ -16,12 +16,13 @@ require('./components/Dashboard/Coordinator');
 
 // require('./Index');
 require('./components/Landing/homeLogin');
-require('./components/Landing/homeRegister');
+// require('./components/Landing/homeRegister');
 
 require('./components/Auth/StudentLogin');
 require('./components/Auth/SupervisorLogin');
 require('./components/Auth/CoordinatorLogin');
-require('./components/Auth/AdminLogin');
+// require('./components/Auth/AdminLogin');
+require('./views/Login/AdminLogin')
 
 require('./components/Auth/StudentRegister');
 require('./components/Auth/SupervisorRegister');
@@ -31,4 +32,10 @@ require('./components/Auth/CoordinatorRegister');
  * After requiring bootstrap we can not add our socket io here
  */
 
- require('./client-socket.js');
+//  require('./client-socket.js');
+
+/**
+ * Font 
+ */
+
+require('typeface-poppins')

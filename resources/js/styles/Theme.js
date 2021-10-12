@@ -1,9 +1,13 @@
-import { createTheme } from '@material-ui/core';
-
+import { createTheme } from "@mui/material";
 
 const theme = createTheme({
     typography: {
-        fontFamily:['Poppins','Roboto','sans-serif'],
+        fontFamily:'Poppins',
+    },
+    palette: {
+        primary: {
+            main: '#923d3d'
+        }
     }
 });
  
