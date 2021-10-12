@@ -1,17 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import theme from '../../styles/theme'
+import theme from '../styles/theme'
 import { ThemeProvider } from '@mui/material/styles'
 import Divider from '@mui/material/Divider'
 import Paper from '@mui/material/Paper'
 import Chip from '@mui/material/Chip'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
-import LoginNavButton from '../../commons/LandingAuth/LoginNavButtons'
-import { styles } from '../../styles/auth'
-import Buttons from '../../commons/globals/Button'
-import FormFooter from '../../commons/Login/FormFooter'
-import Subtitle from '../../commons/Login/Subtitle'
+import LoginNavButton from '../commons/Login/LoginNavButtons'
+import { styles } from '../styles/auth'
+import Buttons from '../commons/globals/Button'
+import FormFooter from '../commons/Login/FormFooter'
+import Subtitle from '../commons/Login/Subtitle'
 
 
 const HomeLogin = ({background}) => {

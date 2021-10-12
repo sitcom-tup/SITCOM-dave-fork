@@ -2,7 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Login from '../../commons/Login/Login'
 
-const AdminLogin = () => {
+const LoginLayout = () => {
+
+    const path = window.location.pathname.split('/');
+    const action = path[1];
+    const rolename = path[2];
 
     const [values, setValues] = React.useState({
         amount: '',
@@ -39,8 +43,9 @@ const AdminLogin = () => {
     }
 
     return (
-        <Login 
-            role="Admin"
+        <Login
+            auth={action}
+            role={rolename}
             values={values}
             handleEmail={handleEmail}
             handleChange={handleChange}
@@ -51,9 +56,12 @@ const AdminLogin = () => {
     );
 }
  
-export default AdminLogin;
-
-
-if(document.getElementById('login-admin')) {
-    ReactDOM.render(<AdminLogin/>, document.getElementById('login-admin'));
-}   
+export default LoginLayout;
+ 
+if(document.getElementById('login-admin') || 
+    document.getElementById('login-student') || 
+    document.getElementById('login-supervisor') || 
+    document.getElementById('login-coordinator')) 
+{
+    ReactDOM.render(<LoginLayout />, document.getElementById(`login-${window.location.pathname.split('/')[2]}`));
+}

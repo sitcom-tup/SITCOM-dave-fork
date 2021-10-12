@@ -57,7 +57,7 @@ const styles = {
   },
 
   paperLeftImage: {
-    pb : {lg : 0, md : 2, xs : 6},
+    pb : {lg : 0, md : 20, xs : 40},
     borderRadius: 4,
     backgroundColor:'rgba(0,0,0,0.10)',
     height:'700px'
@@ -66,7 +66,7 @@ const styles = {
   signupRightContent: {
     paddingLeft:'10%',
     paddingRight:'10%',
-    paddingBottom:'10%',
+    paddingBottom: {md:'10%', sm:'20%', xs:'25%'},
     backgroundColor:'transparent',
     color:'black',
   },

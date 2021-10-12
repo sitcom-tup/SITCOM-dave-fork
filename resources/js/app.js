@@ -3,8 +3,32 @@
  * includes React and other helpers. It's a great starting point while
  * building robust, powerful web applications using React + Laravel.
  */
+ window.$ = window.jQuery = require('jquery');
+// require('./bootstrap');
 
-require('./bootstrap');
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+
+ window.axios = require('axios');
+
+ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+/**
+ * Next we will register the CSRF Token as a common header with Axios so that
+ * all outgoing HTTP requests automatically have it attached. This is just
+ * a simple convenience so we don't have to attach every token manually.
+ */
+
+ let token = document.head.querySelector('meta[name="csrf-token"]');
+
+ if (token) {
+     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+ } else {
+     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+ }
 
 /**
  * Next, we will create a fresh React component instance and attach it to
@@ -14,19 +38,13 @@ require('./bootstrap');
 require('./Index');
 require('./commons/Dashboard');
 
+require('./views/HomeLogin');
+require('./views/Auth/LoginLayout');
+require('./views/Auth/RegisterLayout');
 
-require('./components/Landing/homeLogin');
-// require('./components/Landing/homeRegister');
-
-require('./components/Auth/StudentLogin');
-require('./components/Auth/SupervisorLogin');
-require('./components/Auth/CoordinatorLogin');
-// require('./components/Auth/AdminLogin');
-require('./views/Login/AdminLogin')
-
-require('./components/Auth/StudentRegister');
-require('./components/Auth/SupervisorRegister');
-require('./components/Auth/CoordinatorRegister');
+// require('./components/Auth/StudentRegister');
+// require('./components/Auth/SupervisorRegister');
+// require('./components/Auth/CoordinatorRegister');
 
 /**
  * After requiring bootstrap we can not add our socket io here
