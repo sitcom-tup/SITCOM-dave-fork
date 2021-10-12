@@ -42,7 +42,7 @@ require('./views/Auth/LoginLayout');
 require('./views/Auth/RegisterLayout');
 
 require('./components/Dashboard/Coordinator');
-require('./components/Landing/homeLogin');
+
 
 
 /**
