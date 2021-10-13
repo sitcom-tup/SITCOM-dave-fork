@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Api\V1\TimeRecordController;
 use App\Http\Controllers\Api\V1\TaskBoardController;
 use App\Http\Controllers\Api\V1\UserPoolController;
+use App\Http\Controllers\Api\V1\CompanyController;
 use App\Http\Controllers\Api\V1\MessageController;
 use App\Http\Controllers\Api\V1\CourseController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -96,6 +97,9 @@ Route::get('requests/passwords/resets',[PasswordResetController::class, 'sendReq
 
 // Courses
 Route::get('courses', [CourseController::class, 'getCourses']);
+
+// Courses
+Route::get('companies', [CompanyController::class, 'getCompanies']);
 
 // Fallback route 
 Route::fallback(function (Request $request) {
