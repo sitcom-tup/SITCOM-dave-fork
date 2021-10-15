@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { useStyles } from '../../styles/dashboard';
 import Footer from '../../commons/Dashboard/Footer';
-import CoordinatorAppBar from '../Navigation/CoordinatorAppBar';
+import CoordinatorAppBar from '../../components/Navigation/CoordinatorAppBar';
 import Typography from '@mui/material/Typography';
 
 
@@ -122,7 +122,7 @@ function DashboardContent() {
   );
 }
 
-export default function Coordinator() {
+export default function Dashboard() {
   return <DashboardContent />;
 }
 

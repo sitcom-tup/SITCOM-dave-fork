@@ -41,9 +41,9 @@ require('./views/HomeLogin');
 require('./views/Auth/LoginLayout');
 require('./views/Auth/RegisterLayout');
 
-require('./components/Dashboard/Coordinator');
-
-
+require('./views/Coordinator/Dashboard');
+require('./views/Coordinator/Profile');
+require('./views/Coordinator/Students');
 
 /**
  * After requiring bootstrap we can not add our socket io here

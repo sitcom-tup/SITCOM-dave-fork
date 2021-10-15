@@ -20,7 +20,9 @@ Route::get('/', function () {
 
 // Route::view('/{path?}', 'index');
 
-Route::view('/dashboard', 'dashboard.coordinator');
+Route::view('/dashboard', 'coordinator.dashboard');
+Route::view('/coordinator/profile', 'coordinator.profile');
+Route::view('/coordinator/students', 'coordinator.students');
 
 Route::view('/login', 'login.index');
 Route::view('/login/student', 'login.student');
