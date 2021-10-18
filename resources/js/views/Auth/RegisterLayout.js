@@ -1,10 +1,10 @@
+import React from 'react'
 import Backdrop from '@mui/material/Backdrop'
 import CircularProgress from '@mui/material/CircularProgress'
-import React, { useEffect, useState } from 'react'
 import ReactDOM from 'react-dom'
 import Register from '../../commons/Login/Register'
 import { useFetch } from '../../hooks/useFetch'
-import ERR404 from '../Errors/404'
+import Error from '../Errors/Error'
 
 
 const RegisterLayout = () => {
@@ -93,10 +93,7 @@ const RegisterLayout = () => {
                     handleMouseDownPassword={handleMouseDownPassword}
                 />
             }
-            {
-                error &&
-                <ERR404 status={error.data.code} message={error.data.error} />
-            }
+            { error && <Error error={error} />}
         </>
     );
 }
