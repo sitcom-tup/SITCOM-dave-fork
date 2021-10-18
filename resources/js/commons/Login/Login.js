@@ -21,15 +21,17 @@ const Login = (props) => {
                         <Box mt={10} mb={3}>
                             <Paper elevation={0} sx={{...styles.paper,...styles.signupRightContent}} align="center">
                                 <Subtitle classes={styles} />
-                                <form onSubmit={props.handleFormSubmit}>
+                                <form onClick={props.handleFormSubmit}>
                                     <Signup
                                         auth={props.auth}
                                         role={props.role}
-                                        handleEmail={props.handleEmail}
-                                        handlePsswd={props.handleChange('password')}
-                                        values={props.values}
                                         classes={styles}
+                                        values={props.values}
+                                        handleValues={props.handleValues}
+                                        handlePsswd={props.handleChange('password')}
+                                        handleSelect={props.handleSelect}
                                         handleClickShowPassword={props.handleClickShowPassword}
+                                        handleShowConfirmPass={props.handleShowConfirmPass}
                                         handleMouseDownPassword={props.handleMouseDownPassword}
                                     />
                                     <Buttons 

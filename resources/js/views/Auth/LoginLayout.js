@@ -9,50 +9,64 @@ const LoginLayout = () => {
     const rolename = path[2];
 
     const [values, setValues] = React.useState({
-        amount: '',
+        studentId: '',
+        firstname: '',
+        lastname: '',
+        email:'',
         password: '',
-        email: '',
+        confirmPassword:'',
+        amount: '',
         weight: '',
         weightRange: '',
         showPassword: false,
+        showConfirmPassword: false,
     });
 
-    const handleEmail = e => {
-    setValues({...values, email:e.target.value });
-    };
+    const handleValues = (e) => {
+        setValues({...values,[e.target.name]:e.target.value});
+    }
 
     const handleChange = (prop) => (event) => {
-    console.log(event.target.value);
-    setValues({ ...values, password:event.target.value});
+        setValues({ ...values, [event.target.name]:event.target.value});
     };
 
     const handleClickShowPassword = () => {
-    setValues({
-        ...values,
-        showPassword: !values.showPassword,
-    });
+        setValues({
+            ...values,
+            showPassword: !values.showPassword,
+        });
     };
 
-    const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+    const handleClickShowConfirmPass = () => {
+        setValues({
+            ...values,
+            showConfirmPassword: !values.showConfirmPassword,
+        });
+    };
+    
+    const handleMouseDownPassword = (e) => {
+        e.preventDefault();
     };
 
     const handleFormSubmit = (e) => {
-        e.preventDefault();
-        console.log(`Email ${values.email} , Password ${values.password}`);
+        console.log(`Email ${values.email}, Password ${values.password}`);
     }
 
     return (
-        <Login
-            auth={action}
-            role={rolename}
-            values={values}
-            handleEmail={handleEmail}
-            handleChange={handleChange}
-            handleClickShowPassword={handleClickShowPassword}
-            handleMouseDownPassword={handleMouseDownPassword}
-            handleFormSubmit={handleFormSubmit}
-        />
+        <>
+            <Login
+                auth={action}
+                role={rolename}
+                values={values}
+                handleValues={handleValues}
+                handleChange={handleChange}
+                handleFormSubmit={handleFormSubmit}
+                handleClickShowPassword={handleClickShowPassword}
+                handleShowConfirmPass={handleClickShowConfirmPass}
+                handleMouseDownPassword={handleMouseDownPassword}
+            />
+
+        </>
     );
 }
  

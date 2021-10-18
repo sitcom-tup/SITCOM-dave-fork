@@ -124,7 +124,11 @@ const styles = {
           contrastText: '#000',
       },
     },
-
+  
+  select : {
+    whiteSpace:'normal'
+  }
+  
 };
 
 export { styles};

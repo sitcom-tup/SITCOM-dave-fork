@@ -27,10 +27,13 @@ const Register = (props) => {
                                         auth={props.auth}
                                         role={props.role}
                                         classes={styles}
+                                        pickerVal={props.pickerVal}
                                         values={props.values}
-                                        handleEmail={props.handleEmail}
+                                        handleValues={props.handleValues}
                                         handlePsswd={props.handleChange('password')}
+                                        handleSelect={props.handleSelect}
                                         handleClickShowPassword={props.handleClickShowPassword}
+                                        handleShowConfirmPass={props.handleShowConfirmPass}
                                         handleMouseDownPassword={props.handleMouseDownPassword}
                                     />
                                     <Buttons 

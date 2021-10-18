@@ -22,11 +22,12 @@ const Password = (props) => {
             value={props.password}
             required
             fullWidth
+            
             onChange={props.handlePsswd}
             sx={{...props.classes.multilineColor}}
             InputProps={{
-                sx: {...props.classes.input},
-                sx: {...props.classes.multilineColor},
+                sx: {...props.classes.input,...props.classes.multilineColor},
+                disableUnderline:true,
                 endAdornment: (
                     <InputAdornment position="end">
                         <IconButton
@@ -51,15 +52,15 @@ const Signup = ({
         role,
         values,
         classes,
-        handleEmail,
-        handlePsswd,
-        handleStudentId,
-        handleConfirmPass,
+        pickerVal,
+        handleValues,
+        handleSelect,
         handleClickShowPassword,
         handleMouseDownPassword,
         handleShowConfirmPass,
         handleMouseConfirmPass,
     }) => {
+
     return (
         <Box pt={6}>
             <Typography component="h2" variant="subtitle2">
@@ -70,23 +71,33 @@ const Signup = ({
                     auth === 'register' &&                
                     <Grid container spacing={2} >
                         <Grid item lg={12} md={12} sm={12} xs={12}>
-                            <FormControl fullWidth>
-                                <InputLabel id="select">Course</InputLabel>
+                            <FormControl variant="filled" fullWidth sx={{ minWidth: 'calc(100%)', maxWidth:100}}>
+                                <InputLabel id="select">{role == 'supervisor' ? 'Companies' : 'Courses'}</InputLabel>
                                 <Select
-                                labelId="select"
-                                id="selected-"
-                                value=''
-                                label={role.toUpperCase()}
-                                variant="filled"
-                                onChange={() => {}}
-                                sx={{...classes.multilineColor}}
-                                inputProps={{
-                                    sx: {...classes.input},
-                                    sx: {...classes.multilineColor}
-                                }}
+                                    type="select"
+                                    labelId="select"
+                                    id="pickerSelected"
+                                    value={values.selectedPicker}
+                                    variant="filled"
+                                    onChange={handleSelect}
+                                    sx={{...classes.multilineColor}}
+                                    inputProps={{
+                                        sx: {...classes.input,...classes.multilineColor},
+                                        value:values.selectedPicker
+                                    }}
+                                    disableUnderline
                                 >
+                                    {
+                                        console.log(values.selectedPicker)
+                                    }
                                 <MenuItem disabled value=''>Course</MenuItem>
-                                
+                                {
+                                    pickerVal.data.map((mi) => {
+                                       return(role == 'supervisor' ?
+                                            <MenuItem value={mi.company_id} key={mi.company_name}>{mi.company_name}</MenuItem> :
+                                            <MenuItem value={mi.course_id} key={mi.course_name}>{mi.course_name} {mi.course_description}</MenuItem> )
+                                    })
+                                }                                
                                 </Select>
                             </FormControl>
                         </Grid>
@@ -99,12 +110,13 @@ const Signup = ({
                                 margin="normal"
                                 required
                                 fullWidth
-                                onChange={handleStudentId}
+                                value={values.firstname}
+                                onChange={handleValues}
                                 sx={{...classes.multilineColor}}
                                 autoComplete="studentid"
-                                inputProps={{
-                                    sx: {...classes.input},
-                                    sx: {...classes.multilineColor}
+                                InputProps={{
+                                    sx: {...classes.input,...classes.multilineColor},
+                                    disableUnderline:true
                                 }}
                             />
                         </Grid>
@@ -117,12 +129,13 @@ const Signup = ({
                                 margin="normal"
                                 required
                                 fullWidth
-                                onChange={handleStudentId}
+                                value={values.lastname}
+                                onChange={handleValues}
                                 sx={{...classes.multilineColor}}
                                 autoComplete="studentid"
-                                inputProps={{
-                                    sx: {...classes.input},
-                                    sx: {...classes.multilineColor}
+                                InputProps={{
+                                    sx: {...classes.input,...classes.multilineColor},
+                                    disableUnderline:true
                                 }}
                             />
                         </Grid>
@@ -133,19 +146,20 @@ const Signup = ({
                     role === 'student' && auth === 'register' &&
 
                         <Textfield
-                            id="student-id"
-                            name="student-id"
+                            id="studentId"
+                            name="studentId"
                             label="TUPT-XX-XXXX"
                             variant="filled" 
                             margin="normal"
                             required
                             fullWidth
-                            onChange={handleStudentId}
+                            value={values.studentId}
+                            onChange={handleValues}
                             sx={{...classes.multilineColor}}
                             autoComplete="studentid"
-                            inputProps={{
-                                sx: {...classes.input},
-                                sx: {...classes.multilineColor}
+                            InputProps={{
+                                sx: {...classes.input,...classes.multilineColor},
+                                disableUnderline:true
                             }}
                         />
                 }
@@ -158,12 +172,13 @@ const Signup = ({
                             margin="normal"
                             required
                             fullWidth
-                            onChange={handleEmail}
+                            value={values.email}
+                            onChange={handleValues}
                             sx={{...classes.multilineColor}}
                             autoComplete="email"
-                            inputProps={{
-                                sx: {...classes.input},
-                                sx: {...classes.multilineColor}
+                            InputProps={{
+                                sx: {...classes.input,...classes.multilineColor},
+                                disableUnderline:true
                             }}
                         />
                 {
@@ -175,7 +190,7 @@ const Signup = ({
                             password={values.password}
                             showPassword={values.showPassword}
                             classes={classes}
-                            handlePsswd={handlePsswd}
+                            handlePsswd={handleValues}
                             handleClickShowPassword={handleClickShowPassword}
                             handleMouseDownPassword={handleMouseDownPassword}
                         />
@@ -191,22 +206,22 @@ const Signup = ({
                             password={values.password}
                             showPassword={values.showPassword}
                             classes={classes}
-                            handlePsswd={handlePsswd}
+                            handlePsswd={handleValues}
                             handleClickShowPassword={handleClickShowPassword}
                             handleMouseDownPassword={handleMouseDownPassword}
                         />
                     </Grid>
                     <Grid item lg={6} md={6} sm={12} xs={12}>
                         <Password
-                            id="confirm-password"
-                            name="confirm-password"
+                            id="confirmPassword"
+                            name="confirmPassword"
                             label="Confirm Password"
                             password={values.confirmPassword}
                             showPassword={values.showConfirmPassword}
                             classes={classes}
-                            handlePsswd={handleConfirmPass}
+                            handlePsswd={handleValues}
                             handleClickShowPassword={handleShowConfirmPass}
-                            handleMouseDownPassword={handleMouseConfirmPass}
+                            handleMouseDownPassword={handleMouseDownPassword}
                         />
                     </Grid>
                 </Grid>

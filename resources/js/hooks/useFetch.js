@@ -1,6 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { result } from 'lodash';
 
-const DEFAUL_OPTIONS = { 
+axios.defaults.baseURL = `${process.env.MIX_API_HOSTNAME}`;
+
+const DEFAULT_OPTIONS = { 
+    'Access-Control-Allow-Origin': '*',
     'Content-Type' : 'application/json',
     'Accept' : 'application/json' 
 }
@@ -8,52 +13,39 @@ const DEFAUL_OPTIONS = {
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
 
-export default function useFetch(method, url, body = null, options = {}) {
 
-    const [response,setResponse] = useState(null)
-    const [isLoading,setLoading] = useState(true)
-    const [error,setError] = useState(null)
-    
-    useEffect(()=> {
-        console.log(`Render Once ${process.env.MIX_API_HOSTNAME}`);
-        setTimeout(() => {
-            axios({
-                method : 'get',
-                url : url,
-                data : null,
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    ...options
-                },
-                CancelToken : source.token
-            })
-            .then(res => {
-                console.log(res);
-                setResponse(res)
-                setLoading(false)
-                setError(null)
-                console.log(response,isLoading,error);
-            })
-            .catch(err => {
-                if (axios.isCancel(err)) {
-                    console.log(err);
-                }
-    
-                setResponse(null)
-                setLoading(false)
-                setError(err.response)
-                console.log(err.message);
-            })
-        }, 2000);
+/**
+ fixed :
+  - no need to JSON.stringify to then immediatly do a JSON.parse
+  - don't use export defaults, because default imports are hard to search for
+  - axios already support generic request in one parameter, no need to call specialized ones
+**/
+export const useFetch = (axiosParams) => {
+    const [response, setResponse] = useState(undefined);
+    const [error, setError] = useState('');
+    const [isLoading, setLoading] = useState(true);
 
+    const fetchData = async (params) => {
+      try {
+       const result = await axios.request({...params,...DEFAULT_OPTIONS,CancelToken : source.token});
+            setResponse(result.data);
+       } catch( error ) {
+            setError(error.response);
+       } finally {
+            setLoading(false);
+       }
+    };
+
+    useEffect(() => {
+        fetchData(axiosParams);
 
         return () => {
             // here we cancel preveous http request that did not complete yet
             source.cancel(
-            `Cancelled request on ${url}`
+            `Cancelled request on ${axiosParams.url}`
             );
         };
-    }, [url])
+    }, [axiosParams.url]); // execute once only
 
-    return { response, isLoading, error }
-}
+    return { response, error, isLoading };
+};
