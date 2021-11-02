@@ -28,7 +28,9 @@ class CoordinatorAuthResource extends JsonResource
                 'coordinator_contact' => $this->coordinator_contact,
                 'coordinator_email' => $this->user->email,
                 'coordinator_link' => $this->coordinator_link,
-                'coordinator_state' => $this->user->state
+                'coordinator_state' => $this->user->state,
+                'email_verified_at' => $this->whenLoaded('user')->email_verified_at,
+                'role' => $this->whenLoaded('user')->userRole(),
             ],
             'meta' => ['token'=>$this->getToken()]
         ];

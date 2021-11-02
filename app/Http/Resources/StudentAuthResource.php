@@ -30,6 +30,7 @@ class StudentAuthResource extends JsonResource
                 'student_link' => $this->link,
                 'student_email_verified_at' => $this->user->email_verified_at,
                 'student_state' => $this->user->state,
+                'role' => $this->whenLoaded('user')->userRole(),
             ],
             'meta' => ['token'=>$this->getToken()]
         ];
