@@ -22,9 +22,9 @@ class CreateStudentsTable extends Migration
             $table->foreignId('course_id')->constrained('courses');
             // $table->string('student_email')->unique();
             // $table->string('student_password');
-            $table->enum('student_gender', ['male', 'female', 'other']);
-            $table->string('student_address');
-            $table->string('student_contact');
+            $table->enum('student_gender', ['male', 'female', 'other'])->nullable();
+            $table->string('student_address')->nullable();
+            $table->string('student_contact')->nullable();
             $table->string('student_birthday')->nullable();
             $table->string('student_link')->default('/avatar.jpg')->nullable();
             // $table->timestamp('student_email_verified_at')->nullable();

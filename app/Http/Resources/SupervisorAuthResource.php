@@ -29,7 +29,7 @@ class SupervisorAuthResource extends JsonResource
                 'supervisor_gender'=> $this->supervisor_gender,
                 'supervisor_link' => $this->supervisor_link,
                 'supervisor_state' => $this->user->state,
-                'supervisor_email_verified_at' => $this->user->email_verified_at,
+                'email_verified_at' => $this->user->email_verified_at,
                 'role' => $this->whenLoaded('user')->userRole(),
             ],
             'meta' => ['token'=>$this->getToken()]

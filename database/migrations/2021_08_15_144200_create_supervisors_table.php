@@ -20,10 +20,10 @@ class CreateSupervisorsTable extends Migration
             // $table->string('supervisor_fname');
             // $table->string('supervisor_lname');
             $table->string('supervisor_position')->nullable();
-            $table->string('supervisor_contact');
+            $table->string('supervisor_contact')->nullable();
             // $table->string('supervisor_email')->unique();
             // $table->string('supervisor_password');
-            $table->enum('supervisor_gender',['male','female','other']);
+            $table->enum('supervisor_gender',['male','female','other'])->nullable();
             $table->string('supervisor_link')->nullable();
             // $table->integer('supervisor_state')->default(1);
             $table->rememberToken();
