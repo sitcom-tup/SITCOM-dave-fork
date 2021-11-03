@@ -36,18 +36,26 @@ class StoreCoordinatorRequest extends FormRequest
         return [
             'fname'=>['required','string','max:20'],
             'lname'=>['required','string','max:20'],
-            'gender'=>['required'],
-            'position'=>['required','string'],
+            'gender'=>['nullable'],
+            'position'=>['nullable','string'],
             'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email'],
             'password'=>['required','confirmed','string','min:8'],
-            'department_id'=>['required','integer'],
+            // 'department_id'=>['required','integer'],
             'course_id'=>['required','integer'],
-            'contact'=> new ValidNumber(),
+            'contact'=> ['nullable',new ValidNumber()],
             // 'address'=>['required','string','max:250'],
             // 'tup_id'=> [new ValidId(),'unique:App\Models\Student,student_tup_id'],
             // 'student_birthday'=>['required'],
             // link
             // state
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'department_id.required' => 'No department selected',
+            'course_id.required' => 'No course selected',
         ];
     }
 }

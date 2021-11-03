@@ -15,8 +15,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
+
+// Route::view('/{path?}', 'index');
+
+Route::view('/dashboard', 'coordinator.dashboard');
+Route::view('/coordinator/profile', 'coordinator.profile');
+Route::view('/coordinator/students', 'coordinator.students');
+
+Route::view('/login', 'login.index');
+Route::view('/login/student', 'login.student');
+Route::view('/login/supervisor', 'login.supervisor');
+Route::view('/login/coordinator', 'login.coordinator');
+Route::view('/login/admin', 'login.admin');
+
+Route::view('/register', 'register.index');
+Route::view('/register/student', 'register.student');
+Route::view('/register/coordinator', 'register.coordinator');
+Route::view('/register/supervisor', 'register.supervisor');
 
 Route::get('/api/v1/tests', function() {
     return view('api-test');

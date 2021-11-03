@@ -1,0 +1,15 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+
+html, body { 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins','monospace';
+}
+
+body {
+    /* background-color: #82272d; */
+    /* background-color: #923d3d; */
+    background-image: linear-gradient(180deg,#730b0b,#ffffff);
+    background-repeat: no-repeat;
+}

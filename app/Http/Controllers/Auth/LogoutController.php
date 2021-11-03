@@ -10,7 +10,7 @@ class LogoutController extends Controller
 {
     public function logout(Request $request)
     {
-        if($auth = Auth::guard('api')->user())
+        if($auth = Auth::guard('api')->user()->token())
         {
             $auth->tokens->each(function($token,$key)
             {

@@ -46,12 +46,12 @@ class StoreStudentRequest extends FormRequest
         return [
             'fname'=>['required','string','max:20'],
             'lname'=>['required','string','max:20'],
-            'gender'=>['required'],
+            'gender'=>['nullable'],
             'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email'],
             'password'=>['required','confirmed','string','min:8'],
             'course_id'=>['required','integer'],
-            'contact'=> new ValidNumber(),
-            'address'=>['required','string','max:250'],
+            'contact'=> ['nullable',new ValidNumber()],
+            'address'=>['nullable','string','max:250'],
             'tup_id'=> [new ValidId(),'unique:App\Models\Student,student_tup_id'],
             // 'birthday'=>['nullable','date_format:Y-m-d'],
             // link

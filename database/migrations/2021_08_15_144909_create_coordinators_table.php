@@ -20,10 +20,10 @@ class CreateCoordinatorsTable extends Migration
             // $table->string('coordinator_fname');
             // $table->string('coordinator_lname');
             $table->string('coordinator_position')->nullable();
-            $table->string('coordinator_contact');
+            $table->string('coordinator_contact')->nullable();
             // $table->string('coordinator_email')->unique();
             // $table->string('coordinator_password');
-            $table->enum('coordinator_gender',['male','female','other']);
+            $table->enum('coordinator_gender',['male','female','other'])->nullable();
             $table->string('coordinator_link')->nullable();
             // $table->integer('coordinator_state')->default(1);
             $table->rememberToken();

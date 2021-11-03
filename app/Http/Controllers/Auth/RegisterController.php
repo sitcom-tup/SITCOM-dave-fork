@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\Coordinator;
 use App\Models\Supervisor;
 use App\Models\Student;
+use App\Models\Course;
 use App\Models\User;
 use Hash;
 
@@ -45,6 +46,8 @@ class RegisterController extends Controller
     public function coordinatorRegister(StoreCoordinatorRequest $request, Coordinator $coordinator)
     {
         $request['password'] = Hash::make($request['password']);
+        $request['department_id'] = Course::where('id',$request->course_id)->first()->department_id;
+        
         $user = User::firstOrCreate(array_merge($request->only('fname','lname','email','password'),['role'=> 4, 'email_verified_at'=>now()]));
         $coor = $coordinator->firstOrCreate(array_merge(['user_id'=>$user->id],$this->auth->mapToNewName('coordinator',$request->only('department_id','course_id','contact','position','gender'))));
         if($coor)
