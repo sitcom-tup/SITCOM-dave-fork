@@ -20,12 +20,12 @@ class UserAuthResource extends JsonResource
             'message'=>'user logged in',
             'table'=>'users',
             'data' => [
-                'id' => $this->id,
+                'user_id' => $this->id,
                 'name'=> $this->getFullName(),
                 'email' => $this->email,
                 'email_verified_at' => $this->email_verified_at,
                 'state'=> $this->state,
-                'role'=> $this->role
+                'role' => $this->userRole(),
             ],
             'meta' => ['token'=>$this->getToken()]
         ];
