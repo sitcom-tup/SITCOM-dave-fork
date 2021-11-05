@@ -4,14 +4,14 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserDeactivatedResource extends JsonResource
+class UserNotAllowedResource extends JsonResource
 {
     public function toArray($request)
     {
         return [
             'status'=>'failed',
             'code' => 401,
-            'message'=>'This account has been deactivated.',
+            'message'=>'You do not have access to this role',
             'table' =>'users',
             'data'=> $this->resource
         ];
@@ -19,6 +19,6 @@ class UserDeactivatedResource extends JsonResource
 
     public function withResponse($request, $response)
     {
-        $response->setStatusCode(200);
+        $response->setStatusCode(401);
     }
 }

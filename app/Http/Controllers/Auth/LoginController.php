@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Resources\CoordinatorAuthResource;
 use App\Http\Resources\UserDeactivatedResource;
+use App\Http\Resources\UserNotAllowedResource;
 use App\Http\Resources\SupervisorAuthResource;
 use App\Http\Resources\StudentAuthResource;
 use App\Http\Resources\AuthFailResource;
@@ -38,6 +39,11 @@ protected $auth;
             
             if($userAuth->state === 0){
                 return new UserDeactivatedResource($userAuth);
+            }
+
+            if($request->role !== $userAuth->userRole()){
+                // dd($request->role, $userAuth->userRole());
+                return new UserNotAllowedResource($userAuth);
             }
 
             $userAuth->tokens()->where('name', $request->email)->delete();
