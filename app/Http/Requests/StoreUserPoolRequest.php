@@ -25,8 +25,8 @@ class StoreUserPoolRequest extends FormRequest
     {
         return [
             'socket_id' => ['required','string'],
-            'is_active' => ['required','integer'],
-            'last_seen' => ['required', 'date_format:Y-m-d H:i:s'],
+            'is_active' => ['required','string'],
+            'last_seen' => ['required','string'],
             'device' => ['required','string'],
         ];
     }

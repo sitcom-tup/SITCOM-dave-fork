@@ -46,9 +46,11 @@ class UserPoolController extends Controller
     public function connect(StoreUserPoolRequest $request)
     {
         $request['user_id'] = auth()->user()->id;
-        $request['isActive'] = $request->is_active;
-        $request['lastSeen'] = $request->last_seen;
+        $request['isActive'] = (int) $request->is_active;
+        $request['lastSeen'] = \Carbon\Carbon::parse($request->last_seen)->format('Y-m-d H:i:s');
         
+        UserPool::where('user_id', auth()->user()->id)->delete();
+
         $pool = UserPool::with(['user'])->updateOrCreate($request->only(['socket_id','user_id','isActive','lastSeen','device']));
         return (UserPoolResource::make($pool))->additional(['message'=>'connected']);
     }

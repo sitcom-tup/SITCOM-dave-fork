@@ -22,10 +22,11 @@ class UserPoolResource extends JsonResource
             'last_seen' => Carbon::parse($this->lastSeen)->format('Y-m-d h:i A'),
             'device' => $this->device,
             'user' => [
-                'user_id' => $this->whenLoaded('user')->id,
-                'name' => $this->whenLoaded('user')->getFullName(),
-                'email' => $this->whenLoaded('user')->email,
-                'role' => $this->user->userRole(),
+                'user' => new UserResource($this->whenLoaded('user'))
+                // 'user_id' => $this->whenLoaded('user')->id,
+                // 'name' => $this->whenLoaded('user')->getFullName(),
+                // 'email' => $this->whenLoaded('user')->email,
+                // 'role' => $this->user->userRole(),
             ]
         ];
     }
