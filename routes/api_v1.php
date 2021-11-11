@@ -66,7 +66,7 @@ Route::group(['middleware' => ['auth:api','isVerified']], function() {
     // User pools for current active and inactive users
     Route::get('userpools',[UserPoolController::class,'index']);
     Route::post('userpools/connect',[UserPoolController::class,'connect']);
-    Route::delete('userpools/disconnect/{socketId}',[UserPoolController::class,'disconnect']);
+    
 
     // Time Record or the DTR Daily Time Record
     Route::get('dailytime/records', [TimeRecordController::class, 'index']);
@@ -88,6 +88,9 @@ Route::group(['middleware' => ['auth:api','isVerified']], function() {
     // Trainee task list
     Route::get('dailywork/tasks', [TaskBoardController::class,'index']);
 });
+
+// Disconnect to user pool
+Route::delete('userpools/disconnect/{socketId}',[UserPoolController::class,'disconnect']);
 
 // Account verification
 Route::get('requests/verifications/{id}',[AccountVerificationController::class,'sendRequest']);

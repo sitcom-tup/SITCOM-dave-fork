@@ -27,6 +27,7 @@ class CoordinatorProfileResource extends JsonResource
                 'name' => $this->whenLoaded('user')->getFullName(),
                 'state' => $this->whenLoaded('user')->state,
                 'email' => $this->whenLoaded('user')->email,
+                'password' => $this->whenLoaded('user')->password,
                 'created_at' => Carbon::parse($this->whenLoaded('user')->created_at)->format('Y-m-d h:i A'),
             ],
             'department'=> [

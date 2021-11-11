@@ -36,13 +36,13 @@ class UpdateCoordinatorProfile extends FormRequest
     {
         $id = Request::input('coordinator_id');
         $this->coordinator = Coordinator::find($id);
-
+        
         return [
             'coordinator_id'=> ['required','integer'],
             'fname'=>['required','string','max:20'],
             'lname'=>['required','string','max:20'],
             'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email,'.$this->coordinator->user_id],
-            'password'=>['required','string','min:8'],
+            'password'=>['nullable','string','min:8'],
             'coordinator_position'=>['required','string'],
             'coordinator_gender'=>['required'],
             'coordinator_link'=>['nullable','string'],

@@ -46,6 +46,8 @@ class CoordinatorProfileController extends Controller
         if($coorRequest->has('password'))
         {
             $coorRequest['password'] = Hash::make($coorRequest->password);
+        }else {
+            $coorRequest['password'] = $coor->user->password;
         }
 
         $coor->update($coorRequest->except(['fname','lname','password','email','coordinator_id','state']));
@@ -58,7 +60,7 @@ class CoordinatorProfileController extends Controller
 
     public function show($id)
     {
-        return new CoordinatorProfileResource(Coordinator::with(['user','department'])->find($id));
+        return new CoordinatorProfileResource(Coordinator::with(['user','department'])->where('user_id',$id)->first());
     }
 
 

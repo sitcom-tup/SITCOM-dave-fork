@@ -19,6 +19,6 @@ class UserDeactivatedResource extends JsonResource
 
     public function withResponse($request, $response)
     {
-        $response->setStatusCode(200);
+        $response->setStatusCode(401);
     }
 }
