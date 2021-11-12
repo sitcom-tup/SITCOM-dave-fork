@@ -35,7 +35,7 @@ class SupervisorProfileResource extends JsonResource
                 'website'=> $this->whenLoaded('company')->comp_website,
                 'contact'=> $this->whenLoaded('company')->comp_contact,
             ],
-            'profile_link'=>url('api/v1/profiles/supervisors/'.$this->id),
+            'profile_link'=>url('api/v1/profiles/supervisors/'.$this->whenLoaded('user')->id),
         ];
     }
 }

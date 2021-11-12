@@ -32,7 +32,7 @@ class StudentProfileResource extends JsonResource
             'student_link' => $this->student_link,
             'student_email_verified_at' => $this->whenLoaded('user')->email_verified_at,
             'student_state' =>$this->whenLoaded('user')->state,
-            'profile_link' => url('api/v1/profiles/students/'.$this->id),
+            'profile_link' => url('api/v1/profiles/students/'.$this->whenLoaded('user')->id),
         ];
     }
 }

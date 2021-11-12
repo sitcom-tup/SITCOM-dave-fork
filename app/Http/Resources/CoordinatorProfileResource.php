@@ -38,7 +38,7 @@ class CoordinatorProfileResource extends JsonResource
                 'course_id' => $this->whenLoaded('course')->id,
                 'name' => $this->whenLoaded('course')->course_name,
             ],
-            'profile_link'=>url('api/v1/profiles/coordinators/'.$this->id),
+            'profile_link'=>url('api/v1/profiles/coordinators/'.$this->whenLoaded('user')->id),
         ];
     }
 }

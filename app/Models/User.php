@@ -5,8 +5,14 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Http\Resources\CoordinatorProfileResource;
+use App\Http\Resources\SupervisorProfileResource;
+use App\Http\Resources\StudentProfileResource;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use App\Models\Coordinator;
+use App\Models\Supervisor;
+use App\Models\Student;
 
 class User extends Authenticatable
 {
@@ -110,6 +116,24 @@ class User extends Authenticatable
                 return 'coordinator';
             case 5:
                 return 'supervisor';
+            default:
+                return null;
+        }
+    }
+
+    public function userRoleProfile()
+    {
+        switch ($this->role) {
+            case 1:
+                return 'guest';
+            case 2:
+                return 'admin';
+            case 3:
+                return new StudentProfileResource(Student::with(['user','course'])->where('user_id',$this->id)->first());
+            case 4:
+                return new CoordinatorProfileResource(Coordinator::with(['user','department'])->where('user_id',$this->id)->first());
+            case 5:
+                return new SupervisorProfileResource(Supervisor::with(['user','company'])->where('user_id',$this->id)->first());
             default:
                 return null;
         }

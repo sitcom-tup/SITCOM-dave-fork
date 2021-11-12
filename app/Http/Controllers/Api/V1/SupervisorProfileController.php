@@ -82,7 +82,8 @@ class SupervisorProfileController extends Controller
 
     public function show($id)
     {
-        return new SupervisorProfileResource(Supervisor::with(['user'])->findOrFail($id));
+        // return new SupervisorProfileResource(Supervisor::with(['user'])->findOrFail($id));
+        return new SupervisorProfileResource(Supervisor::with(['user','company'])->where('user_id',$id)->first());
     }
 
     public function destroy($id)

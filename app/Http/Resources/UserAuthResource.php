@@ -27,6 +27,7 @@ class UserAuthResource extends JsonResource
                 'state'=> $this->state,
                 'role' => $this->userRole(),
             ],
+            'profile' => $this->userRoleProfile(),
             'meta' => ['token'=>$this->getToken()]
         ];
     }

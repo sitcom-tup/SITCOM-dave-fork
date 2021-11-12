@@ -67,7 +67,8 @@ class StudentProfileController extends Controller
 
     public function show($id)
     {
-        return new StudentProfileResource(Student::findOrFail($id));
+        // return new StudentProfileResource(Student::findOrFail($id));
+        return new StudentProfileResource(Student::with(['user','course'])->where('user_id',$id)->first());
     }
 
     //FOR STUDENT ITSELF AND UPDATE ABILITY FOR COORDINATOR
