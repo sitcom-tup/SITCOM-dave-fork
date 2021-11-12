@@ -21,7 +21,7 @@ class Coordinator extends Authenticatable
         'remember_token',
     ];
 
-    protected $with = ['user','department'];
+    protected $with = ['user','department','course'];
 
     private $token;
 
@@ -38,6 +38,11 @@ class Coordinator extends Authenticatable
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
     }
 
     public function department()

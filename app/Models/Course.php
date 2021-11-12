@@ -16,6 +16,11 @@ class Course extends Model
         return $this->hasMany(Student::class);
     }
 
+    public function coordinators()
+    {
+        return $this->hasMany(Coordinator::class);
+    }
+
     public function department()
     {
         return $this->belongsTo(Department::class);
