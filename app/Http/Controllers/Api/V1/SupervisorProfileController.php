@@ -42,9 +42,10 @@ class SupervisorProfileController extends Controller
             });
         }
 
-        $request->has('limit') ? $limit = $request->limit : $limit = 12;
+        // $request->has('limit') ? $limit = $request->limit : $limit = 12;
 
-        $lists = $visor->latest()->paginate($limit);
+        // $lists = $visor->latest()->paginate($limit);
+        $lists = $visor->get();
 
         return new ProfileCollection(SupervisorProfileResource::collection($lists),$lists);
     }

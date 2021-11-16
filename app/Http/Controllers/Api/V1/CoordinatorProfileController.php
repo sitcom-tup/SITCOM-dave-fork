@@ -31,9 +31,10 @@ class CoordinatorProfileController extends Controller
             });
         }
 
-        $request->has('limit') ? $limit = $request->limit : $limit = 12;
+        // $request->has('limit') ? $limit = $request->limit : $limit = 12;
 
-        $lists = $coor->latest()->paginate($limit);
+        // $lists = $coor->latest()->paginate($limit);
+        $lists = $coor->get();
 
         return new ProfileCollection(CoordinatorProfileResource::collection($lists),$lists);
     }

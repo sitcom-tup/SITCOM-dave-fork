@@ -25,6 +25,7 @@ class CoordinatorProfileResource extends JsonResource
             'user' => [
                 'user_id' => $this->whenLoaded('user')->id,
                 'name' => $this->whenLoaded('user')->getFullName(),
+                'role' => $this->whenLoaded('user')->userRole(),
                 'state' => $this->whenLoaded('user')->state,
                 'email' => $this->whenLoaded('user')->email,
                 'password' => $this->whenLoaded('user')->password,

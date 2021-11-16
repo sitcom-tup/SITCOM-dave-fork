@@ -21,6 +21,7 @@ class StudentProfileResource extends JsonResource
             'user'=> [
                 'user_id' => $this->whenLoaded('user')->id,
                 'name' => $this->whenLoaded('user')->getFullName(),
+                'role' => $this->whenLoaded('user')->userRole(),
                 'state' => $this->whenLoaded('user')->state,
                 'email' => $this->whenLoaded('user')->email,
                 'email_verified_at' => $this->whenLoaded('user')->email_verified_at,

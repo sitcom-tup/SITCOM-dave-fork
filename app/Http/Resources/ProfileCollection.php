@@ -13,16 +13,16 @@ class ProfileCollection extends ResourceCollection
     public function __construct($tableResource,$resource)
     {
         $this->tableResource = $tableResource;
-        $this->resource = $resource;
-        $this->pagination = [
-            'total' => $resource->total(),
-            'count' => $resource->count(),
-            'per_page' => (int) $resource->perPage(),
-            'current_page' => $resource->currentPage(),
-            'total_pages' => $resource->lastPage()
-        ];
+        // $this->resource = $resource;
+        // $this->pagination = [
+        //     'total' => $resource->total(),
+        //     'count' => $resource->count(),
+        //     'per_page' => (int) $resource->perPage(),
+        //     'current_page' => $resource->currentPage(),
+        //     'total_pages' => $resource->lastPage()
+        // ];
     
-        $resource = $resource->getCollection();
+        // $resource = $resource->getCollection();
     
         parent::__construct($resource);
     }
@@ -32,7 +32,7 @@ class ProfileCollection extends ResourceCollection
     {
         return [
             'data' => $this->tableResource,
-            'meta' => $this->pagination
+            // 'meta' => $this->pagination
         ];
     }
 }

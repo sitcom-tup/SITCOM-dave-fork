@@ -44,9 +44,10 @@ class StudentProfileController extends Controller
             });
         }
 
-        $request->has('limit') ? $limit = $request->limit : $limit = 12;
+        // $request->has('limit') ? $limit = $request->limit : $limit = 5;
 
-        $lists = $students->latest()->paginate($limit);
+        // $lists = $students->latest()->paginate($limit);
+        $lists = $students->get();
 
         return new ProfileCollection(StudentProfileResource::collection($lists),$lists);
     }
