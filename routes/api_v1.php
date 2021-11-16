@@ -87,6 +87,9 @@ Route::group(['middleware' => ['auth:api','isVerified']], function() {
 
     // Trainee task list
     Route::get('dailywork/tasks', [TaskBoardController::class,'index']);
+
+    // Email verified to now 
+    Route::get('email/verify/{id}',[AccountVerificationController::class,'emailVerification']);
 });
 
 // Disconnect to user pool

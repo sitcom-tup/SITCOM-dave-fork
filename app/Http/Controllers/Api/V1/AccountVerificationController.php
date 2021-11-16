@@ -35,4 +35,37 @@ class AccountVerificationController extends Controller
             'message' => 'Account verification request sent!'
         ]);
     }
+
+    //email verification
+
+    public function emailVerification(Request $request)
+    {
+        
+        $email_verified_at = \Carbon\Carbon::now();
+
+        $user = User::where('id',$request->id)->first();
+
+        if($user->email_verified_at !== null) {
+            return response()->json([
+                'status' => 'success',
+                'code' => 200,
+                'message' => 'Email already been verified!',
+                'data' => [
+                    'email_verified_at' => $user->email_verified_at
+                ]
+            ]);
+        }
+
+        if($user->email_verified_at === null) {
+            $user->update(['email_verified_at' => $email_verified_at ]);
+            return response()->json([
+                'status' => 'success',
+                'code' => 200,
+                'message' => 'Email has been verified!',
+                'data' => [
+                    'email_verified_at' => $email_verified_at
+                ]
+            ]);
+        }
+    }
 }
