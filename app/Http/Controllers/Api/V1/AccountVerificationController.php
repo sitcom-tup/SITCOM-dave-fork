@@ -68,4 +68,20 @@ class AccountVerificationController extends Controller
             ]);
         }
     }
+
+    // Account activation === state = 1
+
+    public function activate($id)
+    {
+        $user = User::where('id', $id)->update(['state' => 1]);
+
+        if($user)
+        {
+            return response()->json([
+                'status' => 'success',
+                'code' => 200,
+                'message' => 'Account has been activated!'
+            ]);
+        }
+    }
 }

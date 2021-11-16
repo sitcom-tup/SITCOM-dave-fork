@@ -90,6 +90,9 @@ Route::group(['middleware' => ['auth:api','isVerified']], function() {
 
     // Email verified to now 
     Route::get('email/verify/{id}',[AccountVerificationController::class,'emailVerification']);
+    
+    // Activate account  
+    Route::get('activate/account/{id}',[AccountVerificationController::class,'activate']);
 });
 
 // Disconnect to user pool
