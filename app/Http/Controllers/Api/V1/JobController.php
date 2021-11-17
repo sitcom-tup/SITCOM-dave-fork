@@ -19,8 +19,16 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Job $job)
-    { 
-        $jobs = $job->getOpenedAndVerified();
+    {
+        $request->has('role') && $request->get('role') === 'student' ?
+        $jobs = $job->getOpenedAndVerified() :
+        $jobs = $job->query();
+
+        if($request->has('opened_by')) //this needs to be user id
+            $jobs->where('user_id', $request->opened_by);
+
+        if($request->has('status'))
+            $jobs->where('status',(int) $request->status);
 
         if($request->has('title'))
             $jobs->where('title','LIKE','%'.$request->title.'%');               
@@ -33,7 +41,8 @@ class JobController extends Controller
 
         $request->has('limit') ? $limit = $request->limit : $limit = 12;
 
-        return new JobCollection($jobs->latest()->paginate($limit));
+        // return new JobCollection($jobs->latest()->paginate($limit));
+        return new JobCollection($jobs->get());
     }
 
     /**

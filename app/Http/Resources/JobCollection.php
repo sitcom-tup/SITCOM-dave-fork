@@ -17,15 +17,15 @@ class JobCollection extends ResourceCollection
 
     public function __construct($resource)
     {
-        $this->pagination = [
-            'total' => $resource->total(),
-            'count' => $resource->count(),
-            'per_page' => $resource->perPage(),
-            'current_page' => $resource->currentPage(),
-            'total_pages' => $resource->lastPage()
-        ];
+        // $this->pagination = [
+        //     'total' => $resource->total(),
+        //     'count' => $resource->count(),
+        //     'per_page' => $resource->perPage(),
+        //     'current_page' => $resource->currentPage(),
+        //     'total_pages' => $resource->lastPage()
+        // ];
     
-        $resource = $resource->getCollection();
+        // $resource = $resource->getCollection();
     
         parent::__construct($resource);
     }
@@ -34,7 +34,7 @@ class JobCollection extends ResourceCollection
     {
         return [
             'data' => JobResource::collection($this->collection),
-            'meta' => $this->pagination
+            // 'meta' => $this->pagination
         ];
     }
 }
