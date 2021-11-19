@@ -38,7 +38,7 @@ class UpdateJobRequest extends FormRequest
             'qualification'=> ['nullable','string'],
             'type' => ['required', 'string'],
             'status' => ['nullable', 'integer'],
-            'verified_at' => ['nullable', 'integer'],
+            // 'verified_at' => ['nullable', 'integer'],
         ];
     }
 }
