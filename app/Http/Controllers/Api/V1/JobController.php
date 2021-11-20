@@ -144,6 +144,6 @@ class JobController extends Controller
         
         $jobSearch->update(['status' => 0]);
             
-        return (JobResource::make($jobSearch))->additional(['status'=>'success','message'=>'updated']);
+        return (JobResource::make($jobSearch))->additional(['status'=>'success','message'=>'Job Deleted']);
     }
 }

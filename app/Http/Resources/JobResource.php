@@ -29,6 +29,7 @@ class JobResource extends JsonResource
             'description' => $this->description,
             'qualification'=> $this->qualification,
             'posted_at' => Carbon::parse($this->created_at)->format('M d Y h:i A'),
+            'opener_id' => $this->user_id,
             'opened_by' => $this->whenLoaded('user')->getFullName(),
             'verified_at' => $this->verified_at === null ? null : Carbon::parse($this->verified_at)->format('M d Y h:i A'),
             'status' => $this->status,
