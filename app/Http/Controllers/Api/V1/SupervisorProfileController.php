@@ -100,6 +100,6 @@ class SupervisorProfileController extends Controller
         ->update(['revoked' => true]);
 
         return (SupervisorProfileResource::make($visor))
-                ->additional(['message'=>'deactivated']);
+                ->additional(['message'=>'Account has been deactivated']);
     }
 }

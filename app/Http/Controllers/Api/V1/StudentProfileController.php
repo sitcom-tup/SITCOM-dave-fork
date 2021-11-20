@@ -131,6 +131,6 @@ class StudentProfileController extends Controller
             ->orWhere('name',$student->user->email)
             ->update(['revoked' => true]);
 
-        return new StudentProfileResource($student);
+        return (StudentProfileResource::make($student))->additional(['message' => 'Account has been deactivated']);
     }
 }
