@@ -10,12 +10,17 @@ class LogoutController extends Controller
 {
     public function logout(Request $request)
     {
-        if($auth = Auth::guard('api')->user()->token())
+        if($auth = Auth::guard('api')->user()) // NEW WAY
+        // if($auth = Auth::guard('api')->user()->token()) // OLD WAY
         {
-            $auth->tokens->each(function($token,$key)
-            {
-                $token->delete();
-            });
+            // NEW - november 2021 code 
+            $auth->token()->delete(); 
+
+            // OLD - september 2021 code
+            // $auth->tokens->each(function($token,$key)
+            // {
+            //     $token->delete();
+            // });
             return response()->json([
                 'status' => 'success',
                 'table' => $request->role.'s',
