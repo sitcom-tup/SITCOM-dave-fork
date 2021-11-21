@@ -7,6 +7,7 @@ use App\Http\Resources\AnnouncementCollection;
 use App\Http\Resources\AnnouncementResource;
 use App\Http\Controllers\Controller;
 use App\Models\Announcement;
+use App\Models\Coordinator;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -23,6 +24,14 @@ class AnnouncementController extends Controller
         $limit = $request->has('limit') ? $request->limit : 2;
 
         $announce = Announcement::with('coordinator');
+
+        if($request->has('coordinator'))
+        {
+            $auth = auth()->user()->id;
+            $coor = Coordinator::where('user_id',$auth)->pluck('id');
+            $announce->where('coordinator_id', $coor);
+        }
+
 
         if($request->has('date'))
         {
