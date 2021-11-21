@@ -30,6 +30,9 @@ class JobController extends Controller
         if($request->has('status'))
             $jobs->where('status',(int) $request->status);
 
+        if($request->has('year'))
+            $jobs->where('created_at', 'LIKE', '%'.$request->year.'%');
+
         if($request->has('title'))
             $jobs->where('title','LIKE','%'.$request->title.'%');               
         
@@ -140,10 +143,15 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        $jobSearch = $job->getOrFail($job->id);
+        // $jobSearch = $job->getOrFail($job->id);
         
-        $jobSearch->update(['status' => 0]);
-            
-        return (JobResource::make($jobSearch))->additional(['status'=>'success','message'=>'Job Deleted']);
+        // $jobSearch->update(['status' => 0]);
+        
+        // This is a permanent destroy
+        $jobSearch = $job->where('id',$job->id)->findOrFail($job->id)->delete();
+
+        return response()->json(['status'=>'success','code' => 200,'data'=>['job_id' => $job->id] ,'message'=>'Job Deleted']);
+
+        // return (JobResource::make($jobSearch))->additional(['status'=>'success','message'=>'Job Deleted']);
     }
 }
