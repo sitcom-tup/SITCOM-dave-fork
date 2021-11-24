@@ -33,7 +33,7 @@ class StoreAnnouncementRequest extends FormRequest
     public function rules()
     {
         return [
-            'coordinator_id' => ['required','integer'],
+            'coordinator_id' => ['nullable','integer'],
             'courses' => ['required','string'],
             'heading' => ['required','string','max:80'],
             'body' => ['required'],

@@ -64,7 +64,14 @@ class AnnouncementController extends Controller
      */
     public function store(StoreAnnouncementRequest $request)
     {
-        $ann = Announcement::firstOrCreate($request->validated());
+        if($request->has('coordinator'))
+        {
+            $auth = auth()->user()->id;
+            $coor = Coordinator::where('user_id',$auth)->first();
+            $request['coordinator_id'] = $coor->id;
+        }
+
+        $ann = Announcement::firstOrCreate($request->only(['coordinator_id','courses','heading','body','posted_at']));
         return (AnnouncementResource::make($ann))->additional(['message'=>'saved']);
     }
 
