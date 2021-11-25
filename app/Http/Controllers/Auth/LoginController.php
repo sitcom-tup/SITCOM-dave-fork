@@ -46,7 +46,7 @@ protected $auth;
                 return new UserNotAllowedResource($userAuth);
             }
 
-            $userAuth->tokens()->where('name', $request->email)->delete();
+            // $userAuth->tokens()->where('name', $request->email)->delete();
             $token = $userAuth->createToken($request->email, [$request->role])->accessToken;
             $userAuth->setToken($token);
             return new UserAuthResource($userAuth);
