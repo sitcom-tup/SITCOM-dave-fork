@@ -22,6 +22,7 @@ class AnnouncementResource extends JsonResource
             'courses'=>$this->courses,
             'heading' => $this->heading,
             'body' => $this->body,
+            'link_id' => $this->uuid_link,
             'posted_at' => $this->getPostedDateFormat(),
             'created_at' => $this->getCreatedDateFormat(),
             'updated_at' => $this->getUpdatedDateFormat() 

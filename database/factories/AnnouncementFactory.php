@@ -6,6 +6,7 @@ use App\Models\Coordinator;
 use App\Models\Announcement;
 use App\Models\Course;
 use Carbon\Carbon;
+use App\Services\ReceiveOrderNumber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AnnouncementFactory extends Factory
@@ -24,6 +25,7 @@ class AnnouncementFactory extends Factory
      */
     public function definition()
     {
+        $number = new ReceiveOrderNumber();
         $coordinator = Coordinator::inRandomOrder()->first();
         $ids = $this->deparmentCoursesId($coordinator->department_id);
         return [
@@ -31,6 +33,7 @@ class AnnouncementFactory extends Factory
             'courses' => $ids,
             'heading' => $this->faker->realText(50),
             'body' => $this->faker->bodyText(),
+            'uuid_link' => $number->generateOrderNumber(),
             'posted_at'=> Carbon::now()->toDateString(),
         ];
     }

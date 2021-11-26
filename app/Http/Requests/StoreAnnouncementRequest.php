@@ -34,6 +34,7 @@ class StoreAnnouncementRequest extends FormRequest
     {
         return [
             'coordinator_id' => ['nullable','integer'],
+            'uuid_link' => ['nullable','string'],
             'courses' => ['required','string'],
             'heading' => ['required','string','max:80'],
             'body' => ['required'],

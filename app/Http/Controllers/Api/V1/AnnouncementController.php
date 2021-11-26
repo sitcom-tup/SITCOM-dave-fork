@@ -71,7 +71,7 @@ class AnnouncementController extends Controller
             $request['coordinator_id'] = $coor->id;
         }
 
-        $ann = Announcement::firstOrCreate($request->only(['coordinator_id','courses','heading','body','posted_at']));
+        $ann = Announcement::firstOrCreate($request->only(['coordinator_id','uuid_link','courses','heading','body','posted_at']));
         return (AnnouncementResource::make($ann))->additional(['message'=>'saved']);
     }
 
@@ -107,8 +107,9 @@ class AnnouncementController extends Controller
      */
     public function update(StoreAnnouncementRequest $request, Announcement $announcement)
     {
+        // $announcement contains the model for current announcement id passed in request
         $ann =$announcement->update($request->validated());
-        return (AnnouncementResource::make($announcement->latest()->first())
+        return (AnnouncementResource::make($announcement)
                                     ->additional(['message'=>'updated']));
     }
 
