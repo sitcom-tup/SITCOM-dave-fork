@@ -49,6 +49,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "migrate-app-db": [
+            "@php artisan migrate:fresh --seed && php artisan passport:install"
         ]
     },
     "extra": {
