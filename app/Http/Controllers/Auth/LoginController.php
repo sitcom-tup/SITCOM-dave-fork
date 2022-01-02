@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Exceptions\UserRoleLoginNotAllowedException;
 use App\Http\Resources\CoordinatorAuthResource;
 use App\Http\Resources\UserDeactivatedResource;
 use App\Http\Resources\UserNotAllowedResource;
@@ -43,7 +44,8 @@ protected $auth;
 
             if($request->role !== $userAuth->userRole()){
                 // dd($request->role, $userAuth->userRole());
-                return new UserNotAllowedResource($userAuth);
+                throw new UserRoleLoginNotAllowedException($userAuth);
+                // return new UserNotAllowedResource($userAuth);
             }
 
             // $userAuth->tokens()->where('name', $request->email)->delete();
