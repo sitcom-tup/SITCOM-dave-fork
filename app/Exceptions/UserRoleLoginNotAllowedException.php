@@ -15,14 +15,14 @@ class UserRoleLoginNotAllowedException extends Exception
         $this->user = $user;     
     }
 
-    public function render($request)
+    public function render($request) : array
     {
-        return response()->json([
+        return [
             'status'=>'failed',
             'code' => 401,
             'message'=>'You do not have access to this role',
             'table' =>'users',
             'data'=> $this->user
-        ]);
+        ];
     }
 }
