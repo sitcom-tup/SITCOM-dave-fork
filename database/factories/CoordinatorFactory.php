@@ -39,7 +39,7 @@ class CoordinatorFactory extends Factory
             'coordinator_gender' => $this->faker->randomElement(['male' ,'female', 'other']),
             'coordinator_contact' => $this->faker->numerify('###########'),
             'coordinator_position' => 'Teacher II',
-            'coordinator_link' => '/avatar.jpg',
+            'coordinator_link' => '/pictures/avatar.jpg',
             // 'coordinator_state' => 1,
             'remember_token' => Str::random(10),
             'created_at' => now(),

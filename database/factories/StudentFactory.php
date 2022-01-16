@@ -40,7 +40,7 @@ class StudentFactory extends Factory
             'student_address' => $this->faker->address(),
             'student_contact' => $this->faker->numerify('###########'),
             'student_birthday' => now(),
-            'student_link' => '/avatar.jpg',
+            'student_link' => '/pictures/avatar.jpg',
             // 'student_email_verified_at' => now(),
             // 'student_state' => 1,
             'remember_token' => Str::random(10),

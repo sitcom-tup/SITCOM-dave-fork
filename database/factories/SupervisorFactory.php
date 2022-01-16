@@ -37,7 +37,7 @@ class SupervisorFactory extends Factory
             'supervisor_contact' => $this->faker->numerify('###########'),
             'supervisor_position' => 'Supervisor',
             'supervisor_gender'=> $this->faker->randomElement(['male' ,'female', 'other']),
-            'supervisor_link' => '/avatar.jpg',
+            'supervisor_link' => '/pictures/avatar.jpg',
             // 'supervisor_state' => 1,
             'remember_token' => Str::random(10),
             'created_at' => now(),

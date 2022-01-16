@@ -138,4 +138,22 @@ class User extends Authenticatable
                 return null;
         }
     }
+
+    public function userImage()
+    {
+        switch ($this->role) {
+            case 1:
+                return '/pictures/avatar.jpg';
+            case 2:
+                return '/pictures/avatar.jpg';
+            case 3:
+                return isset($this->student['student_link']) ? $this->student['student_link'] : '/pictures/avatar.jpg';
+            case 4:
+                return isset($this->coordinator['coordinator_link']) ? $this->coordinator['coordinator_link'] : '/pictures/avatar.jpg';
+            case 5:
+                return isset($this->supervisor['supervisor_link']) ? $this->supervisor['supervisor_link'] : '/pictures/avatar.jpg';
+            default:
+                return null;
+        }
+    }
 }
