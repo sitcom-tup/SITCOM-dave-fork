@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AccountVerificationController;
+use App\Http\Controllers\Api\V1\ChatSearchController;
 use App\Http\Controllers\Api\V1\StudentDepartmentController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Api\V1\TimeRecordController;
@@ -93,6 +94,9 @@ Route::group(['middleware' => ['auth:api','isVerified']], function() {
     
     // Activate account  
     Route::get('activate/account/{id}',[AccountVerificationController::class,'activate']);
+
+    // All users for available for chat
+    Route::get('search/all/chatusers',[ChatSearchController::class, 'index']);
 });
 
 // Disconnect to user pool
