@@ -30,10 +30,14 @@ class MessageController extends Controller
         } 
         else 
         {
-            $asSender = Message::where('senders','LIKE','%'.$mainUser.'%')->get();
-            $asReceiver = Message::where('receivers','LIKE','%'.$mainUser.'%')->get();
-    
-            $convo = $asReceiver->merge($asSender);
+            // $asSender = Message::where('senders','LIKE','%'.$mainUser.'%')->get();
+            // $asReceiver = Message::where('receivers','LIKE','%'.$mainUser.'%')->get();
+
+            $convo = Message::where('senders','LIKE','%'.$mainUser.'%')
+                            ->orWhere('receivers','LIKE','%'.$mainUser.'%')
+                            ->orderBy('updated_at', 'desc')
+                            ->get();
+            // $convo = $asReceiver->merge($asSender);
         }
 
         return new MessageCollection($convo);
@@ -44,7 +48,7 @@ class MessageController extends Controller
     {
         $request->validate([
             'message_id' => 'nullable|string',
-            'content' =>'required|string',
+            'content' =>'nullable|string',
             'senders' => 'required',
             'receivers'=> 'required'
         ]);
