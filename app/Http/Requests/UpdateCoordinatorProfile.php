@@ -24,7 +24,7 @@ class UpdateCoordinatorProfile extends FormRequest
     {
         throw new HttpResponseException(response()->json(['status'=>'failed',
                                                         'message'=>'unprocessable entity',
-                                                        'errors'=>$validator->errors()->all()], 422));
+                                                        'errors'=>$validator->errors()], 422));
     }
 
     /**
@@ -43,8 +43,8 @@ class UpdateCoordinatorProfile extends FormRequest
             'lname'=>['required','string','max:20'],
             'email'=>['required','email:rfc,dns','string','max:50', 'unique:App\Models\User,email,'.$this->coordinator->user_id],
             'password'=>['nullable','string','min:8'],
-            'coordinator_position'=>['required','string'],
-            'coordinator_gender'=>['required'],
+            'coordinator_position'=>['nullable','string'],
+            'coordinator_gender'=>['nullable'],
             'coordinator_link'=>['nullable','string'],
             'coordinator_contact'=> new ValidNumber(),
             'department_id'=>['required','integer'],
