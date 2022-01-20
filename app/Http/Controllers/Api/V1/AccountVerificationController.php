@@ -14,10 +14,13 @@ class AccountVerificationController extends Controller
     public function sendRequest(Request $request)
     {        
         $user = User::where('id',$request->id)->first();
-
+        
         switch ($user->role) {
             case 3:
                 $email = Coordinator::where('course_id',$user->student->course->id)->first()->user->email;
+                
+                if($email === null) $email = 'admin.sitcom@gmail.com';
+
                 Mail::to($email)->send(new AccountVerification($user));
                 break;
             case 5:
