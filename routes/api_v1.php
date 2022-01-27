@@ -55,6 +55,7 @@ Route::group(['middleware' => ['auth:api','isVerified']], function() {
         'profiles/coordinators' => CoordinatorProfileController::class,
         'profiles/students' => StudentProfileController::class,
         'profiles/supervisors' => SupervisorProfileController::class,
+        'profiles/admins' => AdminProfileController::class,
         'interns' => InternController::class,
     ]);
     Route::apiResource('jobs', JobController::class);
