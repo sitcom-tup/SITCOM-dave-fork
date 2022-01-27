@@ -23,7 +23,7 @@ class UpdateSupervisorProfile extends FormRequest
     {
         throw new HttpResponseException(response()->json(['status'=>'failed',
                                                         'message'=>'unprocessable entity',
-                                                        'errors'=>$validator->errors()->all()], 422));
+                                                        'errors'=>$validator->errors()], 422));
     }
 
     public function rules()
