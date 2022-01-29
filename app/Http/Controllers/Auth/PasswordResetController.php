@@ -32,8 +32,18 @@ class PasswordResetController extends Controller
         \DB::table('password_resets')->upsert([['email'=>$request->email,'token'=>$number,'created_at'=>now()]],
                                                 ['email']);
         // \DB::insert('INSERT into password_resets (email,token,created_at) VALUES (?,?,?)',[$request->email,$number,now()]);
-
-        Mail::to($request->email)->send(new PasswordResetMail($user,$number));
+        
+        try {
+            Mail::to($request->email)->send(new PasswordResetMail($user,$number));
+        } catch (\Swift_TransportException $e) {
+            return response()->json([
+                "message" => $e->getMessage(), 
+                "errors" => [
+                    "Failed to authenticate google account",
+                    "Contact Administrator"
+                ]
+            ])->setStatusCode(401);
+        }
 
         return response()->json([
             'status' => 'success',
